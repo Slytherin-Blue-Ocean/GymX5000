@@ -1,0 +1,45 @@
+{
+  "name": "gymx5000",
+  "version": "1.0.0",
+  "description": "Fitness Tracker to keep track of fitness activities, goals, classes, and more.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "client-dev": "webpack --config ./webpack.config.js --mode development -w",
+    "server-start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@https://github.com/Slytherin-Blue-Ocean/GymX5000.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Slytherin-Blue-Ocean/GymX5000/issues"
+  },
+  "homepage": "https://github.com/Slytherin-Blue-Ocean/GymX5000#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "babel-loader": "^8.2.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "html-webpack-plugin": "^5.5.0"
+  }
+}
