@@ -13,18 +13,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /nodeModules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.(c|sc|sa)ss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -42,9 +36,10 @@ module.exports = {
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'client/dist'),
+      directory: path.join(__dirname, 'client/public'),
     },
     compress: true,
-    port: 3001,
-  }
+    port: 3000,
+    historyApiFallback: true,
+  },
 };
