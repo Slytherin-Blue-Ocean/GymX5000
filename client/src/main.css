@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/*        FOOTER        */
+.footer {
+  height: 20vh;
+  width: 100vw;
+  border-style: solid;
+  border-width: .5px;
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  background-color: #adb3bd;
+}
+
+/*        HOME        */
+.home {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #626c71;
+}
+
+.welcome {
+  margin-top: 2vh;
+  place-self: center;
+}
+
+.search {
+  margin-top: 2vh;
+  margin-bottom: .5vh;
+  place-self: center;
+  width: 70vw;
+}
+
+.card-container {
+  margin-bottom: 2vh;
+  place-self: center;
+  display: flex;
+  width: 80vw;
+  overflow-y: scroll;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  background-color: #555a64;
+}
+
+.temp-card {
+  height: 25vh;
+  width: 20vw;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1vw;
+  background-color: #adb3bd;
+  text-align: center;
+}
+
+/*        MODAL        */
+.modal-content {
+  height: 70vh;
+  width: 50vw;
+}
+
+.modal-lg {
+  max-width: 50vw;
+}
+
+.modal-top-sub {
+  display: flex;
+}
+
+.modal-footer {
+  justify-content: flex-start;
+  height: 30%;
+}
+
+.modal-body {
+  height: 50%;
+  width: 100%;
+}
