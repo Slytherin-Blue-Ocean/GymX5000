@@ -8,7 +8,7 @@ CREATE DATABASE gymx5000;
 DROP TABLE IF EXISTS user, competition_record, competition;
 
 -- create tables
-CREATE TABLE user(
+CREATE TABLE user (
    user_id SERIAL PRIMARY KEY NOT NULL,
    first_name VARCHAR(50) NOT NULL,
    last_name VARCHAR(50) NOT NULL,
@@ -19,14 +19,14 @@ CREATE TABLE user(
 
 CREATE TABLE activitytype (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(50)  NOT NULL,
+  name VARCHAR(50) NOT NULL,
 );
 
 
 CREATE TABLE competition (
  competition_id SERIAL PRIMARY KEY NOT NULL,
- competition_name VARCHAR(50)  NOT NULL,
- category VARCHAR(50)  NOT NULL,
+ competition_name VARCHAR(50) NOT NULL,
+ category VARCHAR(50) NOT NULL,
  start_date VARCHAR(50) NOT NULL,
  end_date VARCHAR(50) NOT NULL,
 );
