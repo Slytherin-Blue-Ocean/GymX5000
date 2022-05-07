@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/*        BUTTONS       */
+button, .btn, .btn-primary {
+  color: black;
+  border-color: #7c7c7c;
+background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
+
+    linear-gradient(180deg, hsl(0,0%,78%)  0%,
+    hsl(0,0%,90%) 47%,
+    hsl(0,0%,78%) 53%,
+    hsl(0,0%,70%)100%);
+}
+
+/*        FOOTER        */
+.footer {
+  height: 20vh;
+  width: 100vw;
+  border-style: solid;
+  border-width: .5px;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  background-color: #adb3bd;
+}
+
+/*        HOME        */
+.home {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #626c71;
+}
+
+.welcome {
+  margin-top: 2vh;
+  place-self: center;
+}
+
+.search {
+  margin-top: 2vh;
+  margin-bottom: .5vh;
+  place-self: center;
+  width: 70vw;
+}
+
+.card-container {
+  margin-bottom: 2vh;
+  place-self: center;
+  display: flex;
+  width: 80vw;
+  overflow-y: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  background-color: #555a64;
+}
+.card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.temp-card {
+  height: 25vh;
+  width: 30%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1vw;
+  background-color: #adb3bd;
+  text-align: center;
+}
+
+/*        MODAL        */
+.modal-content {
+  height: 70vh;
+  width: 50vw;
+  background-color: #555a64;
+  color: #adb3bd
+}
+
+.modal-lg {
+  max-width: 50vw;
+}
+
+.modal-top-sub {
+  display: flex;
+}
+
+.modal-footer {
+  justify-content: flex-start;
+  height: 30%;
+}
+
+.modal-body {
+  height: 50%;
+  width: 100%;
+}
+

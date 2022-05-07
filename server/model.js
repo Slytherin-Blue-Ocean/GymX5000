@@ -22,3 +22,11 @@ pool.connect((err, client, release) => {
     console.log(result.rows);
   });
 });
+
+module.exports = {
+  getAllActivities: (callback) => {
+    pool.query(`SELECT * FROM exercise`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+};
