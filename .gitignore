@@ -102,16 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
-=======
-# Logs
-*.log
 
-# Dependency directories
-node_modules
-
-# bundle
-bundle.js
-
-#env
-.env
-
+#data
+Data/
