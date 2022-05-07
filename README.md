@@ -4,7 +4,7 @@ Fitness Tracker to keep track of fitness activities, goals, classes, and more.
 ## Setup
 
 1. Download depencies with npm install
-> `npm install`
+   > `npm install`
 
 2. Run webpack in development with:
 
