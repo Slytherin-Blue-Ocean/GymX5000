@@ -5,6 +5,20 @@ body {
   flex-direction: column;
 }
 
+/*        BUTTONS       */
+button, .btn, .btn-primary {
+  color: black;
+  border-color: #7c7c7c;
+background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
+
+    linear-gradient(180deg, hsl(0,0%,78%)  0%,
+    hsl(0,0%,90%) 47%,
+    hsl(0,0%,78%) 53%,
+    hsl(0,0%,70%)100%);
+}
+
 /*        FOOTER        */
 .footer {
   height: 20vh;
@@ -12,8 +26,8 @@ body {
   border-style: solid;
   border-width: .5px;
   display: flex;
-  flex-direction: row;
   place-items: center;
+  place-content: center;
   background-color: #adb3bd;
 }
 
@@ -43,7 +57,7 @@ body {
   place-self: center;
   display: flex;
   width: 80vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -52,10 +66,13 @@ body {
   border-radius: 1rem;
   background-color: #555a64;
 }
+.card-container::-webkit-scrollbar {
+  display: none;
+}
 
 .temp-card {
   height: 25vh;
-  width: 20vw;
+  width: 30%;
   border-style: solid;
   border-width: 1px;
   border-radius: 1rem;
@@ -68,6 +85,8 @@ body {
 .modal-content {
   height: 70vh;
   width: 50vw;
+  background-color: #555a64;
+  color: #adb3bd
 }
 
 .modal-lg {
@@ -87,3 +106,4 @@ body {
   height: 50%;
   width: 100%;
 }
+
