@@ -9,3 +9,6 @@ bundle.js
 
 #env
 .env
+
+#data
+Data/
