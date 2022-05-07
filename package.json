@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "client-dev": "webpack --config ./webpack.config.js --mode development -w",
     "server-start": "nodemon server/index.js",
-    "hot-server": "webpack serve --open"
+    "hot-server": "webpack serve --open",
     "build-data": "psql -d gymx5000 -f database/data.sql && psql -d gymx5000 -f database/data_loader.sql && psql -d gymx5000 -f database/data_transformer.sql"
   },
   "repository": {
