@@ -39,4 +39,12 @@ module.exports = {
     poll: true,
     ignored: /node_modules/
   },
+  devtool: "eval-cheap-module-source-map",
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'client/dist'),
+    },
+    compress: true,
+    port: 3001,
+  }
 };
