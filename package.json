@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode=production",
     "client-dev": "webpack --config ./webpack.config.js --mode development -w",
-    "server-start": "nodemon server/index.js"
+    "server-start": "nodemon server/index.js",
+    "hot-server": "webpack serve --open"
   },
   "repository": {
     "type": "git",
