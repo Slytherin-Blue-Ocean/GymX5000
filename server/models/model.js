@@ -2,16 +2,24 @@ const { pool } = require('../utils/db');
 
 module.exports = {
   getAllActivities: (limit, page, callback) => {
-    pool.query(`select a.id, a.name as type, e.exercise_name as activity, e.gif_url as thumbnail_url, a.tags
-    from activitytype as a JOIN exercise as e on a.id = e.activitytype_id
-    ORDER BY a.id asc
-    OFFSET ${page - 1} limit ${limit};`)
+    pool.query(`(
+      SELECT A.id, A.name As type, exercise.exercise_name AS name, exercise.gif_url AS thumbnail_url, A.tags FROM exercise
+      INNER JOIN activitytype as A ON A.id = exercise.activitytype_id
+      AND A.id = exercise.activitytype_id OFFSET ${page - 1} limit ${limit / 2}
+      )
+      UNION
+      (
+      SELECT C.id, C.name As type, A.name AS name, A.image AS thumbnail_url, C.tags FROM food as A
+      INNER JOIN activitytype as C ON C.id = A.activitytype_id
+      AND C.id = A.activitytype_id OFFSET ${page - 1} limit ${limit / 2}
+      );
+    `)
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },
 
   getrecipes: (callback) => {
-    pool.query(``)
+    pool.query('select * from food')
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },
@@ -25,7 +33,7 @@ module.exports = {
   },
 
   getcompetitions: (callback) => {
-    pool.query(``)
+    pool.query('')
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },
