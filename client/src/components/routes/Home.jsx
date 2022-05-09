@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Search from '../subcomponents/Search.jsx';
 import TempCard from '../subcomponents/TempCard.jsx';
 import UserImg from '../subcomponents/UserImg.jsx';

@@ -1,5 +1,4 @@
-
-const fakeFood = {
+const recipe = {
   id: 1,
   name: 'Smoothie',
   image: 'https://st2.depositphotos.com/2444995/6950/i/600/depositphotos_69500983-stock-photo-fresh-smoothies.jpg',
@@ -13,6 +12,10 @@ const fakeFood = {
   activitytype_id: 2
 };
 
+
+
+const fakeFood = [recipe, recipe, recipe];
+const fakeWorkout = [];
 module.exports = {
   fakeFood
 };
