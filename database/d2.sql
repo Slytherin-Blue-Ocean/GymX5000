@@ -74,6 +74,7 @@ CREATE TABLE food (
    protein TEXT NOT NULL,
    fat TEXT NOT NULL,
    carbs TEXT NOT NULL,
+   fiber TEXT NOT NULL,
    activitytype_id INT NOT NULL,
    FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
 );
