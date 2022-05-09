@@ -40,9 +40,9 @@ module.exports = {
   },
 
   getworkout: (workoutid, callback) => {
-    pool.query(`select exercise_id, body_category, equipment, gif_url, exercise_name, target_muscle
+    pool.query(`select id, body_category, equipment, gif_url, exercise_name, target_muscle
     From exercise
-    WHERE exercise_id = ${workoutid};`)
+    WHERE id = $1;`, [workoutid])
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },

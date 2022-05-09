@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import styled from 'styled-components';
 import ActivityModal from '../subcomponents/ActivityModal.jsx';
 
@@ -7,14 +7,16 @@ const Exercise = () => {
   const [exercise, setExercise] = useState('');
   const [selected, setSelected] = useState(false);
 
-  // useEffect(() => {
-  //   axios.get('/bro, i dunno, some endpoint')
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       // set some stats to this data
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [exercise]);
+  const workoutId = 1;
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/workout/${workoutId}`)
+      .then((response) => {
+        console.log(response.data);
+        // set some stats to this data
+      })
+      .catch((err) => console.log(err));
+  }, [exercise]);
 
   return (
     <div>
