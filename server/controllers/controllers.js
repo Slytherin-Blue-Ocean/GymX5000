@@ -24,7 +24,7 @@ module.exports = {
   },
   getworkout: (req, res) => {
     let workoutid = req.params.workoutId;
-    console.log(workoutid);
+
     model.getworkout(workoutid, (err, data) => {
       if (err) {
         res.status(500).send(err);
