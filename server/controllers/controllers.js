@@ -13,8 +13,27 @@ module.exports = {
       }
     });
   },
+  getallrecipes: (req, res) => {
+    model.getallrecipes((err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data.rows);
+      }
+    });
+  },
   getrecipes: (req, res) => {
-    model.getrecipes((err, data) => {
+    let foodid = req.params.foodId;
+    model.getrecipes(foodid, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data.rows);
+      }
+    });
+  },
+  getallworkout: (req, res) => {
+    model.getallworkout((err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -24,7 +43,6 @@ module.exports = {
   },
   getworkout: (req, res) => {
     let workoutid = req.params.workoutId;
-    console.log(workoutid);
     model.getworkout(workoutid, (err, data) => {
       if (err) {
         res.status(500).send(err);

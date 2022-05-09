@@ -27,7 +27,17 @@ app.get('/activities', (req, res) => {
 
 app.get('/recipes', (req, res) => {
   // pass req.query to controller
+  controller.getallrecipes(req, res);
+});
+
+app.get('/recipes/:foodId', (req, res) => {
+  // pass req.query to controller
   controller.getrecipes(req, res);
+});
+
+app.get('/workout', (req, res) => {
+  // pass req.query to controller
+  controller.getallworkout(req, res);
 });
 
 app.get('/workout/:workoutId', (req, res) => {
