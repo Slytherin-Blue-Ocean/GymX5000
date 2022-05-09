@@ -1,4 +1,4 @@
-const model = require('./model');
+const model = require('../models/model');
 
 module.exports = {
   getAllActivities: (req, res) => {
@@ -24,7 +24,7 @@ module.exports = {
   },
   getworkout: (req, res) => {
     let workoutid = req.params.workoutId;
-
+    console.log(workoutid);
     model.getworkout(workoutid, (err, data) => {
       if (err) {
         res.status(500).send(err);
