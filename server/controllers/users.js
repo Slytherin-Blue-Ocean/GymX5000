@@ -13,7 +13,7 @@ const signUp = async(req, res) => {
     }
 
     const newUser = await createUser(email, password, first_name, last_name, address);
-    console.log(newUser);
+
     const token = newToken(newUser.rows[0].id);
 
     return res.json({token});

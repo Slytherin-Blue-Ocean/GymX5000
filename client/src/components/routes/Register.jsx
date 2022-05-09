@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import axios from 'axios';
 
@@ -11,12 +10,12 @@ import {
   Link
 } from '@mui/material';
 
-
-const Login = ({setIsAuthenticated}) => {
-  const [values, setValues] = useState({email: '', password: ''});
+const Register = ({setIsAuthenticated}) => {
+  const [values, setValues] = useState({email: '', password: '', first_name: '', last_name: '', address: ''});
 
   const handleChange = e => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
+
     setValues({
       ...values,
       [name]: value
@@ -25,21 +24,25 @@ const Login = ({setIsAuthenticated}) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const {email, password} = values;
+    const {email, password, first_name, last_name, address} = values;
 
     if (
       email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
-      password.length > 6
+      password.length > 6 &&
+      first_name !== '' &&
+      last_name !== ''
     ) {
-      const res = await axios.post('http://localhost:3001/api/signin', values);
+      const res = await axios.post('http://localhost:3001/api/signup', values);
       if (res.data) {
+        console.log(res.data.token);
         localStorage.setItem('token', res.data.token);
         setIsAuthenticated(true);
       }
     }
 
-    setValues({email: '', password: ''});
+    setValues({email: '', password: '', first_name: '', last_name: '', address: ''});
   };
+
   return (
     <Container>
       <Box
@@ -51,7 +54,7 @@ const Login = ({setIsAuthenticated}) => {
         }}
       >
         <Typography component="h1" variant="h3">
-          Log In
+          Register
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
@@ -76,6 +79,38 @@ const Login = ({setIsAuthenticated}) => {
             type="password"
             id="password"
           />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="first_name"
+            value={values.first_name}
+            onChange={handleChange}
+            label="first_name"
+            type="first_name"
+            id="first_name"
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="last_name"
+            value={values.last_name}
+            onChange={handleChange}
+            label="last_name"
+            type="last_name"
+            id="last_name"
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            name="address"
+            value={values.address}
+            onChange={handleChange}
+            label="address"
+            type="address"
+            id="address"
+          />
           <Button
             type="submit"
             fullWidth
@@ -86,9 +121,9 @@ const Login = ({setIsAuthenticated}) => {
           </Button>
         </Box>
         <Typography>
-          Dont have an account? {' '}
-          <Link href="/register" variant="body2">
-            {'Register'}
+          Already have an account? {' '}
+          <Link href="/login" variant="body2">
+            {'Login'}
           </Link>
         </Typography>
       </Box>
@@ -96,4 +131,4 @@ const Login = ({setIsAuthenticated}) => {
   );
 };
 
-export default Login;
+export default Register;
