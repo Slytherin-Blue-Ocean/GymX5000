@@ -20,6 +20,7 @@ const port = process.env.PORT || 3001;
 app.use('/api', authRouter);
 
 //-------------------routes here
+//---------get
 app.get('/activities', (req, res) => {
   // pass req.query to controller
   controller.getAllActivities(req, res);
@@ -55,6 +56,21 @@ app.get('/quotes', (req, res) => {
   controller.getquotes(req, res);
 });
 
+app.get('/foodfavorite/:userid', (req, res) => {
+  // pass req.query to controller
+  controller.getfoodfavor(req, res);
+});
+
+app.get('/workoutfavorite/:userid', (req, res) => {
+  // pass req.query to controller
+  controller.getworkoutfavor(req, res);
+});
+
+//------post
+app.post('/favorite', (req, res) => {
+  // pass req.query to controller
+  controller.postfavor(req, res);
+});
 
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}/`);

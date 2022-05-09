@@ -58,4 +58,38 @@ module.exports = {
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },
+
+  getfoodfavor: (userid, callback) => {
+    pool.query(`select DISTINCT(f.id), name, image, dietlabels, healthlabels, url, calories, protein, fat, carbs, fiber
+    from food as f
+    JOIN food_favorites ON food_favorites.food_id = f.id
+    WHERE food_favorites.user_id = ${userid}`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  getworkoutfavor: (userid, callback) => {
+    pool.query(`select DISTINCT(e.id), body_category, equipment, gif_url, exercise_name, target_muscle
+    from exercise as e
+        JOIN exercise_favorites ON exercise_favorites.exercise_id = e.id
+      WHERE exercise_favorites.user_id =  ${userid}`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  postfavorworkout: (referenceid, userid, callback) => {
+    pool.query(`insert into exercise_favorites(user_id, exercise_id)
+    values (${userid}, ${referenceid})`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  postfavorrecipe: (referenceid, userid, callback) => {
+    pool.query(`insert into food_favorites(user_id, food_id)
+    values (${userid}, ${referenceid})`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+
 };

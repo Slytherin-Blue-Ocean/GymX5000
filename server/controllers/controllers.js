@@ -70,5 +70,48 @@ module.exports = {
     });
   },
 
+  getfoodfavor: (req, res) => {
+    let userid = req.params.userid;
+    model.getfoodfavor(userid, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data.rows);
+      }
+    });
+  },
 
+  getworkoutfavor: (req, res) => {
+    let userid = req.params.userid;
+    model.getworkoutfavor(userid, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data.rows);
+      }
+    });
+  },
+
+  postfavor: (req, res) => {
+    let typeid = req.query.typeid;
+    let referenceid = req.query.referenceid;
+    let userid = req.query.userid;
+    if (typeid === '1') {
+      model.postfavorworkout(referenceid, userid, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(data);
+        }
+      });
+    } else {
+      model.postfavorrecipe(referenceid, userid, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(data);
+        }
+      });
+    }
+  },
 };
