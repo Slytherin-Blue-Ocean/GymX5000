@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
+
+
 body {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-family: 'Koulen' !important;
 }
 
 /*        BUTTONS       */
 button, .btn, .btn-primary {
-  color: black;
-  border-color: #7c7c7c;
+  color: black !important;
+  border-color: #7c7c7c !important;
+  border-radius: .25rem !important;
 background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
     -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
     -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
@@ -33,7 +38,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 /*        HOME        */
 .home {
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -107,3 +112,21 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   width: 100%;
 }
 
+/*        PROFILE       */
+.profile {
+  height: 100vh;
+}
+
+.profile-top {
+  display: flex;
+  margin: 2rem;
+}
+
+.table {
+  width: 15vw !important;
+  height: 100% !important;
+}
+
+.follow {
+  flex: 1;
+}
