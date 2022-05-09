@@ -3,7 +3,7 @@ import { Navbar, NavDropdown, Container, FormControl, Form, Nav, Button, Badge }
 import { Link } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = ({logout}) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -12,6 +12,7 @@ const NavBar = () => {
           <Link className="nav-link" to="/">Home</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
         </Nav>
+        <Button onClick={logout} >Log out</Button>
       </Container>
     </Navbar>
   );

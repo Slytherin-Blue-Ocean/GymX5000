@@ -12,10 +12,11 @@ DROP TABLE IF EXISTS users, competition_record, competition, activitytype, exerc
 
 CREATE TABLE users (
    id SERIAL PRIMARY KEY NOT NULL,
-   first_name VARCHAR(50) NOT NULL,
-   last_name VARCHAR(50) NOT NULL,
+   first_name VARCHAR(50),
+   last_name VARCHAR(50),
    email VARCHAR(50) NOT NULL,
-   address TEXT NOT NULL
+   password VARCHAR(256) NOT NULL,
+   address TEXT
 );
 
 CREATE TABLE activitytype (
@@ -73,6 +74,7 @@ CREATE TABLE food (
    protein TEXT NOT NULL,
    fat TEXT NOT NULL,
    carbs TEXT NOT NULL,
+   fiber TEXT NOT NULL,
    activitytype_id INT NOT NULL,
    FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
 );

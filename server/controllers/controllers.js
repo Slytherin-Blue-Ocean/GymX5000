@@ -1,8 +1,11 @@
-const model = require('./model');
+const model = require('../models/model');
 
 module.exports = {
   getAllActivities: (req, res) => {
-    model.getAllActivities((err, data) => {
+    let limit = req.query.limit || 100;
+    let page = req.query.page || 1;
+
+    model.getAllActivities(limit, page, (err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -21,7 +24,7 @@ module.exports = {
   },
   getworkout: (req, res) => {
     let workoutid = req.params.workoutId;
-
+    console.log(workoutid);
     model.getworkout(workoutid, (err, data) => {
       if (err) {
         res.status(500).send(err);
@@ -39,4 +42,15 @@ module.exports = {
       }
     });
   },
+  getquotes: (req, res) => {
+    model.getquotes((err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data.rows);
+      }
+    });
+  },
+
+
 };
