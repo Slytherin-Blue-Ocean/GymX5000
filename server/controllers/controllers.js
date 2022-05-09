@@ -1,74 +1,61 @@
-const model = require('../models/model');
+const { pool } = require('../utils/db');
 
 module.exports = {
-  getAllActivities: (req, res) => {
-    let limit = req.query.limit || 100;
-    let page = req.query.page || 1;
-
-    model.getAllActivities(limit, page, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getallrecipes: (req, res) => {
-    model.getallrecipes((err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getrecipes: (req, res) => {
-    let foodid = req.params.foodId;
-    model.getrecipes(foodid, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getallworkout: (req, res) => {
-    model.getallworkout((err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getworkout: (req, res) => {
-    let workoutid = req.params.workoutId;
-    model.getworkout(workoutid, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getcompetitions: (req, res) => {
-    model.getcompetitions((err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data);
-      }
-    });
-  },
-  getquotes: (req, res) => {
-    model.getquotes((err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
+  getAllActivities: (limit, page, callback) => {
+    pool.query(`(
+      SELECT A.id As activity_id, A.name As type, exercise.id AS reference_id, exercise.exercise_name AS name, exercise.gif_url AS thumbnail_url, A.tags FROM exercise
+      INNER JOIN activitytype as A ON A.id = exercise.activitytype_id
+      AND A.id = exercise.activitytype_id OFFSET ${page - 1} limit ${limit / 2}
+      )
+      UNION
+      (
+      SELECT C.id As activity_id, C.name As type, A.ID AS reference_id, A.name AS name, A.image AS thumbnail_url, C.tags FROM food as A
+      INNER JOIN activitytype as C ON C.id = A.activitytype_id
+      AND C.id = A.activitytype_id OFFSET ${page - 1} limit ${limit / 2}
+      );
+    `)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
   },
 
+  getallrecipes: (callback) => {
+    pool.query('select id, name, image, dietlabels, healthlabels, url, calories, protein, fat, carbs, fiber from food')
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
 
+  getrecipes: (foodid, callback) => {
+    pool.query(`select id, name, image, dietlabels, healthlabels, url, calories, protein, fat, carbs, fiber
+    from food
+    where id = ${foodid}`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  getallworkout: (callback) => {
+    pool.query(`select id, body_category, equipment, gif_url, exercise_name, target_muscle from exercise`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  getworkout: (workoutid, callback) => {
+    pool.query(`select id, body_category, equipment, gif_url, exercise_name, target_muscle
+    From exercise
+    WHERE id = ${workoutid};`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  getcompetitions: (callback) => {
+    pool.query('')
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
+
+  getquotes: (callback) => {
+    pool.query(`select id, quote
+    from quotes ORDER BY random() limit 1`)
+      .then((res) => callback(null, res))
+      .catch((err) => callback(err));
+  },
 };
