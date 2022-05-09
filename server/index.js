@@ -40,6 +40,11 @@ app.get('/competition', (req, res) => {
   controller.getcompetitions(req, res);
 });
 
+app.get('/quotes', (req, res) => {
+  // pass req.query to controller
+  controller.getquotes(req, res);
+});
+
 
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}/`);
