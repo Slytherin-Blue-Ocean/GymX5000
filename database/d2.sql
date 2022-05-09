@@ -1,3 +1,15 @@
+-- the command for excuting sql file
+-- sudo psql -U postgres -d gymx5000 -f database/data.sql
+
+DROP DATABASE IF EXISTS gymx5000;
+-- create db
+CREATE DATABASE gymx5000;
+
+-- use database command
+\c gymx5000;
+
+DROP TABLE IF EXISTS users, competition_record, competition, activitytype, exercise, exercise_favorites, food, food_favorites,quotes;
+
 CREATE TABLE users (
    id SERIAL PRIMARY KEY NOT NULL,
    first_name VARCHAR(50) NOT NULL,
