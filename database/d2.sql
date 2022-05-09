@@ -1,5 +1,5 @@
 -- the command for excuting sql file
--- sudo psql -U postgres -d gymx5000 -f database/data.sql
+-- sudo psql -U postgres -d gymx5000 -f database/d2.sql
 
 DROP DATABASE IF EXISTS gymx5000;
 -- create db
