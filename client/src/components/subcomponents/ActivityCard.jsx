@@ -1,9 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import { useState } from 'react';
-import styled from 'styled-components';
-import { yellow } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { red } from '@mui/material/colors';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { Modal, Button } from 'react-bootstrap';
 import ActivityModal from './ActivityModal.jsx';
 
@@ -16,67 +27,15 @@ const fakeProps = {
   favorited: false
 };
 
-const cardColor = (type) => {
-  switch (type) {
-  case 'Recipe':
-    return '#0E92DD';
-  case 'Workout':
-    return '#EE5454';
-  case 'poop':
-    return '#964B00';
-  default:
-    return 'lightgrey';
-  }
+const cardCss = {
+  backgroundColor: '#1c1c1c',
+  color: '#f8eeec',
+  margin: '1vw'
 };
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: .7em;
-  width: 30%;
-  height: 25vh;
-  background-color: ${ props => cardColor(props.type) };
-  border-radius: 1em;
-`;
-
-const CardHeaderContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const CardTitle = styled.div`
-  font-weight: 500;
-  margin-left: .4em;
-  font-weight: 500;
-  cursor: pointer;
-  &:hover { color: darkgrey };
-`;
-
-const IconStyle = {
-  marginRight: '5px',
-  cursor: 'pointer'
+const activityTags = {
+  color: '#f8eeec'
 };
-
-const CardThumbnail = styled.img`
-  height: auto;
-  width: 4em;
-  margin: 0 auto;
-`;
-
-const CardTagsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: .4em;
-  justify-content: flex-end;
-  &:last-child { margin-right: .7em };
-`;
-
-const CardTag = styled.a`
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-`;
 
 const ModalDisplay = (props) => {
   return (
@@ -107,31 +66,46 @@ const ModalDisplay = (props) => {
   );
 };
 
-const ActivityCard = (props) => {
-  const [favorated, setFavorated] = useState(fakeProps.favorated);
+const ActivityCard = function() {
   const [modalShow, setModalShow] = useState(false);
+  const [favorated, setFavorated] = useState(fakeProps.favorated);
 
-  const handleCardClick = (e) => {
-    console.log('You clicked it');
-  };
-
-  const handleFavoriteClick = (e) => {
-    setFavorated(!favorated);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
   };
 
   return (
-    <CardContainer className="temp-card" onClick={handleCardClick} type={fakeProps.type} background={fakeProps.background}>
-      <CardHeaderContainer onClick={e => e.stopPropagation()}>
-        <CardTitle onClick={ () => setModalShow(true) }>{fakeProps.activity}</CardTitle>
-        { !favorated ? <StarOutlineIcon onClick={handleFavoriteClick} style={IconStyle} sx={{ color: yellow[500] }} /> :
-          <StarIcon onClick={handleFavoriteClick} style={IconStyle} sx={{ color: yellow[500] }}/>}
-      </CardHeaderContainer>
-      <CardThumbnail src={fakeProps.thumbnail_url}></CardThumbnail>
-      <CardTagsContainer>
-        {fakeProps.tags.map((tag) => <CardTag key={tag}>{'#' + tag}</CardTag>)}
-      </CardTagsContainer>
-      <ModalDisplay show={modalShow} onHide={() => setModalShow(false)}/>
-    </CardContainer>
+    <Card style={cardCss} sx={{ maxWidth: 345 }}>
+      <CardHeader
+        style={activityTags}
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label={fakeProps.activity}>
+            <LocalDiningIcon />
+          </Avatar>
+        }
+        action={
+          <CardActions disableSpacing>
+            <IconButton onClick={() => setFavorated(!favorated)} aria-label="add to favorites">
+              { !favorated ? <StarBorderIcon /> : <StarIcon /> }
+            </IconButton>
+          </CardActions>
+        }
+        title={fakeProps.activity}
+        subheader={ <Typography variant="p:2" >Recipe</Typography>}
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image={fakeProps.thumbnail_url}
+        alt="Picture"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          { fakeProps.tags.map((tag) => <span style={activityTags} key={fakeProps.id}>{`#${tag} `}</span>)}
+        </Typography>
+        <ModalDisplay show={modalShow} onHide={() => setModalShow(false)}/>
+      </CardContent>
+    </Card>
   );
 };
 
