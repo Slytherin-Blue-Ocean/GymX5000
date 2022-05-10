@@ -1,6 +1,8 @@
 
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useAuth} from '../context/Auth.jsx';
+import {useNavigate, useLocation} from 'react-router-dom';
 
 import {
   Container,
@@ -14,6 +16,11 @@ import {
 
 const Login = ({setIsAuthenticated}) => {
   const [values, setValues] = useState({email: '', password: ''});
+  const {login} = useAuth();
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || '/';
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -33,8 +40,8 @@ const Login = ({setIsAuthenticated}) => {
     ) {
       const res = await axios.post('http://localhost:3001/api/signin', values);
       if (res.data) {
-        localStorage.setItem('token', res.data.token);
-        setIsAuthenticated(true);
+        login(res.data.token);
+        navigate(from, { replace: true });
       }
     }
 
@@ -44,7 +51,10 @@ const Login = ({setIsAuthenticated}) => {
     <Container>
       <Box
         sx={{
-          marginTop: 8,
+          background: '#ccc',
+          margin: '1em 0',
+          padding: '1em',
+          borderRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
