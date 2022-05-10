@@ -9,7 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { red, yellow } from '@mui/material/colors';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
@@ -72,7 +72,7 @@ const ActivityCard = function({activity}) {
         action={
           <CardActions disableSpacing>
             <IconButton onClick={() => setFavorated(!favorated)} aria-label="add to favorites">
-              { !favorated ? <StarBorderIcon /> : <StarIcon /> }
+              { !favorated ? <StarBorderIcon sx={{color: '#aa9208'}} /> : <StarIcon sx={{color: '#aa9208'}} /> }
             </IconButton>
           </CardActions>
         }

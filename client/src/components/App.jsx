@@ -35,7 +35,8 @@ const App = () => {
     <Router>
       <NavBar logout={logout}/>
       <Routes>
-        <Route path='/' element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
+        <Route path='/' element={isAuthenticated ? <div>poop</div>: <Login setIsAuthenticated={setIsAuthenticated}/>} />
+        <Route path='/explore' element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/profile' element={isAuthenticated ? <Profile /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/register' element={<Register setIsAuthenticated={setIsAuthenticated}/>} />

@@ -3,8 +3,12 @@ import UserImg from '../subcomponents/UserImg.jsx';
 import Leaderboard from '../subcomponents/Leaderboard.jsx';
 import TempCard from '../subcomponents/TempCard.jsx';
 
+const cardContainerStyle = {
+  height: '200em'
+};
 
-const Profile = () => {
+const Profile = ({activities}) => {
+
   return (
     <div className="home">
       <div className="profile-top">
