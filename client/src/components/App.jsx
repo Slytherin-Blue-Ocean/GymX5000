@@ -6,6 +6,7 @@ import Footer from './Footer.jsx';
 import Home from './routes/Home.jsx';
 import Profile from './routes/Profile.jsx';
 import Login from './routes/Login.jsx';
+import Register from './routes/Register.jsx';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,13 +16,16 @@ const App = () => {
     if (token) {
       setIsAuthenticated(true);
     }
+
+    return () => logout();
   }, []);
 
-  const logout = async e => {
+  const logout = e => {
     e.preventDefault();
     try {
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       setIsAuthenticated(false);
+      window.location.href = '/';
     } catch (err) {
       console.error(err.message);
     }
@@ -34,6 +38,7 @@ const App = () => {
         <Route path='/' element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/profile' element={isAuthenticated ? <Profile /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
+        <Route path='/register' element={<Register setIsAuthenticated={setIsAuthenticated}/>} />
       </Routes>
       <Footer />
     </Router>
