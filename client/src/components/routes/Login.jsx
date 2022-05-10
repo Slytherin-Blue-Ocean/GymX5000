@@ -19,7 +19,7 @@ const Login = ({setIsAuthenticated}) => {
   const {login} = useAuth();
   let navigate = useNavigate();
   let location = useLocation();
-  /*eslint no-unsafe-optional-chaining: "error"*/
+
   let from = location.state?.from?.pathname || '/';
 
   const handleChange = e => {

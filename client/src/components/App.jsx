@@ -20,7 +20,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={
             <PrivateRoute>
-              <Home/>
+              <Activities/>
             </PrivateRoute>
           } />
           <Route path='/profile' element={
