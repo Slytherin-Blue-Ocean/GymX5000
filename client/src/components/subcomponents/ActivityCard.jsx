@@ -6,7 +6,6 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -15,12 +14,11 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import { Modal, Button } from 'react-bootstrap';
-import ActivityModal from './ActivityModal.jsx';
 
 const fakeProps = {
   id: 1,
   activity: 'Fruit Smoothie',
+  activity_id: 2,
   type: 'Recipe',
   thumbnail_url: 'https://st2.depositphotos.com/2444995/6950/i/600/depositphotos_69500983-stock-photo-fresh-smoothies.jpg',
   tags: ['healthy', 'fruity', 'poop'],
@@ -30,57 +28,45 @@ const fakeProps = {
 const cardCss = {
   backgroundColor: '#1c1c1c',
   color: '#f8eeec',
-  margin: '1vw'
+  margin: '1vw',
 };
 
 const activityTags = {
   color: '#f8eeec'
 };
 
-const ModalDisplay = (props) => {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title className="modal-name">
-          <div className="modal-top">
-            <div className="modal-top-sub">
-              <div className="modal-title">Activity Name</div>
-            </div>
-          </div>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className="modal-image">Activity Image</div>
-      </Modal.Body>
-      <Modal.Footer>
-        <p className="modal-description">
-          Description of activity?
-        </p>
-      </Modal.Footer>
-    </Modal>
-  );
+const setIcon = (ActivityId) => {
+  switch (ActivityId) {
+  case 1:
+    return <FitnessCenterIcon />;
+    break;
+  case 2:
+    return <LocalDiningIcon />;
+    break;
+  default:
+    return '?';
+  }
 };
 
-const ActivityCard = function() {
-  const [modalShow, setModalShow] = useState(false);
-  const [favorated, setFavorated] = useState(fakeProps.favorated);
+const formatTitle = (title) => {
+  if (title.length <= 17) {
+    return title;
+  } else {
+    return title.slice(0, 17) + '...';
+  }
+};
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+const ActivityCard = function({activity}) {
+  const [favorated, setFavorated] = useState(false);
+  const title = formatTitle(activity.name);
 
   return (
-    <Card style={cardCss} sx={{ maxWidth: 345 }}>
+    <Card style={cardCss} sx={{ width: '22vw' }}>
       <CardHeader
         style={activityTags}
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label={fakeProps.activity}>
-            <LocalDiningIcon />
+          <Avatar sx={{ bgcolor: red[500] }} aria-label={activity.activity}>
+            {setIcon(activity.activity_id)}
           </Avatar>
         }
         action={
@@ -90,20 +76,19 @@ const ActivityCard = function() {
             </IconButton>
           </CardActions>
         }
-        title={fakeProps.activity}
-        subheader={ <Typography variant="p:2" >Recipe</Typography>}
+        title={title}
+        subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
         component="img"
         height="194"
         image={fakeProps.thumbnail_url}
-        alt="Picture"
+        alt="Oops Sorry no Pic"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          { fakeProps.tags.map((tag) => <span style={activityTags} key={fakeProps.id}>{`#${tag} `}</span>)}
+          { fakeProps.tags.map((tag, index) => <span style={activityTags} key={index}>{`#${tag} `}</span>)}
         </Typography>
-        <ModalDisplay show={modalShow} onHide={() => setModalShow(false)}/>
       </CardContent>
     </Card>
   );
