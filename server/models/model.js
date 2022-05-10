@@ -25,13 +25,13 @@ module.exports = {
   },
 
   getallrecipes: (callback) => {
-    pool.query('select id, name, image, dietlabels, healthlabels, url, calories, protein, fat, carbs, fiber from food')
+    pool.query('select id,name,image,uri,dietlabel,healthlabel,url,calories,protein,fat,carbs,fiber,ingredients from food')
       .then((res) => callback(null, res))
       .catch((err) => callback(err));
   },
 
   getrecipes: (foodid, callback) => {
-    pool.query(`select id, name, image, dietlabels, healthlabels, url, calories, protein, fat, carbs, fiber
+    pool.query(`select id,name,image,uri,dietlabel,healthlabel,url,calories,protein,fat,carbs,fiber,ingredients
     from food
     where id = ${foodid}`)
       .then((res) => callback(null, res))
