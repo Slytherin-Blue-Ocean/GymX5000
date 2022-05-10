@@ -9,7 +9,7 @@ const NavBar = ({logout}) => {
       <Container>
         <Navbar.Brand href="/">GymX5000</Navbar.Brand>
         <Nav className="me-auto">
-          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/">Explore</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
         </Nav>
         <Button onClick={logout} >Log out</Button>

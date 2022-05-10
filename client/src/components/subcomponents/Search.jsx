@@ -5,14 +5,13 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
-
-const Search = () => {
+const Search = ({handleFilter}) => {
   return (
     <DropdownButton id="dropdown-basic-button" title="Filter">
-      <Dropdown.Item><FitnessCenterIcon />Weight-lifting</Dropdown.Item>
-      <Dropdown.Item><LocalDiningIcon />Recipe</Dropdown.Item>
-      <Dropdown.Item><SelfImprovementIcon />Yoga</Dropdown.Item>
-      <Dropdown.Item><AutoGraphIcon />Motivation</Dropdown.Item>
+      <Dropdown.Item onClick={handleFilter}><FitnessCenterIcon />Weight-lifting</Dropdown.Item>
+      <Dropdown.Item onClick={handleFilter}><LocalDiningIcon />Recipe</Dropdown.Item>
+      <Dropdown.Item onClick={handleFilter}><SelfImprovementIcon />Yoga</Dropdown.Item>
+      <Dropdown.Item onClick={handleFilter}><AutoGraphIcon />Motivation</Dropdown.Item>
     </DropdownButton>
   );
 };
