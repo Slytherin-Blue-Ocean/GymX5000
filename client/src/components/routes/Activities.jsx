@@ -1,18 +1,21 @@
 import React from 'react';
-import UserImg from '../subcomponents/UserImg.jsx';
-import Leaderboard from '../subcomponents/Leaderboard.jsx';
+import Search from '../subcomponents/Search.jsx';
 import TempCard from '../subcomponents/TempCard.jsx';
+import UserImg from '../subcomponents/UserImg.jsx';
+import Quotes from '../subcomponents/Quotes.jsx';
 
 
-const Profile = () => {
+const Activities = () => {
   return (
     <div className="home">
-      <div className="profile-top">
-        <UserImg />
-        <Leaderboard />
+      <h1 className="welcome">
+        <Quotes />
+      </h1>
+      <div className="search">
+        <Search />
       </div>
-      <h2 className="welcome">The Arnold's Recent Activities</h2>
       <div className="card-container">
+        <TempCard />
         <TempCard />
         <TempCard />
         <TempCard />
@@ -33,4 +36,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Activities;
