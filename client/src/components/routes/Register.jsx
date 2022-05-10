@@ -46,7 +46,10 @@ const Register = ({setIsAuthenticated}) => {
     <Container>
       <Box
         sx={{
-          marginTop: 8,
+          background: '#ccc',
+          margin: '1em 0',
+          padding: '1em',
+          borderRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -116,7 +119,7 @@ const Register = ({setIsAuthenticated}) => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Register
           </Button>
         </Box>
         <Typography>
