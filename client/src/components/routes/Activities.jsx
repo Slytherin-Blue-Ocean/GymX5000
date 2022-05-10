@@ -16,10 +16,10 @@ const createKey = (activity) => {
   return activity.reference_id + activity.name.slice(0, 5);
 };
 
-const Home = () => {
+const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
-  console.log(activities)
+
   const handleFilter = (e) => {
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
@@ -49,4 +49,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Activities;

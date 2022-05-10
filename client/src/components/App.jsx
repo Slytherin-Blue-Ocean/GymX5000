@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
-import Home from './routes/Home.jsx';
+import Activities from './routes/Activities.jsx';
 import Profile from './routes/Profile.jsx';
 import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
+import Challenges from './routes/Challenges.jsx';
+import SingleChallenge from './routes/SingleChallenge.jsx';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -35,9 +37,10 @@ const App = () => {
     <Router>
       <NavBar logout={logout}/>
       <Routes>
-        <Route path='/' element={isAuthenticated ? <div>poop</div>: <Login setIsAuthenticated={setIsAuthenticated}/>} />
-        <Route path='/explore' element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
+        <Route path='/' element={isAuthenticated ? <Activities /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/profile' element={isAuthenticated ? <Profile /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
+        <Route path='/challenges' element={isAuthenticated ? <Challenges /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
+        <Route path='/singlechallenge' element={isAuthenticated ? <SingleChallenge /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/register' element={<Register setIsAuthenticated={setIsAuthenticated}/>} />
       </Routes>
