@@ -16,7 +16,7 @@ const createKey = (activity) => {
   return activity.reference_id + activity.name.slice(0, 5);
 };
 
-const Home = () => {
+const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
 
