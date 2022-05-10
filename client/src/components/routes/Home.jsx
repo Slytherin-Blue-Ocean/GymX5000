@@ -45,7 +45,6 @@ const Home = () => {
         <Search handleFilter={handleFilter}/>
       </div>
       <div className="card-container">
-        <Exercise />
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
       </div>
     </div>
