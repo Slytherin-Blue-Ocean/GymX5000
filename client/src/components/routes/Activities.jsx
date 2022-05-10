@@ -5,7 +5,7 @@ import UserImg from '../subcomponents/UserImg.jsx';
 import Quotes from '../subcomponents/Quotes.jsx';
 
 
-const Home = () => {
+const Activities = () => {
   return (
     <div className="home">
       <h1 className="welcome">
@@ -36,4 +36,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Activities;
