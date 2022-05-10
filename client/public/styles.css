@@ -46,7 +46,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   background-color: #adb3bd;
 }
 
-/*        HOME        */
+/*        EXPLORE        */
 .home {
   height: 100vh;
   width: 100vw;
@@ -146,17 +146,192 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   margin: 2rem;
 }
 
-.table {
+/* .table {
   width: 15vw !important;
   height: 100% !important;
-}
+} */
 
 .follow {
   flex: 1;
 }
 
-/* .text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
+/*        CHALLENGES        */
+.chal {
+  height: 150vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #626c71;
+}
+
+.chal-sub {
+  flex: 1;
+  text-align: center;
+}
+
+.chal-top {
+  place-self: center;
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  width: 83vw;
+  margin-top: 2rem;
+}
+
+.blurb {
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  margin: 1vw;
+  max-height: 40vh;
+  min-height: 40vh;
+  background-color: #adb3bd;
+}
+
+.badge-container {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  margin: 1vw;
+  max-height: 40vh;
+  min-height: 40vh;
+  place-items: center;
+  background-color: #adb3bd;
+}
+
+.badge-inner {
+  display: flex;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  height: 80%;
+  width: 90%;
+  place-content: center;
+}
+
+.table {
+  margin: 1vw;
+  overflow-y: scroll;
+  max-width: 30vw;
+  max-height: 40vh;
+  min-height: 40vh;
+}
+
+.chal-container {
+  place-self: center;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  place-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  overflow-y: scroll;
+}
+
+.chal-card {
+  display: flex;
+  margin: 1rem;
+  min-height: 20vh;
+  max-height: 20vh;
+  width: 95%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  background-color: #adb3bd;
+}
+
+.chal-main {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.prize {
+  flex: 1;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.chal-body {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.chal-head {
+  display: flex;
+  flex: 1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: .5rem;
+}
+
+.chal-name {
+  flex: 1;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+.chal-desc {
+  flex: 4;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+/*        SINGLE CHALLENGE PAGE       */
+.chal-mid {
+  display: flex;
+  place-self: center;
+  place-items: center;
+  margin: 2rem;
+  width: 80vw;
+  height: 40vh;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+.chal-mid-sub {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  background-color: #adb3bd;
+}
+
+.chal-related {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin-bottom: 2vh;
+  place-self: center;
+  width: 80vw;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #555a64;
+}
