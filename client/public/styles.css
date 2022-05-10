@@ -4,9 +4,19 @@
 body {
   margin: 0;
   padding: 0;
+  height: 0;
+  width: 0;
   display: flex;
   flex-direction: column;
   font-family: 'Koulen' !important;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
+  background-attachment: fixed;
+  /* background-repeat: no-repeat; */
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
 }
 
 /*        BUTTONS       */
@@ -42,7 +52,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background-color: #626c71;
+  /* background-color: #626c71; */
+  color: white;
 }
 
 .welcome {
@@ -62,17 +73,30 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   place-self: center;
   display: flex;
   width: 80vw;
+  height: 80vh;
   overflow-y: auto;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border-style: solid;
-  border-width: 1px;
+  /* border-style: solid;
+  border-width: 1px; */
   border-radius: 1rem;
   background-color: #555a64;
 }
 .card-container::-webkit-scrollbar {
   display: none;
+}
+
+.card  {
+  background-color: #1c1c1c;
+  color: #f8eeec;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  margin: 1vw;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  overflow: hidden;
+  max-width: 345px;
 }
 
 .temp-card {
@@ -130,3 +154,9 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .follow {
   flex: 1;
 }
+
+/* .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
