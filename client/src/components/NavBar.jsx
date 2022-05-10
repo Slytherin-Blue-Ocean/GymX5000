@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navbar, NavDropdown, Container, FormControl, Form, Nav, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {useAuth} from './context/Auth.jsx';
 
+const NavBar = () => {
+  const {logout} = useAuth();
 
-const NavBar = ({logout}) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>

@@ -1,6 +1,7 @@
 
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useAuth} from '../context/Auth.jsx';
 
 import {
   Container,
@@ -14,6 +15,7 @@ import {
 
 const Login = ({setIsAuthenticated}) => {
   const [values, setValues] = useState({email: '', password: ''});
+  const {login} = useAuth();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -33,8 +35,8 @@ const Login = ({setIsAuthenticated}) => {
     ) {
       const res = await axios.post('http://localhost:3001/api/signin', values);
       if (res.data) {
-        localStorage.setItem('token', res.data.token);
-        setIsAuthenticated(true);
+        console.log(res.data);
+        login(res.data.token);
       }
     }
 

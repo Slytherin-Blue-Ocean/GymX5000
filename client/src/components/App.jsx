@@ -9,43 +9,41 @@ import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
+import PrivateRoute from './routes/Private.jsx';
+import { AuthProvider } from './context/Auth.jsx';
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(()=>{
-    let token = localStorage.getItem('token');
-    if (token) {
-      setIsAuthenticated(true);
-    }
-
-    return () => logout();
-  }, []);
-
-  const logout = e => {
-    e.preventDefault();
-    try {
-      localStorage.removeItem('token');
-      setIsAuthenticated(false);
-      window.location.href = '/';
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
   return (
-    <Router>
-      <NavBar logout={logout}/>
-      <Routes>
-        <Route path='/' element={isAuthenticated ? <Activities /> : <Login setIsAuthenticated={setIsAuthenticated}/>} />
-        <Route path='/profile' element={isAuthenticated ? <Profile /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
-        <Route path='/challenges' element={isAuthenticated ? <Challenges /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
-        <Route path='/singlechallenge' element={isAuthenticated ? <SingleChallenge /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
-        <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
-        <Route path='/register' element={<Register setIsAuthenticated={setIsAuthenticated}/>} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={
+            <PrivateRoute>
+              <Home/>
+            </PrivateRoute>
+          } />
+          <Route path='/profile' element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }/>
+          <Route path='/challenges' element={
+            <PrivateRoute>
+              <Challenges />
+            </PrivateRoute>
+          }/>
+          <Route path='/singlechallenge' element={
+            <PrivateRoute>
+              <SingleChallenge />
+            </PrivateRoute>
+          }/>
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 };
 

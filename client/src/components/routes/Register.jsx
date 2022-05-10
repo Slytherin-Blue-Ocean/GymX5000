@@ -34,7 +34,6 @@ const Register = ({setIsAuthenticated}) => {
     ) {
       const res = await axios.post('http://localhost:3001/api/signup', values);
       if (res.data) {
-        console.log(res.data.token);
         localStorage.setItem('token', res.data.token);
         setIsAuthenticated(true);
       }
