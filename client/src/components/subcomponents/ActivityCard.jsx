@@ -60,6 +60,8 @@ const ActivityCard = function({activity}) {
   const [favorated, setFavorated] = useState(false);
   const title = formatTitle(activity.name);
 
+  console.log(activity);
+
   return (
     <Card style={cardCss} sx={{ width: '22vw' }}>
       <CardHeader
@@ -82,7 +84,7 @@ const ActivityCard = function({activity}) {
       <CardMedia
         component="img"
         height="194"
-        image={fakeProps.thumbnail_url}
+        image={activity.thumbnail_url}
         alt="Oops Sorry no Pic"
       />
       <CardContent>
