@@ -66,7 +66,7 @@ const getfavor = (req, res) => {
 };
 
 const postfavor = (req, res) => {
-  let activity_id = req.query.id;
+  let activity_id = req.qeury.id;
   let user_id = req.userId;
   model.postfavor(activity_id, user_id, (err, data) => {
     if (err) {
