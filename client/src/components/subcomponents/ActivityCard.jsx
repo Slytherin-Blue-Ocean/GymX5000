@@ -15,6 +15,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import {useAuth} from '../context/Auth.jsx';
 
 const fakeProps = {
   id: 1,
@@ -58,11 +59,14 @@ const formatTitle = (title) => {
 };
 
 const ActivityCard = function({activity}) {
+  const { token } = useAuth();
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
 
   const handleFavorited = (e) => {
-    axios.post(`http://localhost:3001/favorite?id=${activity.id}`)
+    axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
+      headers: {'Authorization': token} // add this for authentication
+    })
       .then((res) => undefined)
       .catch((err) => console.error(err));
 
