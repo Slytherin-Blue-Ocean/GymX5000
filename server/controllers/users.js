@@ -54,14 +54,14 @@ const signIn = async(req, res) => {
 };
 
 const getUser = async(req, res) => {
-  // try {
-  //   const user = await getUserById(req.params.id);
-
-
-  // } catch (err) {
-  //   console.log('GET_USER_CON', err);
-  //   res.sendStatus(400);
-  // }
+  const id = req?.query?.id || req.userId;
+  try {
+    const user = await getUserById(id);
+    res.json(user);
+  } catch (err) {
+    console.log('GET_USER_CON', err);
+    res.sendStatus(400);
+  }
 };
 
 module.exports = {
