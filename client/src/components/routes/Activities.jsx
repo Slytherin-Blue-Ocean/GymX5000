@@ -21,7 +21,6 @@ const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
   const { token } = useAuth();
-  console.log(token);
   const handleFilter = (e) => {
     if (e.target.innerText === 'Clear') {
       return getAll();
