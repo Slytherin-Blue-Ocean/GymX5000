@@ -3,10 +3,14 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/Auth.jsx';
 
 const PrivateRoute = ({children}) =>{
-  const { isAuth } = useAuth();
+  const { isAuth, token} = useAuth();
   let location = useLocation();
-  console.log(isAuth);
-  return isAuth ? children : <Navigate to='/login' state={{ from: location }} replace />;
+  const curToken = localStorage.getItem('token');
+
+  if (!curToken) {
+    return <Navigate to='/login' state={{ from: location }} replace />;
+  }
+  return children;
 };
 
 export default PrivateRoute;
