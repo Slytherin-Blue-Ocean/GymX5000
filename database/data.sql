@@ -31,9 +31,17 @@ CREATE TABLE competition (
  competition_name VARCHAR(50)  NOT NULL,
  category VARCHAR(50)  NOT NULL,
  start_date VARCHAR(50) NOT NULL,
- end_date VARCHAR(50) NOT NULL,
+ end_date VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE competition_related (
+ id SERIAL PRIMARY KEY NOT NULL,
+ competition_id INT NOT NULL,
  activitytype_id INT NOT NULL,
- FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
+ FOREIGN KEY(competition_id) REFERENCES competition(id),
+ FOREIGN KEY(activitytype_id) REFERENCES activitytype(id)
+
 );
 
 CREATE TABLE competition_record (
@@ -43,6 +51,14 @@ CREATE TABLE competition_record (
   competition_id INT NOT NULL,
   FOREIGN KEY(user_id) REFERENCES users(id),
   FOREIGN KEY(competition_id) REFERENCES competition(id)
+);
+
+CREATE TABLE favorites (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INT NOT NULL,
+  activitytype_id INT NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(id),
+  FOREIGN KEY(activitytype_id) REFERENCES activitytype(id)
 );
 
 CREATE TABLE exercise (
@@ -56,41 +72,37 @@ CREATE TABLE exercise (
    FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
 );
 
-CREATE TABLE exercise_favorites (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INT NOT NULL,
-  exercise_id INT NOT NULL,
-  FOREIGN KEY(user_id) REFERENCES users(id),
-  FOREIGN KEY(exercise_id) REFERENCES exercise(id)
-);
-
 CREATE TABLE food (
    id SERIAL PRIMARY KEY NOT NULL,
    name TEXT NOT NULL,
-   image TEXT NOT NULL,
-   dietLabels TEXT NOT NULL,
-   healthLabels TEXT NOT NULL,
+   image TEXT,
+   uri TEXT NOT NULL,
+   dietLabel TEXT NOT NULL,
+   healthLabel TEXT NOT NULL,
    url TEXT NOT NULL,
    calories TEXT NOT NULL,
    protein TEXT NOT NULL,
    fat TEXT NOT NULL,
    carbs TEXT NOT NULL,
    fiber TEXT NOT NULL,
+   ingredients TEXT NOT NULL,
    activitytype_id INT NOT NULL,
    FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
 );
 
-CREATE TABLE food_favorites (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INT NOT NULL,
-  food_id INT NOT NULL,
-  FOREIGN KEY(user_id) REFERENCES users(id),
-  FOREIGN KEY(food_id) REFERENCES food(id)
-);
 
 CREATE TABLE quotes (
   id SERIAL PRIMARY KEY NOT NULL,
   quote TEXT NOT NULL
+);
+
+CREATE TABLE friends (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INT NOT NULL,
+  friends_id INT NOT NULL,
+  status VARCHAR(65) NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(id),
+  FOREIGN KEY(friends_id) REFERENCES users(id)
 );
 
 -- CREATE INDEX ON ;

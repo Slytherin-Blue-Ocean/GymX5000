@@ -13,7 +13,7 @@ const filterActivities = (filter, allActivities) => {
 };
 
 const createKey = (activity) => {
-  return activity.reference_id + activity.name.slice(0, 5);
+  return activity.id + activity.activity.slice(0, 5);
 };
 
 const Activities = () => {

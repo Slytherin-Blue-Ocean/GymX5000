@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -9,7 +10,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { red, yellow } from '@mui/material/colors';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
@@ -35,12 +36,12 @@ const activityTags = {
   color: '#f8eeec'
 };
 
-const setIcon = (ActivityId) => {
-  switch (ActivityId) {
-  case 1:
+const setIcon = (activityType) => {
+  switch (activityType) {
+  case 'workout':
     return <FitnessCenterIcon />;
     break;
-  case 2:
+  case 'recipe':
     return <LocalDiningIcon />;
     break;
   default:
@@ -57,8 +58,16 @@ const formatTitle = (title) => {
 };
 
 const ActivityCard = function({activity}) {
-  const [favorated, setFavorated] = useState(false);
-  const title = formatTitle(activity.name);
+  const [favorited, setFavorated] = useState(activity.favorited);
+  const title = formatTitle(activity.activity);
+
+  const handleFavorited = (e) => {
+    axios.post(`http://localhost:3001/favorite?id=${activity.id}`)
+      .then((res) => undefined)
+      .catch((err) => console.error(err));
+
+    setFavorated(favorited ? 0 : activity.id);
+  };
 
   console.log(activity);
 
@@ -68,13 +77,13 @@ const ActivityCard = function({activity}) {
         style={activityTags}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label={activity.activity}>
-            {setIcon(activity.activity_id)}
+            {setIcon(activity.type)}
           </Avatar>
         }
         action={
           <CardActions disableSpacing>
-            <IconButton onClick={() => setFavorated(!favorated)} aria-label="add to favorites">
-              { !favorated ? <StarBorderIcon /> : <StarIcon /> }
+            <IconButton onClick={handleFavorited} aria-label="add to favorites">
+              { !favorited ? <StarBorderIcon sx={{color: '#aa9208'}} /> : <StarIcon sx={{color: '#aa9208'}} /> }
             </IconButton>
           </CardActions>
         }
@@ -89,7 +98,7 @@ const ActivityCard = function({activity}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          { fakeProps.tags.map((tag, index) => <span style={activityTags} key={index}>{`#${tag} `}</span>)}
+          { activity.tags ? activity.tags.map((tag, index) => <span style={activityTags} key={index}>{`#${tag} `}</span>) : null}
         </Typography>
       </CardContent>
     </Card>

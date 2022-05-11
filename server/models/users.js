@@ -28,8 +28,13 @@ const createUser = async(email, password, first_name, last_name, address) => {
   }
 };
 
+const getUser = async(req, res) => {
+
+};
+
 module.exports = {
   checkUserAlreadyExists,
   getUserPassword,
-  createUser
+  createUser,
+  getUser
 };

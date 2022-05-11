@@ -64,19 +64,20 @@ CREATE TABLE exercise_favorites (
 );
 
 CREATE TABLE food (
-   id SERIAL PRIMARY KEY NOT NULL,
-   name TEXT NOT NULL,
-   image TEXT NOT NULL,
-   dietLabels TEXT NOT NULL,
-   healthLabels TEXT NOT NULL,
-   url TEXT NOT NULL,
-   calories TEXT NOT NULL,
-   protein TEXT NOT NULL,
-   fat TEXT NOT NULL,
-   carbs TEXT NOT NULL,
-   fiber TEXT NOT NULL,
-   activitytype_id INT NOT NULL,
-   FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
+  id SERIAL PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  image TEXT NOT NULL,
+  dietLabels TEXT NOT NULL,
+  healthLabels TEXT NOT NULL,
+  url TEXT NOT NULL,
+  calories TEXT NOT NULL,
+  protein TEXT NOT NULL,
+  fat TEXT NOT NULL,
+  carbs TEXT NOT NULL,
+  fiber TEXT NOT NULL,
+  ingredients TEXT NOT NULL,
+  activitytype_id INT NOT NULL,
+  FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
 );
 
 CREATE TABLE food_favorites (
