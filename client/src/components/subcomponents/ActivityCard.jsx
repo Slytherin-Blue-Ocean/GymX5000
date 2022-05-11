@@ -65,7 +65,7 @@ const ActivityCard = function({activity}) {
 
   const handleFavorited = (e) => {
     axios.post('http://localhost:3001/api/v1/favorite', {id: activity.id}, { headers: {'Authorization': token}})
-      .then((res) => undefined)
+      .then((res) => console.log('poop'))
       .catch((err) => console.error(err));
 
     setFavorated(favorited ? 0 : activity.id);

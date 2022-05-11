@@ -24,14 +24,15 @@ const Activities = () => {
   const { token } = useAuth();
 
   const handleFilter = (e) => {
-    let filter = e.target.innerText;
-    let newActivities = filterActivities(filter, allActivities.current);
+    if (e.target.innerText === 'Clear') {
+      return getAll();
+    }
 
-    setCurrentFilter((filter === 'Weight-lifting') ? 'workout' : filter.toLowerCase());
+    let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
   };
 
-  useEffect(() => {
+  const getAll = () => {
     if (token) {
       axios.get('http://localhost:3001/api/v1/activities', {
         headers: {'Authorization': token}
@@ -42,7 +43,11 @@ const Activities = () => {
         })
         .catch((err) => console.error(err));
     }
-  }, [token]);
+  };
+
+  useEffect(() => {
+    getAll();
+  }, []);
 
   return (
     <div className="home">
@@ -50,7 +55,8 @@ const Activities = () => {
         <Quotes />
       </h1>
       <div className="search">
-        <Search handleFilter={handleFilter} currentFilter={currentFilter}/>
+        <Search handleFilter={handleFilter}/>
+        <input className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
