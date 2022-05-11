@@ -12,8 +12,9 @@ const NavBar = () => {
         <Navbar.Brand><Link className="nav-link" to="/">GymX5000</Link></Navbar.Brand>
         <Nav className="me-auto">
           <Link className="nav-link" to="/">Activities</Link>
+          <Link className="nav-link" to="/singleactivity">Single Activity Temp</Link>
           <Link className="nav-link" to="/challenges">Challenges</Link>
-          <Link className="nav-link" to="/singlechallenge">Test Page</Link>
+          <Link className="nav-link" to="/singlechallenge">Single Challenge Temp</Link>
           <Link className="nav-link" to="/test">Badge Test</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
         </Nav>
