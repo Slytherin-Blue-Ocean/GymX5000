@@ -4,19 +4,19 @@
 body {
   margin: 0;
   padding: 0;
-  height: 0;
-  width: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-family: 'Koulen' !important;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
-  background-attachment: fixed;
-  /* background-repeat: no-repeat; */
 }
 
 #root {
   height: 100vh;
   width: 100vw;
+  background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /*        BUTTONS       */
@@ -51,8 +51,10 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   width: 100vw;
   display: flex;
   flex-direction: column;
-  /* background-color: #626c71; */
   color: white;
+  background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .welcome {
@@ -82,7 +84,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   border-radius: 1rem;
   background-color: #555a64;
 }
-.card-container::-webkit-scrollbar {
+.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -156,11 +158,14 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 /*        CHALLENGES        */
 .chal {
+  color: white;
   height: 150vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background-color: #626c71;
+  background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .chal-sub {
@@ -221,9 +226,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: column;
   margin: 2rem;
   place-items: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
   overflow-y: scroll;
 }
 
@@ -233,10 +235,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   min-height: 20vh;
   max-height: 20vh;
   width: 95%;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
-  background-color: #adb3bd;
 }
 
 .chal-main {
@@ -255,6 +253,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   border-width: 1px;
   border-radius: 1rem;
   margin: 1rem;
+  background-color: #adb3bd;
+  background-image: url(https://www.limitlesswalls.com/cdn-cgi/image/width=900,quality=60/http://llw-magento-images-prod.s3.amazonaws.com/catalog/product/a/d/adobe-185400163.jpg);
 }
 
 .chal-body {
@@ -265,6 +265,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   border-width: 1px;
   border-radius: 1rem;
   margin: 1rem;
+  background-color: #adb3bd;
 }
 
 .chal-head {

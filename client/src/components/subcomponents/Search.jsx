@@ -4,10 +4,12 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Search = ({handleFilter}) => {
   return (
     <DropdownButton id="dropdown-basic-button" title="Filter">
+      <Dropdown.Item onClick={handleFilter}><ClearIcon />Clear</Dropdown.Item>
       <Dropdown.Item onClick={handleFilter}><FitnessCenterIcon />Weight-lifting</Dropdown.Item>
       <Dropdown.Item onClick={handleFilter}><LocalDiningIcon />Recipe</Dropdown.Item>
       <Dropdown.Item onClick={handleFilter}><SelfImprovementIcon />Yoga</Dropdown.Item>

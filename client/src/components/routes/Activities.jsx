@@ -21,17 +21,25 @@ const Activities = () => {
   const [activities, setActivities] = useState([]);
 
   const handleFilter = (e) => {
+    if (e.target.innerText === 'Clear') {
+      return getAll();
+    }
+    console.log(e.target.innerText)
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
   };
 
-  useEffect(() => {
+  const getAll = () => {
     axios.get('http://localhost:3001/activities')
       .then((res) => {
         allActivities.current = res.data;
         setActivities(res.data);
       })
       .catch((err) => console.error(err));
+  }
+
+  useEffect(() => {
+    getAll();
   }, []);
 
   return (
