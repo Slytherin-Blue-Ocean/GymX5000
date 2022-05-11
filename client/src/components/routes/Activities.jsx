@@ -32,6 +32,7 @@ const Activities = () => {
 
   const getAll = () => {
     if (token) {
+      console.log(token);
       axios.get('http://localhost:3001/api/v1/activities', {
         headers: {'Authorization': token}
       })

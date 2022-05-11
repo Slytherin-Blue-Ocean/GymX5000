@@ -7,6 +7,7 @@ module.exports = {
 
     model.getAllActivities(limit, page, (err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data.rows);
@@ -17,6 +18,7 @@ module.exports = {
   getallrecipes: (req, res) => {
     model.getallrecipes((err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data.rows);
@@ -27,6 +29,7 @@ module.exports = {
     let foodid = req.params.foodId;
     model.getrecipes(foodid, (err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data.rows);
@@ -36,6 +39,7 @@ module.exports = {
   getcompetitions: (req, res) => {
     model.getcompetitions((err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data);
@@ -45,6 +49,7 @@ module.exports = {
   getquotes: (req, res) => {
     model.getquotes((err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data.rows);
@@ -56,6 +61,7 @@ module.exports = {
     let userid = req.userId;
     model.getfavor(userid, (err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data.rows);
@@ -64,10 +70,12 @@ module.exports = {
   },
 
   postfavor: (req, res) => {
-    let activity_id = req.query.id;
+    let activity_id = req.body.id;
     let user_id = req.userId;
+
     model.postfavor(activity_id, user_id, (err, data) => {
       if (err) {
+        console.error(err);
         res.status(500).send(err);
       } else {
         res.status(200).send(data);
