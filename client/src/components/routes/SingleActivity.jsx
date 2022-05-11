@@ -32,15 +32,17 @@ const SingleActivity = ({ activity }) => {
     const [recipe, setRecipe] = useState(null);
 
     useEffect(() => {
-      axios.get(`http://localhost:3001/api/v1/recipes/${test['activity_id']}`, {
-        headers: {'Authorization': token} // add this for authentication
-      })
-        .then(({ data }) => {
-          currentId.current = test['activity_id'];
-          setRecipe(data[0]);
+      if (token) {
+        axios.get(`http://localhost:3001/api/v1/recipes/${test['activity_id']}`, {
+          headers: {'Authorization': token}
         })
-        .catch((err) => console.error(err));
-    }, [test['activity_id']]);
+          .then(({ data }) => {
+            currentId.current = test['activity_id'];
+            setRecipe(data[0]);
+          })
+          .catch((err) => console.error(err));
+      }
+    }, [token]);
 
     if (!recipe) {
       return null;
