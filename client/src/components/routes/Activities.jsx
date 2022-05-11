@@ -19,9 +19,13 @@ const createKey = (activity) => {
 const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
+  const [currentFilter, setCurrentFilter] = useState('default');
 
   const handleFilter = (e) => {
-    let newActivities = filterActivities(e.target.innerText, allActivities.current);
+    let filter = e.target.innerText;
+    let newActivities = filterActivities(filter, allActivities.current);
+
+    setCurrentFilter((filter === 'Weight-lifting') ? 'workout' : filter.toLowerCase());
     setActivities(newActivities);
   };
 
@@ -40,7 +44,7 @@ const Activities = () => {
         <Quotes />
       </h1>
       <div className="search">
-        <Search handleFilter={handleFilter}/>
+        <Search handleFilter={handleFilter} currentFilter={currentFilter}/>
       </div>
       <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
