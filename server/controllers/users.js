@@ -43,7 +43,6 @@ const signIn = async(req, res) => {
       return res.sendStatus(401).json({ msg: 'Unauthorized' });
     }
 
-    console.log(user.rows[0].id);
     const token = newToken(user.rows[0].id);
 
     return res.json({token});

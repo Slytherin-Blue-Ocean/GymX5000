@@ -22,7 +22,7 @@ const verifyToken = token =>
 const midCheckAuth = async(req, res, next) => {
   const {authorization} = req.headers;
   if (!authorization) {
-    return res.sendStatus(401).json({ msg: 'Authorization Denied' });
+    return res.sendStatus(401);
   }
 
   try {
@@ -30,7 +30,8 @@ const midCheckAuth = async(req, res, next) => {
     req.userId = verify.id;
     next();
   } catch (err) {
-    res.status(401).json({ msg: 'Token is not valid' });
+    console.log('VERIFY', err);
+    res.sendStatus(401);
   }
 };
 

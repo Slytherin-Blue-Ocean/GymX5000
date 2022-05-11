@@ -9,14 +9,10 @@ export const AuthProvider = ({children}) => {
   const checkIfToken = () =>{
     const curToken = localStorage.getItem('token');
     if (curToken) {
-      setToken(curToken);
       setIsAuth(true);
+      setToken(curToken);
     }
   };
-
-  useEffect(()=>{
-    checkIfToken();
-  }, []);
 
   const login = curToken => {
     setToken(curToken);
@@ -29,6 +25,10 @@ export const AuthProvider = ({children}) => {
     setIsAuth(false);
     setToken('');
   };
+
+  useEffect(()=>{
+    checkIfToken();
+  }, []);
 
   const value = {
     isAuth,

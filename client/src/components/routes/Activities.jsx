@@ -21,22 +21,24 @@ const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
   const { token } = useAuth();
-
+  console.log(token);
   const handleFilter = (e) => {
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/activities', {
-      headers: {'Authorization': token}
-    })
-      .then((res) => {
-        allActivities.current = res.data;
-        setActivities(res.data);
+    if (token) {
+      axios.get('http://localhost:3001/api/v1/activities', {
+        headers: {'Authorization': token}
       })
-      .catch((err) => console.error(err));
-  }, []);
+        .then((res) => {
+          allActivities.current = res.data;
+          setActivities(res.data);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [token]);
 
   return (
     <div className="home">
