@@ -16,6 +16,8 @@ router.get('/competition', activity.getcompetitions);
 
 router.get('/quotes', activity.getquotes);
 
+router.get('/favorite', activity.getfavor);
+
 router.post('/favorite', activity.postfavor);
 
 router.get('/workout', exercise.getallworkout);
