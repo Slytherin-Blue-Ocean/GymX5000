@@ -5,7 +5,11 @@ const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const { midCheckAuth } = require('./utils/auth');
-const controller = require('./controllers/controllers');
+
+//be changed after the route setting?
+const exercise = require('./controllers/exercise');
+const activity = require('./controllers/activity');
+
 const { authRouter } = require('./routes/auth-routes');
 
 const app = express();
@@ -22,54 +26,37 @@ app.use('/api', authRouter);
 //-------------------routes here
 //---------get
 app.get('/activities', (req, res) => {
-  // pass req.query to controller
-  controller.getAllActivities(req, res);
+  activity.getAllActivities(req, res);
 });
 
 app.get('/recipes', (req, res) => {
-  // pass req.query to controller
-  controller.getallrecipes(req, res);
+  activity.getallrecipes(req, res);
 });
 
 app.get('/recipes/:foodId', (req, res) => {
-  // pass req.query to controller
-  controller.getrecipes(req, res);
+  activity.getrecipes(req, res);
 });
 
 app.get('/workout', (req, res) => {
-  // pass req.query to controller
-  controller.getallworkout(req, res);
+  exercise.getallworkout(req, res);
 });
 
 app.get('/workout/:workoutId', (req, res) => {
-  // pass req.query to controller
-  controller.getworkout(req, res);
+  exercise.getworkout(req, res);
 });
 
 app.get('/competition', (req, res) => {
-  // pass req.query to controller
-  controller.getcompetitions(req, res);
+  activity.getcompetitions(req, res);
 });
 
 app.get('/quotes', (req, res) => {
-  // pass req.query to controller
-  controller.getquotes(req, res);
+  activity.getquotes(req, res);
 });
 
-app.get('/foodfavorite/:userid', (req, res) => {
-  // pass req.query to controller
-  controller.getfoodfavor(req, res);
-});
-
-app.get('/workoutfavorite/:userid', (req, res) => {
-  // pass req.query to controller
-  controller.getworkoutfavor(req, res);
-});
 
 //------post
 app.post('/favorite', (req, res) => {
-  // pass req.query to controller
-  controller.postfavor(req, res);
+  activity.postfavor(req, res);
 });
 
 app.listen(port, () => {

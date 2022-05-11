@@ -1,13 +1,15 @@
 import React from 'react';
 import { Navbar, NavDropdown, Container, FormControl, Form, Nav, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {useAuth} from './context/Auth.jsx';
 
+const NavBar = () => {
+  const { logout } = useAuth();
 
-const NavBar = ({logout}) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">GymX5000</Navbar.Brand>
+        <Navbar.Brand><Link className="nav-link" to="/">GymX5000</Link></Navbar.Brand>
         <Nav className="me-auto">
           <Link className="nav-link" to="/">Activities</Link>
           <Link className="nav-link" to="/challenges">Challenges</Link>
@@ -15,7 +17,7 @@ const NavBar = ({logout}) => {
           <Link className="nav-link" to="/test">Badge Test</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
         </Nav>
-        <Button onClick={logout} >Log out</Button>
+        <Button onClick={logout}>Log out</Button>
       </Container>
     </Navbar>
   );

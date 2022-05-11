@@ -1,8 +1,8 @@
-const model = require('../models/model');
+const model = require('../models/activity');
 
 module.exports = {
   getAllActivities: (req, res) => {
-    let limit = req.query.limit || 100;
+    let limit = req.query.limit || 80;
     let page = req.query.page || 1;
 
     model.getAllActivities(limit, page, (err, data) => {
@@ -13,6 +13,7 @@ module.exports = {
       }
     });
   },
+
   getallrecipes: (req, res) => {
     model.getallrecipes((err, data) => {
       if (err) {
@@ -25,25 +26,6 @@ module.exports = {
   getrecipes: (req, res) => {
     let foodid = req.params.foodId;
     model.getrecipes(foodid, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getallworkout: (req, res) => {
-    model.getallworkout((err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-  getworkout: (req, res) => {
-    let workoutid = req.params.workoutId;
-    model.getworkout(workoutid, (err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -70,20 +52,9 @@ module.exports = {
     });
   },
 
-  getfoodfavor: (req, res) => {
+  getfavor: (req, res) => {
     let userid = req.params.userid;
-    model.getfoodfavor(userid, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(data.rows);
-      }
-    });
-  },
-
-  getworkoutfavor: (req, res) => {
-    let userid = req.params.userid;
-    model.getworkoutfavor(userid, (err, data) => {
+    model.getfavor(userid, (err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -93,25 +64,15 @@ module.exports = {
   },
 
   postfavor: (req, res) => {
-    let typeid = req.query.typeid;
-    let referenceid = req.query.referenceid;
-    let userid = req.query.userid;
-    if (typeid === '1') {
-      model.postfavorworkout(referenceid, userid, (err, data) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.status(200).send(data);
-        }
-      });
-    } else {
-      model.postfavorrecipe(referenceid, userid, (err, data) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.status(200).send(data);
-        }
-      });
-    }
+    let activity_id = req.query.id;
+    let user_id = req.query.userid;
+    model.postfavor(activity_id, user_id, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
   },
 };
+
