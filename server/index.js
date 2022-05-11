@@ -11,6 +11,7 @@ const exercise = require('./controllers/exercise');
 const activity = require('./controllers/activity');
 
 const { authRouter } = require('./routes/auth-routes');
+const { router } = require('./routes/routes');
 
 const app = express();
 app.use(cors());
@@ -22,7 +23,7 @@ app.use('/api/v1', midCheckAuth);
 const port = process.env.PORT || 3001;
 
 app.use('/api', authRouter);
-
+app.use('/api/v1', router);
 //-------------------routes here
 //---------get
 app.get('/activities', (req, res) => {

@@ -3,10 +3,21 @@ const bcrypt = require('bcrypt');
 
 require('dotenv').config();
 
-const newToken = user =>
-  jwt.sign({id: user.id}, process.env.JWT, {expiresIn: process.env.JWT_EX});
+const newToken = id => {
+  return jwt.sign({id: `${id}`}, process.env.JWT, {expiresIn: process.env.JWT_EX});
+};
 
 const checkPassword = (password, hash) => bcrypt.compare(password, hash);
+
+const verifyToken = token =>
+  new Promise((resolve, reject) => {
+    jwt.verify(token, process.env.JWT, (err, payload) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(payload);
+    });
+  });
 
 const midCheckAuth = async(req, res, next) => {
   const {authorization} = req.headers;
@@ -15,10 +26,8 @@ const midCheckAuth = async(req, res, next) => {
   }
 
   try {
-    console.log(authorization);
-    const verify = jwt.verify(authorization, process.env.JWT);
-
-    req.user = verify.user;
+    const verify = await verifyToken(authorization);
+    req.userId = verify.id;
     next();
   } catch (err) {
     res.status(401).json({ msg: 'Token is not valid' });

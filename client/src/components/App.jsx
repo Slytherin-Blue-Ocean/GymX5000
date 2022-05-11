@@ -11,8 +11,10 @@ import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
 import PrivateRoute from './routes/Private.jsx';
 import { AuthProvider } from './context/Auth.jsx';
+import axios from 'axios';
 
 const App = () => {
+
   return (
     <AuthProvider>
       <Router>
