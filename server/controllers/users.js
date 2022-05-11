@@ -54,7 +54,6 @@ const signIn = async(req, res) => {
 };
 
 const getUser = async(req, res) => {
-  res.json(req.user);
   // try {
   //   const user = await getUserById(req.params.id);
 
