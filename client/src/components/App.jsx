@@ -23,6 +23,11 @@ const App = () => {
             <Activities/>
           </PrivateRoute>
         } />
+        <Route path='/singleactivity' element={
+          <PrivateRoute>
+            <SingleActivity/>
+          </PrivateRoute>
+        } />
         <Route path='/profile' element={
           <PrivateRoute>
             <Profile />
