@@ -68,7 +68,6 @@ const getfavor = (req, res) => {
 const postfavor = (req, res) => {
   let activity_id = req.query.id;
   let user_id = req.userId;
-  console.log('controller' , user_id);
   model.postfavor(activity_id, user_id, (err, data) => {
     if (err) {
       res.status(500).send(err);
