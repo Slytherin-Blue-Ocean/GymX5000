@@ -70,7 +70,6 @@ const postfavor = (activity_id, user_id, callback) => {
     .catch((err) => callback(err));
 };
 
-
 module.exports = {
   getAllActivities,
   getallrecipes,

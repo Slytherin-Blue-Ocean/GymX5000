@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import NavBar from './NavBar.jsx';
 import Footer from './Footer.jsx';
 import Activities from './routes/Activities.jsx';
@@ -11,45 +11,43 @@ import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
 import SingleActivity from './routes/SingleActivity.jsx';
 import PrivateRoute from './routes/Private.jsx';
-import { AuthProvider } from './context/Auth.jsx';
 
 const App = () => {
+
   return (
-    <AuthProvider>
-      <Router>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={
-            <PrivateRoute>
-              <Activities/>
-            </PrivateRoute>
-          } />
-          <Route path='/singleactivity' element={
-            <PrivateRoute>
-              <SingleActivity/>
-            </PrivateRoute>
-          } />
-          <Route path='/profile' element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }/>
-          <Route path='/challenges' element={
-            <PrivateRoute>
-              <Challenges />
-            </PrivateRoute>
-          }/>
-          <Route path='/singlechallenge' element={
-            <PrivateRoute>
-              <SingleChallenge />
-            </PrivateRoute>
-          }/>
-          <Route path='/login' element={<Login/>} />
-          <Route path='/register' element={<Register/>} />
-        </Routes>
-        <Footer />
-      </Router>
-    </AuthProvider>
+    <Router>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={
+          <PrivateRoute>
+            <Activities/>
+          </PrivateRoute>
+        } />
+        <Route path='/singleactivity' element={
+          <PrivateRoute>
+            <SingleActivity/>
+          </PrivateRoute>
+        } />
+        <Route path='/profile' element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        }/>
+        <Route path='/challenges' element={
+          <PrivateRoute>
+            <Challenges />
+          </PrivateRoute>
+        }/>
+        <Route path='/singlechallenge' element={
+          <PrivateRoute>
+            <SingleChallenge />
+          </PrivateRoute>
+        }/>
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 
