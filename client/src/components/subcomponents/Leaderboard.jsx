@@ -9,8 +9,8 @@ const Leaderboard = () => {
           <th>#</th>
           <th>Name</th>
           <th>Recent Activity</th>
-          <th>Total Points</th>
-          <th>Weekly Points</th>
+          <th>Total Badges</th>
+          <th>Badges This Month</th>
         </tr>
       </thead>
       <tbody>
@@ -18,22 +18,22 @@ const Leaderboard = () => {
           <td>1</td>
           <td>The Arnold</td>
           <td>Meat Smoothie</td>
-          <td>9001</td>
-          <td>808</td>
+          <td>110</td>
+          <td>8</td>
         </tr>
         <tr>
           <td>2</td>
           <td>Chad</td>
           <td>Gym Selfie</td>
-          <td>653</td>
-          <td>222</td>
+          <td>6</td>
+          <td>2</td>
         </tr>
         <tr>
           <td>3</td>
           <td>Ben</td>
           <td>Bench And Leave</td>
-          <td>46</td>
-          <td>8</td>
+          <td>3</td>
+          <td>1</td>
         </tr>
       </tbody>
     </Table>

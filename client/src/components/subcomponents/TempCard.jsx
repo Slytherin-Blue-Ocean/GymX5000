@@ -5,7 +5,6 @@ const TempCard = () => {
   return (
     <div className="temp-card">
       <div>Temp Activity Card</div>
-      <ActivityModal />
     </div>
   );
 };
