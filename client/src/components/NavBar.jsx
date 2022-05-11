@@ -12,6 +12,7 @@ const NavBar = ({logout}) => {
           <Link className="nav-link" to="/">Activities</Link>
           <Link className="nav-link" to="/challenges">Challenges</Link>
           <Link className="nav-link" to="/singlechallenge">Test Page</Link>
+          <Link className="nav-link" to="/test">Badge Test</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
         </Nav>
         <Button onClick={logout} >Log out</Button>

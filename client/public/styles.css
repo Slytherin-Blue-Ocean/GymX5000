@@ -149,7 +149,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   place-self: center;
   display: flex;
   flex-direction: row;
-  height: 50vh;
+  height: 60vh;
   width: 83vw;
   margin-top: 2rem;
 }
@@ -159,40 +159,36 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   border-radius: 1rem;
   border-width: 1px;
   margin: 1vw;
-  max-height: 40vh;
-  min-height: 40vh;
+  max-height: 50vh;
+  min-height: 50vh;
   background-color: #adb3bd;
 }
 
 .badge-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
   border-style: solid;
   border-radius: 1rem;
   border-width: 1px;
   margin: 1vw;
-  max-height: 40vh;
-  min-height: 40vh;
+  max-height: 50vh;
+  min-height: 50vh;
   place-items: center;
   background-color: #adb3bd;
 }
 
-.badge-inner {
-  display: flex;
-  border-style: solid;
-  border-radius: 1rem;
-  border-width: 1px;
-  height: 80%;
-  width: 90%;
-  place-content: center;
+.single-badge {
+  flex: 1;
+  width: 30%;
 }
 
 .table {
   margin: 1vw;
   overflow-y: scroll;
-  max-width: 30vw;
-  max-height: 40vh;
-  min-height: 40vh;
+  max-height: 50vh;
+  min-height: 50vh;
 }
 
 .chal-container {

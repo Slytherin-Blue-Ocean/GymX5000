@@ -9,6 +9,7 @@ import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
+import TestBadge from './threejs/TestBadge.js';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/profile' element={isAuthenticated ? <Profile /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/challenges' element={isAuthenticated ? <Challenges /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/singlechallenge' element={isAuthenticated ? <SingleChallenge /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
+        <Route path='/test' element={isAuthenticated ? <TestBadge /> : <Login setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path='/register' element={<Register setIsAuthenticated={setIsAuthenticated}/>} />
       </Routes>
