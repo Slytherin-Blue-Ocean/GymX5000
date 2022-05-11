@@ -9,6 +9,7 @@ import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
+import SingleActivity from './routes/SingleActivity.jsx';
 import PrivateRoute from './routes/Private.jsx';
 
 const App = () => {
