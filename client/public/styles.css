@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
 
+.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -20,7 +23,7 @@ body {
 }
 
 /*        BUTTONS       */
-button, .btn, .btn-primary {
+.btn, .btn-primary {
   color: black !important;
   border-color: #7c7c7c !important;
   border-radius: .25rem !important;
@@ -32,6 +35,10 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
     hsl(0,0%,90%) 47%,
     hsl(0,0%,78%) 53%,
     hsl(0,0%,70%)100%);
+}
+
+.btn-primary {
+  height: 100%;
 }
 
 /*        FOOTER        */
@@ -67,6 +74,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   margin-bottom: .5vh;
   place-self: center;
   width: 70vw;
+  display: flex;
+  height: 5vh;
 }
 
 .card-container {
@@ -79,13 +88,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* border-style: solid;
-  border-width: 1px; */
   border-radius: 1rem;
   background-color: #555a64;
-}
-.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar {
-  display: none;
 }
 
 .card  {
@@ -338,11 +342,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: column;
   place-items: center;
   place-self: center;
-  border-style: solid;
-  border-radius: 1rem;
-  border-width: 1px;
-  height: 50vh;
-  width: 50vw;
+  height: fit-content;
+  width: fit-content;
 }
 
 .act-img {
@@ -369,7 +370,10 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   border-style: solid;
   border-radius: 1rem;
   border-width: 1px;
+  border-color: #1c1c1c;
   background-color: #555a64;
-  height: 75vh;
-  width: 50vw;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 1rem;
 }

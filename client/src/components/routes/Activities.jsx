@@ -31,12 +31,16 @@ const Activities = () => {
   };
 
   const getAll = () => {
-    axios.get('http://localhost:3001/api/v1/activities')
-      .then((res) => {
-        allActivities.current = res.data;
-        setActivities(res.data);
+    if (token) {
+      axios.get('http://localhost:3001/api/v1/activities', {
+        headers: {'Authorization': token}
       })
-      .catch((err) => console.error(err));
+        .then((res) => {
+          allActivities.current = res.data;
+          setActivities(res.data);
+        })
+        .catch((err) => console.error(err));
+    }
   }
 
   useEffect(() => {
@@ -50,6 +54,7 @@ const Activities = () => {
       </h1>
       <div className="search">
         <Search handleFilter={handleFilter}/>
+        <input  className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
