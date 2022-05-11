@@ -20,7 +20,16 @@ const getAllActivities = (limit, page, callback) => {
         INNER JOIN activitytype as C ON C.id = A.activitytype_id
         AND C.id = A.activitytype_id
         group by C.id, A.id OFFSET ${page - 1} limit ${limit / 2}
-      );
+      )
+      UNION
+	  (
+        SELECT C.id, C.name As type, S.id As activity_id, S.name AS activity, S.image AS thumbnail_url,
+        ARRAY[S.category] as tags,
+        coalesce((select f.activitytype_id from favorites AS f WHERE S.activitytype_id = f.activitytype_id),  0) AS favorited
+        FROM classes as S
+        INNER JOIN activitytype as C ON C.id = S.activitytype_id
+        group by C.id, S.id OFFSET ${page - 1} limit ${limit / 2}
+      )
     `)
     .then((res) => callback(null, res))
     .catch((err) => callback(err));
