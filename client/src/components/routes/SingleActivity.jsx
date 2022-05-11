@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TempCard from '../subcomponents/TempCard.jsx';
 import styled from 'styled-components';
+// import ActivityCard from '../subcomponents/ActivityCard.jsx';
 const axios = require('axios');
-// add this for authentication
 import {useAuth} from '../context/Auth.jsx';
 
 const Divider = styled.div`
@@ -22,7 +22,6 @@ var test = {
 };
 
 const SingleActivity = ({ activity }) => {
-  // add this for authentication
   const { token } = useAuth();
 
   let name, image, tags, body, related;
@@ -75,11 +74,10 @@ const SingleActivity = ({ activity }) => {
     <div className="home">
       <h1 className="welcome">{name}</h1>
       <div className="act-cont">
-        <div className="act-img">{image}</div>
-        <div className="act-tags">Tags: {tags}</div>
+        {image}
       </div>
-      <div className="description">Description: {body}</div>
-      <h4 className="welcome">Try these similar activities</h4>
+      <div className="description">{body}</div>
+      <h4 className="welcome">Similar Activities to Try</h4>
       <div className="card-container">
         <TempCard />
         <TempCard />
