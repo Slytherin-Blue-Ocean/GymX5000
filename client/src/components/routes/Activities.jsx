@@ -31,7 +31,7 @@ const Activities = () => {
   };
 
   const getAll = () => {
-    axios.get('http://localhost:3001/activities')
+    axios.get('http://localhost:3001/api/v1/activities')
       .then((res) => {
         allActivities.current = res.data;
         setActivities(res.data);
