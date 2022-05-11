@@ -4,6 +4,7 @@ import axios from 'axios';
 import UserImg from '../subcomponents/UserImg.jsx';
 import Leaderboard from '../subcomponents/Leaderboard.jsx';
 import TempCard from '../subcomponents/TempCard.jsx';
+import FavoritesList from '../subcomponents/FavoritesList.jsx';
 import ActivityCard from '../subcomponents/ActivityCard.jsx';
 
 const cardContainerStyle = {
@@ -14,7 +15,7 @@ const Profile = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/activities`)
+    axios.get('http://localhost:3001/activities')
       .then((res) => setActivities(res.data))
       .catch(((err) => console.error(err)));
   }, []);
@@ -28,7 +29,7 @@ const Profile = () => {
       </div>
       <h2 className="welcome">Arnold's Activities</h2>
       <div className="card-container">
-        { activities.length ? activities.map((activity) => <ActivityCard key={activity.id} activity={activity} />) : null}
+        <FavoritesList />
       </div>
     </div>
   );

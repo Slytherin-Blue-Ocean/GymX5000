@@ -1,5 +1,10 @@
 
-const { checkUserAlreadyExists, createUser, getUserPassword } = require('../models/users.js');
+const {
+  checkUserAlreadyExists,
+  createUser,
+  getUserPassword,
+  getUserById
+} = require('../models/users.js');
 const { newToken, checkPassword } = require('../utils/auth');
 
 const signUp = async(req, res) => {
@@ -32,7 +37,6 @@ const signIn = async(req, res) => {
     if (user.rows.length === 0) {
       return res.sendStatus(401).json({ msg: 'Unauthorized' });
     }
-
     const check = await checkPassword(password, user.rows[0].password);
 
     if (!check) {
@@ -48,7 +52,19 @@ const signIn = async(req, res) => {
   }
 };
 
+const getUser = async(req, res) => {
+  const id = req?.query?.id || req.userId;
+  try {
+    const user = await getUserById(id);
+    res.json(user);
+  } catch (err) {
+    console.log('GET_USER_CON', err);
+    res.sendStatus(400);
+  }
+};
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  getUser
 };

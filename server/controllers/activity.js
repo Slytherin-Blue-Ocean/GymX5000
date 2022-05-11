@@ -53,7 +53,7 @@ module.exports = {
   },
 
   getfavor: (req, res) => {
-    let userid = req.params.userid;
+    let userid = req.userId;
     model.getfavor(userid, (err, data) => {
       if (err) {
         res.status(500).send(err);
@@ -64,8 +64,8 @@ module.exports = {
   },
 
   postfavor: (req, res) => {
-    let activity_id = req.query.id;
-    let user_id = req.query.userid;
+    let activity_id = req.body.id;
+    let user_id = req.userId;
     model.postfavor(activity_id, user_id, (err, data) => {
       if (err) {
         res.status(500).send(err);
