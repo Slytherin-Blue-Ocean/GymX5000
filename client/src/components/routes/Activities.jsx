@@ -6,6 +6,7 @@ import TempCard from '../subcomponents/TempCard.jsx';
 import UserImg from '../subcomponents/UserImg.jsx';
 import ActivityCard from '../subcomponents/ActivityCard.jsx';
 import Quotes from '../subcomponents/Quotes.jsx';
+import {useAuth} from '../context/Auth.jsx';
 
 const filterActivities = (filter, allActivities) => {
   let activityType = (filter === 'Weight-lifting') ? 'workout' : filter.toLowerCase();
@@ -19,20 +20,25 @@ const createKey = (activity) => {
 const Activities = () => {
   const allActivities = useRef([]);
   const [activities, setActivities] = useState([]);
-
+  const { token } = useAuth();
+  console.log(token);
   const handleFilter = (e) => {
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3001/activities')
-      .then((res) => {
-        allActivities.current = res.data;
-        setActivities(res.data);
+    if (token) {
+      axios.get('http://localhost:3001/api/v1/activities', {
+        headers: {'Authorization': token}
       })
-      .catch((err) => console.error(err));
-  }, []);
+        .then((res) => {
+          allActivities.current = res.data;
+          setActivities(res.data);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [token]);
 
   return (
     <div className="home">
