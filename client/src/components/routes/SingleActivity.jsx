@@ -7,16 +7,16 @@ const Divider = styled.div`
   padding: 2em 0;
 `;
 var test = {
-  "id": 1362,
-  "type": "recipe",
-  "activity_id": 40,
-  "activity": "Salt-Crusted Beets with Horseradish Crème Fraîche",
-  "thumbnail_url": "http://s3.amazonaws.com/foodpair-2/images/624644/large/241354.jpg?1310569326",
-  "tags": [
-    "low-fat",
-    "paleo"
+  'id': 1362,
+  'type': 'recipe',
+  'activity_id': 40,
+  'activity': 'Salt-Crusted Beets with Horseradish Crème Fraîche',
+  'thumbnail_url': 'http://s3.amazonaws.com/foodpair-2/images/624644/large/241354.jpg?1310569326',
+  'tags': [
+    'low-fat',
+    'paleo'
   ],
-  "favorited": 0
+  'favorited': 0
 };
 
 const SingleActivity = ({ activity }) => {
