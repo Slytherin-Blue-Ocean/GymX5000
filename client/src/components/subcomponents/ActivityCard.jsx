@@ -15,6 +15,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import {useAuth} from '../context/Auth.jsx';
 
 const fakeProps = {
@@ -45,6 +46,8 @@ const setIcon = (activityType) => {
   case 'recipe':
     return <LocalDiningIcon />;
     break;
+  case 'class':
+    return <SelfImprovementIcon />;
   default:
     return '?';
   }
