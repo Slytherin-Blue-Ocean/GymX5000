@@ -37,8 +37,6 @@ const formatTitle = (title) => {
 
 const ClassCard = ({activity}) => {
   const { token } = useAuth();
-  console.log('ac', activity);
-  console.log('t',token);
   const title = formatTitle(activity.activity);
 
   const bookclass = (e) => {
