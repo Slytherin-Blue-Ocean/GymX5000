@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import { Carousel } from 'react-responsive-carousel';
-import './carousel.min.css';
+import '../../../public/carousel.min.css';
 
 import ClassList from '../subcomponents/ClassList.jsx';
 import ClassCard from '../subcomponents/ClassCard.jsx';
