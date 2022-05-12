@@ -1,5 +1,4 @@
 import React from 'react';
-import ActivityModal from './ActivityModal.jsx';
 
 const TempCard = () => {
   return (

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
 
-.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar {
+.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar, .badge-container::-webkit-scrollbar{
   display: none;
 }
 
@@ -15,9 +15,24 @@ body {
 }
 
 #root {
+  height: 100%;
   width: 100vw;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
   background-attachment: fixed;
+}
+
+.login {
+  height: 75vh;
+  display: flex;
+  place-items: center;
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  width: fit-content !important;
+}
+
+.css-rtau61 {
+  width: 35vw;
 }
 
 /*        BUTTONS       */
@@ -41,14 +56,37 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 /*        FOOTER        */
 .footer {
+  color: white;
   height: 20vh;
-  width: 100vw;
-  border-style: solid;
-  border-width: .5px;
+  width: 100%;
   display: flex;
   place-items: center;
   place-content: center;
-  background-color: #adb3bd;
+  background-color: rgb(33, 37, 41);
+}
+
+.footer-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-align: center;
+}
+.footer-inner-1 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-align: center;
+}
+
+.footer-main {
+  display: flex;
+  place-content: center;
+}
+
+.footer-content {
+  flex: 1;
 }
 
 /*        EXPLORE        */
@@ -86,8 +124,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 1rem;
-  background-color: #555a64;
 }
 
 .card  {
@@ -147,12 +183,37 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .profile-top {
   display: flex;
   margin: 2rem;
+  place-items: center;
 }
 
-/* .table {
-  width: 15vw !important;
-  height: 100% !important;
-} */
+.profile-card {
+  color: black;
+  height: fit-content;
+}
+
+.profile-sub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  place-items: center;
+  place-content: center;
+}
+
+.profile-badge {
+  flex: 1;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  background-color: #555a64;
+  height: fit-content;
+}
 
 .follow {
   flex: 1;
@@ -173,6 +234,13 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex: 1;
   text-align: center;
 }
+.chal-badges {
+  display: flex;
+  flex-direction: column;
+  flex: 2.5;
+  text-align: center;
+  place-content: center;
+}
 
 .chal-top {
   place-self: center;
@@ -185,46 +253,43 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .blurb {
   border-style: solid;
-  border-radius: 1rem;
   border-width: 1px;
   margin: 1vw;
-  max-height: 50vh;
-  min-height: 50vh;
-  background-color: #adb3bd;
+  height: fit-content;
+  background-color: black;
 }
 
 .badge-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: auto;
   border-style: solid;
-  border-radius: 1rem;
   border-width: 1px;
-  margin: 1vw;
-  max-height: 50vh;
-  min-height: 50vh;
-  place-items: center;
-  background-color: #adb3bd;
+  border-color: black;
+  background-color: black;
+  overflow: auto;
 }
 
 .single-badge {
-  flex: 1;
-  width: 30%;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0mDnYSlZWcZ6vg8XdctIrKXxuS5g01F0Kg&usqp=CAU);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 240px;
+  width: 173px;
 }
 
 .table {
+  flex: 1;
   margin: 1vw;
   overflow-y: scroll;
-  max-height: 50vh;
-  min-height: 50vh;
+  height: 100%;
 }
 
 .chal-container {
   place-self: center;
-  width: 80vw;
+  width: 60vw;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin: 2rem;
   place-items: center;
   overflow-y: scroll;
@@ -232,30 +297,22 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-card {
   display: flex;
+  flex-direction: column;
   margin: 1rem;
-  min-height: 20vh;
-  max-height: 20vh;
-  width: 95%;
-}
-
-.chal-main {
-  display: flex;
+  height: fit-content;
+  width: 47%;
   border-style: solid;
   border-width: 1px;
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
+  border-color: black;
+  background-color: black;
 }
 
 .prize {
-  flex: 1;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
-  margin: 1rem;
-  background-color: #adb3bd;
-  background-image: url(https://www.limitlesswalls.com/cdn-cgi/image/width=900,quality=60/http://llw-magento-images-prod.s3.amazonaws.com/catalog/product/a/d/adobe-185400163.jpg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0mDnYSlZWcZ6vg8XdctIrKXxuS5g01F0Kg&usqp=CAU);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 240px;
+  width: 173px;
 }
 
 .chal-body {
@@ -271,27 +328,23 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-head {
   display: flex;
-  flex: 1;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
-  margin: .5rem;
+  place-items: center;
 }
 
 .chal-name {
-  flex: 1;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
+  padding-top: .5rem;
+  background-color: #555a64;
+}
+.chal-footer {
+  text-align: center;
+  background-color: #555a64;
+  margin-bottom: 0;
 }
 
 .chal-desc {
-  flex: 4;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
+  margin: 1rem;
 }
 
 /*        SINGLE CHALLENGE PAGE       */
@@ -302,9 +355,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   margin: 2rem;
   width: 80vw;
   height: 40vh;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
 }
 
 .chal-mid-sub {
@@ -353,12 +403,17 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 }
 
 .act-tags {
-  flex: 1;
+  margin-top: 2rem;
+  place-self: center;
   border-style: solid;
   border-radius: 1rem;
   border-width: 1px;
-  background-color: #1c1c1c;
-  width: 100%;
+  border-color: #1c1c1c;
+  background-color: #555a64;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 1rem;
 }
 
 .description {
