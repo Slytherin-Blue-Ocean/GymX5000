@@ -31,15 +31,17 @@ const SingleActivity = ({ activity }) => {
     const [recipe, setRecipe] = useState(null);
 
     useEffect(() => {
-      axios.get(`http://localhost:3001/api/v1/recipes/${test['activity_id']}`, {
-        headers: {'Authorization': token}
-      })
-        .then(({ data }) => {
-          currentId.current = test['activity_id'];
-          setRecipe(data[0]);
+      if (token) {
+        axios.get(`http://localhost:3001/api/v1/recipes/${test['activity_id']}`, {
+          headers: {'Authorization': token}
         })
-        .catch((err) => console.error(err));
-    }, [test['activity_id']]);
+          .then(({ data }) => {
+            currentId.current = test['activity_id'];
+            setRecipe(data[0]);
+          })
+          .catch((err) => console.error(err));
+      }
+    }, [token]);
 
     if (!recipe) {
       return null;
@@ -52,20 +54,25 @@ const SingleActivity = ({ activity }) => {
     image = <img src={recipe.image} alt={recipe.name} />;
     tags = `${recipe.dietlabel}, ${recipe.healthlabel}`;
     body = (
-      <>
-        <Divider>
+      <div style={{ display: 'flex', direction: 'row', gap: '20%' }}>
+        <div>
           <div>Calories: {recipe.calories} kCal for whole meal</div>
-        </Divider>
-        <div>{recipe.fat}</div>
-        <div>{recipe.carbs}</div>
-        <div>{recipe.protein}</div>
-        <div>{recipe.fiber}</div>
-        <Divider>
+          <Divider>
+            <div>Nutrition</div>
+            <div>{recipe.fat}</div>
+            <div>{recipe.carbs}</div>
+            <div>{recipe.protein}</div>
+            <div>{recipe.fiber}</div>
+          </Divider>
+        </div>
+        <div>
           <div>Here's what you need:</div>
           <div>{ingredients}</div>
-        </Divider>
-        <div>For instructions, <a href={recipe.url}>click here!</a></div>
-      </>
+          <Divider>
+            <div>For instructions, <a href={recipe.url}>click here!</a></div>
+          </Divider>
+        </div>
+      </div>
     );
   }
   return (
