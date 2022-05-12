@@ -129,6 +129,13 @@ const getclasshistory = (userid, callback) => {
     .catch((err) => callback(err));
 };
 
+const getclass = (classid, callback) => {
+  pool.query(`select c.id, c.name, c.image, c.start_date, end_date, category
+  from classes as c where c.id = ${classid}`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
 const getfavoriteclass = (userid, callback) => {
   pool.query(`SELECT C.id, C.name As type, S.id As activity_id, S.name AS activity, S.image AS thumbnail_url,
   ARRAY[S.category] as tags, coalesce((select DISTINCT(cr.class_id) from classes_record AS cr  WHERE cr.class_id = S.id and cr.user_id=${userid}),  0) AS favorited
@@ -168,5 +175,6 @@ module.exports = {
   getfavoriteclass,
   getallclass,
   cancelclass,
-  bookclass
+  bookclass,
+  getclass
 };

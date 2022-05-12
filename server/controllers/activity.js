@@ -75,6 +75,16 @@ const getallclass = (req, res) => {
   });
 };
 
+const getclass = (req, res) => {
+  model.getclass(req.params.id, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data.rows);
+    }
+  });
+};
+
 const cancelclass = (req, res) => {
   model.cancelclass(req.userId, req.body.id, (err, data) => {
     if (err) {
@@ -157,6 +167,7 @@ module.exports = {
   getfavoriteclass,
   getallclass,
   bookclass,
-  cancelclass
+  cancelclass,
+  getclass
 };
 
