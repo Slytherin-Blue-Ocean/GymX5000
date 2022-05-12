@@ -20,7 +20,6 @@ const Profile = () => {
       .catch(((err) => console.error(err)));
   }, []);
 
-
   return (
     <div className="home">
       <div className="profile-top">
