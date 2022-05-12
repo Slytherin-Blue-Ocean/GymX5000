@@ -20,18 +20,21 @@ describe('basic website', () => {
   it('it should have an activites header', () => {
     cy.get('.me-auto > [href="/"]').should('have.text', 'Activities');
   });
+  it('it should have an single activity temp header', () => {
+    cy.get('[href="/singleactivity"]').should('have.text', 'Single Activity Temp');
+  });
 
   it('it should have an challenges header', () => {
     cy.get('[href="/challenges"]').should('have.text', 'Challenges');
   });
 
-  it('it should have an Test Page header', () => {
-    cy.get('[href="/singlechallenge"]').should('have.text', 'Test Page');
+  it('it should have classes header', () => {
+    cy.get('[href="/classes"]').should('have.text', 'Class');
   });
 
-  it('it should have an badge header', () => {
-    cy.get('[href="/test"]').should('have.text', 'Badge Test');
-  });
+  // it('it should have an badge header', () => {
+  //   cy.get('[href="/test"]').should('have.text', 'Badge Test');
+  // });
 
   it('it should have an My profile header', () => {
     cy.get('[href="/profile"]').should('have.text', 'My Profile 9');
@@ -40,6 +43,10 @@ describe('basic website', () => {
   // register button = next page: http://localhost:3000/register
   it('it should have a way to register if no account', () => {
     cy.get('.MuiTypography-body1 > .MuiTypography-root').should('have.text', 'Register');
+    cy.get('.MuiTypography-body1 > .MuiTypography-root').click();
+    cy.get('h1').should('have.text', 'Register');
+    cy.get('.MuiButton-root').should('have.text', 'Register');
+
   });
 
 
@@ -48,7 +55,7 @@ describe('basic website', () => {
 
 //test login
 
-describe('login', () => {
+describe('authenticated user', () => {
   it('should login successfully log into our app', () => {
     cy.visit('http://localhost:3000/login');
     cy.get('input#email').type('admin@gmail.com');
@@ -56,6 +63,47 @@ describe('login', () => {
     cy.get('.MuiButton-root').click();
 
   });
+
+  it('should have a search bar', () => {
+    cy.get('.tag-search').should('exist');
+  });
+
+  it('should be able to search filter', () => {
+    cy.get('.tag-search').type('abs');
+    cy.get(':nth-child(2) > .MuiCardContent-root').should('have.text', '#waist #body weight #abs ');
+    cy.get('.card-container').should('have.length', 1);
+  });
+
+  it('drop down filter menu should filter cards (workout)', () => {
+    cy.get('#dropdown-basic-button').click();
+    cy.get('.dropdown-menu > :nth-child(2)').click();
+    cy.get(':nth-child(1) > .MuiCardHeader-root').contains('workout' );
+  });
+
+  it('drop down filter menu should filter cards (recipe)', () => {
+    cy.get('#dropdown-basic-button').click();
+    cy.get('.dropdown-menu > :nth-child(3)').click();
+    cy.get(':nth-child(1) > .MuiCardHeader-root').contains('recipe' );
+  });
+
+  it('drop down filter menu should filter cards (class)', () => {
+    cy.get('#dropdown-basic-button').click();
+    cy.get('.dropdown-menu > :nth-child(4)').click();
+    cy.get(':nth-child(1) > .MuiCardHeader-root').contains('class' );
+  });
+
+  it('drop down filter menu clear filter params', () => {
+    cy.get('#dropdown-basic-button').click();
+    cy.get('.dropdown-menu > :nth-child(1)').click();
+    // cy.get(':nth-child(1) > .MuiCardHeader-root').contains('workout');
+  });
+
+
+  //once logged in 'register should not appear anywhere'
+  it('should not have register link when authenticated', () => {
+    cy.get('.MuiTypography-body1 > .MuiTypography-root').should('not.exist');
+  });
+
 });
 
 // //test logout
@@ -66,7 +114,6 @@ describe('logout', () => {
     // cy.get('input#password').type('admin1234');
     // cy.get('.MuiButton-root').click();
     cy.get('.container > .btn').click();
-    cy.get('h1').should('have.text', 'Log in');
 
   });
 });
