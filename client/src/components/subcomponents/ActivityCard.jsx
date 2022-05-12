@@ -68,10 +68,14 @@ const ActivityCard = function({activity}) {
 
   const handleFavorited = (e) => {
     axios.post('http://localhost:3001/api/v1/favorite', {id: activity.id}, { headers: {'Authorization': token}})
-      .then((res) => console.log('poop'))
+      .then((res) => console.log('adding favorite was successful!'))
       .catch((err) => console.error(err));
 
     setFavorated(favorited ? 0 : activity.id);
+  };
+
+  const handleCardClick = () => {
+    console.log('Card has been clicked');
   };
 
   return (
@@ -90,7 +94,7 @@ const ActivityCard = function({activity}) {
             </IconButton>
           </CardActions>
         }
-        title={<Typography onClick={() => console.log('poop')} >{title}</Typography>}
+        title={<Typography onClick={() => console.log('Title CLicked')} >{title}</Typography>}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
