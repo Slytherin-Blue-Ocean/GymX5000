@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import ActivityCard from './ActivityCard.jsx';
+import {useAuth} from '../context/Auth.jsx';
 
 const axios = require('axios');
 
 const FavoritesList = (props) => {
-// props should contain user id, but server auth router should handle that already
-  // make request to favorites for current user id
-  // update state with list of favorites
-  // return state mapped into cards
+  const { token } = useAuth();
   const [activities, setActivites] = useState([]);
 
   useEffect(() => {
-    axios.get('/favorites')
-      .then(({ data }) => {
-        console.log(data);
-        // setActivites(data);
+    if (token) {
+      axios.get('http://localhost:3001/api/v1/favorite', {
+        headers: {'Authorization': token}
       })
-      .catch((err) => console.error(err));
-  }, []);
+        .then(({ data }) => {
+          console.log(data);
+          // setActivites(data);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [token]);
 
   if (activities.length < 1) {
     return <div style={{ fontSize: '2em' }}>Add favorites to view them here!</div>;

@@ -64,11 +64,13 @@ const formatTitle = (title) => {
 const ActivityCard = function({activity}) {
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
-  const { token } = useAuth();
+  const {token} = useAuth();
 
   const handleFavorited = (e) => {
-    axios.post('http://localhost:3001/api/v1/favorite', {id: activity.id}, { headers: {'Authorization': token}})
-      .then((res) => console.log('adding favorite was successful!'))
+    axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
+      headers: {'Authorization': token} // add this for authentication
+    })
+      .then((res) => undefined)
       .catch((err) => console.error(err));
 
     setFavorated(favorited ? 0 : activity.id);
