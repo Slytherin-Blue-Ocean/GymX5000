@@ -27,8 +27,8 @@ const Activities = () => {
   const { token } = useAuth();
 
   const handleFilter = (e) => {
+    searchBox.current.value = '';
     if (e.target.innerText === 'Clear') {
-      searchBox.current.value = '';
       filteredActivities.current = allActivities.current;
       return getAll();
     }
@@ -38,7 +38,9 @@ const Activities = () => {
   };
 
   const handleSearch = (e) => {
-    let searchedActivities = filteredActivities.current.filter((activity) => activity.tags.toString().includes(e.target.value));
+    let searchedActivities = filteredActivities.current.filter((activity) => {
+      return activity.tags.toString().toLowerCase().includes(e.target.value);
+    });
     setActivities(searchedActivities);
   };
 

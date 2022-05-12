@@ -20,7 +20,6 @@ const Profile = () => {
       .catch(((err) => console.error(err)));
   }, []);
 
-
   return (
     <div className="home">
       <div className="profile-top">
@@ -32,9 +31,7 @@ const Profile = () => {
         <Leaderboard className="profile-board"/>
       </div>
       <h2 className="welcome">Arnold's Activities</h2>
-      <div className="card-container">
-        <FavoritesList />
-      </div>
+      <FavoritesList />
     </div>
   );
 };

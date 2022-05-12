@@ -14,6 +14,7 @@ const FavoritesList = (props) => {
         headers: {'Authorization': token}
       })
         .then(({ data }) => {
+          console.log(data);
           setActivites(data);
         })
         .catch((err) => console.error(err));
@@ -24,7 +25,7 @@ const FavoritesList = (props) => {
     return <div style={{ fontSize: '2em' }}>Add favorites to view them here!</div>;
   }
   return (
-    <div>
+    <div className="card-container">
       {activities.map((activity) =>
         <ActivityCard key={activity.id} activity={activity}/>
       )}
