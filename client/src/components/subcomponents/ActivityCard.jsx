@@ -17,6 +17,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import {useAuth} from '../context/Auth.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const cardCss = {
   backgroundColor: '#1c1c1c',
@@ -55,7 +56,7 @@ const formatTitle = (title) => {
 const ActivityCard = function({activity}) {
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
-  const {token} = useAuth();
+  const navigate = useNavigate();
 
   const handleFavorited = (e) => {
     if (!favorited) {
@@ -92,6 +93,7 @@ const ActivityCard = function({activity}) {
           </CardActions>
         }
         title={title}
+        onClick={() => navigate('singleactivity', { state: {activity: activity} })}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
