@@ -66,6 +66,45 @@ const SingleActivity = (props) => {
       </div>
     );
   }
+  if (activity.type === 'class') {
+    const currentId = useRef(null);
+
+    const [class_act, setClass] = useState(null);
+
+    useEffect(() => {
+      if (token) {
+        axios.get(`http://localhost:3001/api/v1/classes/${activity['activity_id']}`, {
+          headers: {'Authorization': token}
+        })
+          .then(({ data }) => {
+            currentId.current = activity['activity_id'];
+            setClass(data[0]);
+          })
+          .catch((err) => console.error(err));
+      }
+    }, [token]);
+
+    if (!class_act) {
+      return null;
+    }
+
+    name = class_act.name;
+    image = <img src={class_act.image} alt={class_act.name} />;
+    body = (
+      <div>
+        <div>
+          Start: {class_act.start_date}
+        </div>
+        <Divider>
+          <div>
+            End: {class_act.end_date}
+          </div>
+        </Divider>
+      </div>
+    );
+    tags = class_act.category;
+  }
+
   return (
     <div className="home">
       <h1 className="welcome">{name}</h1>
@@ -73,6 +112,7 @@ const SingleActivity = (props) => {
         {image}
       </div>
       <div className="description">{body}</div>
+      <div className="act-tags">Tags: {tags}</div>
       <h4 className="welcome">Similar Activities to Try</h4>
       <div className="card-container">
         <TempCard />
