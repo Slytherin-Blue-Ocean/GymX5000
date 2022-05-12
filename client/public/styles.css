@@ -15,10 +15,7 @@ body {
 }
 
 #root {
-<<<<<<< HEAD
   height: 100%;
-=======
->>>>>>> main
   width: 100vw;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
   background-attachment: fixed;
@@ -32,6 +29,10 @@ body {
 
 .css-1oqqzyl-MuiContainer-root {
   width: fit-content !important;
+}
+
+.css-rtau61 {
+  width: 35vw;
 }
 
 /*        BUTTONS       */
@@ -62,6 +63,30 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   place-items: center;
   place-content: center;
   background-color: rgb(33, 37, 41);
+}
+
+.footer-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-align: center;
+}
+.footer-inner-1 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-align: center;
+}
+
+.footer-main {
+  display: flex;
+  place-content: center;
+}
+
+.footer-content {
+  flex: 1;
 }
 
 /*        EXPLORE        */
@@ -158,12 +183,37 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .profile-top {
   display: flex;
   margin: 2rem;
+  place-items: center;
 }
 
-/* .table {
-  width: 15vw !important;
-  height: 100% !important;
-} */
+.profile-card {
+  color: black;
+  height: fit-content;
+}
+
+.profile-sub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  place-items: center;
+  place-content: center;
+}
+
+.profile-badge {
+  flex: 1;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 1px;
+  background-color: #555a64;
+  height: fit-content;
+}
 
 .follow {
   flex: 1;
@@ -230,10 +280,10 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 }
 
 .table {
+  flex: 1;
   margin: 1vw;
   overflow-y: scroll;
-  max-height: 50vh;
-  min-height: 50vh;
+  height: 100%;
 }
 
 .chal-container {

@@ -25,7 +25,11 @@ const Profile = () => {
     <div className="home">
       <div className="profile-top">
         <UserImg />
-        <Leaderboard />
+        <div className="profile-sub">
+          <h3 className="welcome">Collected Badges</h3>
+          <div className="profile-badge">TEST</div>
+        </div>
+        <Leaderboard className="profile-board"/>
       </div>
       <h2 className="welcome">Arnold's Activities</h2>
       <div className="card-container">
