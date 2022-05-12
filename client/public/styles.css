@@ -15,11 +15,21 @@ body {
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.login {
+  height: 75vh;
+  display: flex;
+  place-items: center;
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  width: fit-content !important;
 }
 
 /*        BUTTONS       */
@@ -43,14 +53,13 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 /*        FOOTER        */
 .footer {
+  color: white;
   height: 20vh;
-  width: 100vw;
-  border-style: solid;
-  border-width: .5px;
+  width: 100%;
   display: flex;
   place-items: center;
   place-content: center;
-  background-color: #adb3bd;
+  background-color: rgb(33, 37, 41);
 }
 
 /*        EXPLORE        */
@@ -88,8 +97,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 1rem;
-  background-color: #555a64;
 }
 
 .card  {
@@ -305,9 +312,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   margin: 2rem;
   width: 80vw;
   height: 40vh;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
 }
 
 .chal-mid-sub {

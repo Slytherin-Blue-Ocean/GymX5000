@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavDropdown, Container, FormControl, Form, Nav, Button, Badge } from 'react-bootstrap';
+import { Navbar, NavDropdown, Container, FormControl, Form, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {useAuth} from './context/Auth.jsx';
 
@@ -15,7 +15,7 @@ const NavBar = () => {
           <Link className="nav-link" to="/singleactivity">Single Activity Temp</Link>
           <Link className="nav-link" to="/challenges">Challenges</Link>
           <Link className="nav-link" to="/singlechallenge">Single Challenge Temp</Link>
-          <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>
+          <Link className="nav-link" to="/profile">My Profile</Link>
         </Nav>
         <Button onClick={logout}>Log out</Button>
       </Container>

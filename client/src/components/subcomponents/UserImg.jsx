@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, ListGroupItem, List, Badge, Button } from 'react-bootstrap';
+import { Card, ListGroup, ListGroupItem, List, Button } from 'react-bootstrap';
 
 const UserImg = () => {
   return (
@@ -12,7 +12,7 @@ const UserImg = () => {
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroupItem>Today's Points<Badge bg="secondary">9</Badge></ListGroupItem>
+        <ListGroupItem>Today's Points</ListGroupItem>
       </ListGroup>
       <Card.Body>
         <button className="follow">Follow</button>
