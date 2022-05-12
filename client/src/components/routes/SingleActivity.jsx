@@ -27,7 +27,7 @@ const SingleActivity = (props) => {
           headers: {'Authorization': token}
         })
           .then(({ data }) => {
-            currentId.current = test['activity_id'];
+            currentId.current = activity['activity_id'];
             setRecipe(data[0]);
           })
           .catch((err) => console.error(err));

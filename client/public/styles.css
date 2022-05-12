@@ -16,9 +16,8 @@ body {
 
 #root {
   width: 100vw;
-  background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
+  background-attachment: fixed;
 }
 
 /*        BUTTONS       */
@@ -58,9 +57,9 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   display: flex;
   flex-direction: column;
   color: white;
-  background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
+  background-attachment: fixed;
+  /* background-repeat: no-repeat; */
 }
 
 .welcome {

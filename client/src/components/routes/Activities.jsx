@@ -19,15 +19,28 @@ const createKey = (activity) => {
 
 const Activities = () => {
   const allActivities = useRef([]);
+  const filteredActivities = useRef([]);
+  const searchBox = useRef(null);
+  const quote = useRef(<Quotes />);
   const [activities, setActivities] = useState([]);
+  const [currentFilter, setCurrentFilter] = useState('default');
   const { token } = useAuth();
+
   const handleFilter = (e) => {
     if (e.target.innerText === 'Clear') {
+      searchBox.current.value = '';
+      filteredActivities.current = allActivities.current;
       return getAll();
     }
 
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
+    filteredActivities.current = newActivities;
     setActivities(newActivities);
+  };
+
+  const handleSearch = (e) => {
+    let searchedActivities = filteredActivities.current.filter((activity) => activity.tags.toString().includes(e.target.value));
+    setActivities(searchedActivities);
   };
 
   const getAll = () => {
@@ -38,6 +51,7 @@ const Activities = () => {
       })
         .then((res) => {
           allActivities.current = res.data;
+          filteredActivities.current = res.data;
           setActivities(res.data);
         })
         .catch((err) => console.error(err));
@@ -51,11 +65,11 @@ const Activities = () => {
   return (
     <div className="home">
       <h1 className="welcome">
-        <Quotes />
+        {quote.current}
       </h1>
       <div className="search">
         <Search handleFilter={handleFilter}/>
-        <input className="tag-search" placeholder="Search..." />
+        <input ref={searchBox} onChange={handleSearch} className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
