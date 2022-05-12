@@ -62,6 +62,7 @@ const ActivityCard = function({activity}) {
   const { token } = useAuth();
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
+  const {token} = useAuth();
 
   const handleFavorited = (e) => {
     axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
