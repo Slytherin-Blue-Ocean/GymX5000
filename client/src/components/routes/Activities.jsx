@@ -43,6 +43,12 @@ const Activities = () => {
     }
   };
 
+  const onClick = () => {
+    // how do routes work
+    // here we route to singleActivity
+    // pass in the activity
+  };
+
   useEffect(() => {
     getAll();
   }, []);

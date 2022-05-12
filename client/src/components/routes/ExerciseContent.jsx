@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import TempCard from '../subcomponents/TempCard.jsx';
 
-const Divider = styled.div`
+const Container = styled.div`
   padding: 75px;
 `;
 
@@ -13,7 +13,7 @@ const Exercise = ({ activity }) => {
   const { token } = useAuth();
   const [exercise, setExercise] = useState(null);
 
-  let name, gif, tags, body, related;
+  let name, gif, tags, body;
 
   const workoutId = 16;
   useEffect(() => {
@@ -44,11 +44,11 @@ const Exercise = ({ activity }) => {
   gif = <img src={exercise.gif_url} alt={exercise.exercise_name} />;
   body = (
     <div style={{ display: 'flex', direction: 'row', gap: '20%' }}>
-      <Divider>
+      <Container>
         <div>Category: {exercise.category}</div>
         <div>Target Muscle: {exercise.target_muscle}</div>
         <div>Required Equipment: {exercise.equipment}</div>
-      </Divider>
+      </Container>
     </div>
   );
 
