@@ -27,8 +27,8 @@ const Activities = () => {
   const { token } = useAuth();
 
   const handleFilter = (e) => {
+    searchBox.current.value = '';
     if (e.target.innerText === 'Clear') {
-      searchBox.current.value = '';
       filteredActivities.current = allActivities.current;
       return getAll();
     }
