@@ -70,6 +70,12 @@ const postfavor = (activity_id, user_id, callback) => {
     .catch((err) => callback(err));
 };
 
+const deleteFavor = (user_id, activity_id, callback) => {
+  pool.query('DELETE FROM favorites WHERE user_id = $1 AND activitytype_id = $2', [user_id, activity_id])
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
 module.exports = {
   getAllActivities,
   getallrecipes,
@@ -77,5 +83,6 @@ module.exports = {
   getcompetitions,
   getquotes,
   getfavor,
-  postfavor
+  postfavor,
+  deleteFavor
 };

@@ -25,7 +25,7 @@ const Activities = () => {
     if (e.target.innerText === 'Clear') {
       return getAll();
     }
-    console.log(e.target.innerText)
+
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     setActivities(newActivities);
   };
@@ -42,7 +42,7 @@ const Activities = () => {
         })
         .catch((err) => console.error(err));
     }
-  }
+  };
 
   useEffect(() => {
     getAll();
@@ -55,7 +55,7 @@ const Activities = () => {
       </h1>
       <div className="search">
         <Search handleFilter={handleFilter}/>
-        <input  className="tag-search" placeholder="Search..." />
+        <input className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }

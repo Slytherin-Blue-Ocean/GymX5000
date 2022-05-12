@@ -82,5 +82,16 @@ module.exports = {
       }
     });
   },
+
+  deleteFavor: (req, res) => {
+    model.deleteFavor(req.userId, req.params.id, (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
+  }
 };
 
