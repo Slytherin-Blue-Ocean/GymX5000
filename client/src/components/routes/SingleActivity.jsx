@@ -89,7 +89,20 @@ const SingleActivity = (props) => {
     }
 
     name = class_act.name;
-    image = class_act.name;
+    image = class_act.image;
+    body = (
+      <div>
+        <div>
+          Start: {class_act.start_date}
+        </div>
+        <Divider>
+          <div>
+            End: {class_act.end_date}
+          </div>
+        </Divider>
+      </div>
+    );
+    tags = class_act.category;
   }
 
   return (
