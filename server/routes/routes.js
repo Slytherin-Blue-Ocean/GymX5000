@@ -24,6 +24,8 @@ router.delete('/favorites/:id', activity.deleteFavor);
 
 router.get('/classes', activity.getallclass);
 
+router.get('/classes/:id', activity.getclass);
+
 router.post('/bookclass', activity.bookclass);
 
 router.post('/cancelclass', activity.cancelclass);
