@@ -11,6 +11,7 @@ import Challenges from './routes/Challenges.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
 import SingleActivity from './routes/SingleActivity.jsx';
 import PrivateRoute from './routes/Private.jsx';
+import Exercise from './routes/ExerciseContent.jsx';
 
 const App = () => {
 
@@ -43,6 +44,11 @@ const App = () => {
             <SingleChallenge />
           </PrivateRoute>
         }/>
+        <Route path='/exercise' element={
+          <PrivateRoute>
+            <Exercise />
+          </PrivateRoute>
+        } />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
       </Routes>
