@@ -21,6 +21,7 @@ const Activities = () => {
   const allActivities = useRef([]);
   const filteredActivities = useRef([]);
   const searchBox = useRef(null);
+  const quote = useRef(<Quotes />);
   const [activities, setActivities] = useState([]);
   const [currentFilter, setCurrentFilter] = useState('default');
   const { token } = useAuth();
@@ -63,7 +64,7 @@ const Activities = () => {
   return (
     <div className="home">
       <h1 className="welcome">
-        <Quotes />
+        {quote.current}
       </h1>
       <div className="search">
         <Search handleFilter={handleFilter}/>
