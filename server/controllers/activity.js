@@ -64,7 +64,7 @@ const getfavor = (req, res) => {
     }
   });
 };
-
+ 
 const postfavor = (req, res) => {
   let activity_id = req.qeury.id;
   let user_id = req.userId;

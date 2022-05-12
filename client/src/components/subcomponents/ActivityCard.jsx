@@ -59,6 +59,7 @@ const formatTitle = (title) => {
 };
 
 const ActivityCard = function({activity}) {
+  const { token } = useAuth();
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
   const {token} = useAuth();
