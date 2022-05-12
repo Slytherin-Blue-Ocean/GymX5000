@@ -77,17 +77,6 @@ const postfavor = (req, res) => {
   });
 };
 
-
-module.exports = {
-  getAllActivities,
-  getallrecipes,
-  getrecipes,
-  getcompetitions,
-  getquotes,
-  getfavor,
-  postfavor
-};
-
 const deleteFavor = (req, res) => {
   model.deleteFavor(req.userId, req.params.id, (err, data) => {
     if (err) {
@@ -98,3 +87,15 @@ const deleteFavor = (req, res) => {
     }
   });
 };
+
+module.exports = {
+  getAllActivities,
+  getallrecipes,
+  getrecipes,
+  getcompetitions,
+  getquotes,
+  getfavor,
+  postfavor,
+  deleteFavor
+};
+
