@@ -1,22 +1,16 @@
 import React from 'react';
 import Kettlebell from '../threejs/Kettlebell.js';
 
-const ChallengeCard = () => {
+const ChallengeCard = ({ item }) => {
+
   return (
     <div className="chal-card">
-      <div className="chal-main">
-        <div className="prize">
-          <Kettlebell />
-        </div>
-        <div className="chal-body">
-          <div className="chal-head">
-            <div className="chal-name">Name of Challenge</div>
-            <div className="chal-name">When Challenge Expires OR Timer</div>
-            <div className="chal-name">Friend's who liked OR completed this challenge</div>
-          </div>
-          <div className="chal-desc">Description about challenge</div>
-        </div>
+      <h2 className="chal-name">{item.title}</h2>
+      <div className="chal-head">
+        <div className="prize">{item.badge}</div>
+        <h4 className="chal-desc">{item.blurb}</h4>
       </div>
+      <h5 className="chal-footer">Category: {item.tag}</h5>
     </div>
   );
 };
