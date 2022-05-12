@@ -10,10 +10,6 @@ const Container = styled.div`
   padding: 75px;
 `;
 
-const Container = styled.div`
-  padding: 75px;
-`;
-
 const Divider = styled.div`
   padding: 2em 0;
 `;
@@ -90,17 +86,6 @@ const SingleActivity = (props) => {
         </div>
       </div>
     );
-<<<<<<< HEAD
-  } else if (activity.id === 'exercise') {
-    const [exercise, setExercise] = useState(null);
-
-    let name, gif, tags, body;
-
-    const workoutId = 16;
-    useEffect(() => {
-      if (token) {
-        axios.get(`http://localhost:3001/api/v1/workout/${workoutId}`, {
-=======
   } else if (activity.type === 'workout') {
     const currentId = useRef(null);
     const [exercise, setExercise] = useState(null);
@@ -109,7 +94,6 @@ const SingleActivity = (props) => {
     useEffect(() => {
       if (token) {
         axios.get(`http://localhost:3001/api/v1/workout/${activity['activity_id']}`, {
->>>>>>> main
           headers: {'Authorization': token}
         })
           .then((response) => {
@@ -159,10 +143,6 @@ const SingleActivity = (props) => {
       </div>
     );
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 };
 
 export default SingleActivity;
