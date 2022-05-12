@@ -95,7 +95,7 @@ const ActivityCard = function({activity}) {
           </CardActions>
         }
         title={title}
-        onClick={() => navigate('singleactivity', { state: {activity: activity} })}
+        onClick={() => navigate('/singleactivity', { state: {activity: activity} })}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia

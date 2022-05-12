@@ -86,60 +86,60 @@ const SingleActivity = (props) => {
         </div>
       </div>
     );
-  } else if (activity.type === 'workout') {
+  } else if (activity.type === 'class') {
     const currentId = useRef(null);
-    const [exercise, setExercise] = useState(null);
-    let name, gif, tags, body;
+
+    const [class_act, setClass] = useState(null);
 
     useEffect(() => {
       if (token) {
-        axios.get(`http://localhost:3001/api/v1/workout/${activity['activity_id']}`, {
+        axios.get(`http://localhost:3001/api/v1/classes/${activity['activity_id']}`, {
           headers: {'Authorization': token}
         })
-          .then((response) => {
-            const result = response.data[0];
-            setExercise({
-              category: result.body_category,
-              equipment: result.equipment,
-              gif_url: result.gif_url,
-              exercise_name: result.exercise_name,
-              target_muscle: result.target_muscle,
-            });
+          .then(({ data }) => {
+            currentId.current = activity['activity_id'];
+            setClass(data[0]);
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.error(err));
       }
     }, [token]);
 
-    if (!exercise) {
+    if (!class_act) {
       return null;
     }
 
-    name = exercise.exercise_name;
-    gif = <img src={exercise.gif_url} alt={exercise.exercise_name} />;
+    name = class_act.name;
+    image = <img src={class_act.image} alt={class_act.name} />;
     body = (
-      <div style={{ display: 'flex', direction: 'row', gap: '20%' }}>
-        <Container>
-          <div>Category: {exercise.category}</div>
-          <div>Target Muscle: {exercise.target_muscle}</div>
-          <div>Required Equipment: {exercise.equipment}</div>
-        </Container>
+      <div>
+        <div>
+          Start: {class_act.start_date}
+        </div>
+        <Divider>
+          <div>
+            End: {class_act.end_date}
+          </div>
+        </Divider>
       </div>
     );
+    tags = class_act.category;
 
-    return (
-      <div className="home">
-        <h1 className="welcome">{name}</h1>
-        <div></div>
-        <div className="description" style={{ display: 'flex', direction: 'row' }}>
-          {body}
-          {gif}
-        </div>
-        <h4 className="welcome">Similar Exercises to Try</h4>
-        <div className="card-container">
-          <TempCard />
-          <TempCard />
-          <TempCard />
-        </div>
+
+  return (
+    <div className="home">
+      <h1 className="welcome">{name}</h1>
+      <div className="act-cont">
+        {image}
+      </div>
+      <div className="description">{body}</div>
+      <div className="act-tags">Tags: {tags}</div>
+      <h4 className="welcome">Similar Activities to Try</h4>
+      <div className="card-container">
+        <TempCard />
+        <TempCard />
+        <TempCard />
+        <TempCard />
+        <TempCard />
       </div>
     );
   }
