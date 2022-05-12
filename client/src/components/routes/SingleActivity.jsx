@@ -71,25 +71,25 @@ const SingleActivity = (props) => {
 
     const [class_act, setClass] = useState(null);
 
-    // useEffect(() => {
-    //   if (token) {
-    //     axios.get(`http://localhost:3001/api/v1/classes/${activity['activity_id']}`, {
-    //       headers: {'Authorization': token}
-    //     })
-    //       .then(({ data }) => {
-    //         currentId.current = activity['activity_id'];
-    //         setClass(data[0]);
-    //       })
-    //       .catch((err) => console.error(err));
-    //   }
-    // }, [token]);
+    useEffect(() => {
+      if (token) {
+        axios.get(`http://localhost:3001/api/v1/classes/${activity['activity_id']}`, {
+          headers: {'Authorization': token}
+        })
+          .then(({ data }) => {
+            currentId.current = activity['activity_id'];
+            setClass(data[0]);
+          })
+          .catch((err) => console.error(err));
+      }
+    }, [token]);
 
     if (!class_act) {
       return null;
     }
 
     name = class_act.name;
-    image = class_act.image;
+    image = <img src={class_act.image} alt={class_act.name} />;
     body = (
       <div>
         <div>
