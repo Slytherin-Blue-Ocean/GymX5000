@@ -28,9 +28,7 @@ const Profile = () => {
         <Leaderboard />
       </div>
       <h2 className="welcome">Arnold's Activities</h2>
-      <div className="card-container">
-        <FavoritesList />
-      </div>
+      <FavoritesList />
     </div>
   );
 };
