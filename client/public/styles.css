@@ -354,12 +354,17 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 }
 
 .act-tags {
-  flex: 1;
+  margin-top: 2rem;
+  place-self: center;
   border-style: solid;
   border-radius: 1rem;
   border-width: 1px;
-  background-color: #1c1c1c;
-  width: 100%;
+  border-color: #1c1c1c;
+  background-color: #555a64;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 1rem;
 }
 
 .description {
