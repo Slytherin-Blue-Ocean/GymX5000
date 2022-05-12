@@ -32,7 +32,6 @@ const Activities = () => {
       filteredActivities.current = allActivities.current;
       return getAll();
     }
-
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     filteredActivities.current = newActivities;
     setActivities(newActivities);
