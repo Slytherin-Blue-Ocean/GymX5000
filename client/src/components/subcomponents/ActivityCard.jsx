@@ -16,6 +16,7 @@ import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import {useAuth} from '../context/Auth.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const fakeProps = {
   id: 1,
@@ -62,6 +63,7 @@ const ActivityCard = function({activity}) {
   const { token } = useAuth();
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
+  const navigate = useNavigate();
 
   const handleFavorited = (e) => {
     axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
@@ -90,6 +92,7 @@ const ActivityCard = function({activity}) {
           </CardActions>
         }
         title={title}
+        onClick={() => navigate('singleactivity', { state: {activity: activity} })}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
