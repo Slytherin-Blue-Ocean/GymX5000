@@ -15,7 +15,6 @@ body {
 }
 
 #root {
-  height: 100vh;
   width: 100vw;
   background-image: url(https://cdn.shopify.com/s/files/1/0274/7429/6892/products/G-34.jpg?v=1584778904);
   background-size: cover;
@@ -376,4 +375,179 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   width: fit-content;
   text-align: center;
   padding: 1rem;
+}
+
+/* Classes */
+#jb-container {
+  width: 90%;
+  margin: 0px auto;
+  padding: 20px;
+  /* border: 1px solid #bcbcbc; */
+}
+#jb-header {
+  padding: 20px;
+  margin-bottom: 20px;
+  /* border: 1px solid #bcbcbc; */
+  border-width: 1px;
+  border-radius: 1rem;
+  text-align : center;
+  color: white;
+}
+#jb-content {
+  width: 58%;
+  padding: 20px;
+  margin-bottom: 110px;
+  float: left;
+  border: 1px solid #bcbcbc;
+  background-color: #adb3bd;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+#jb-sidebar {
+  width: 40%;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: right;
+  border: 1px solid #bcbcbc;
+  background-color: #adb3bd;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+#jb-footer {
+  clear: both;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+  overflow-x: auto;
+  overflow-y: scroll;
+  height: 704px;
+}
+
+#jb-footer::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+#jb-footer::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent
+}
+
+#jb-footer::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+@media screen and (max-width:480px) {
+  #jb-container {
+    width: auto;
+  }
+  #jb-content {
+    float: none;
+    width: auto;
+  }
+  #jb-sidebar {
+    float: none;
+    width: auto;
+  }
+}
+
+.classcard {
+  display: flex;
+  margin: 1rem;
+  max-height: 20vh;
+  width: 95%;
+  background-color: #adb3bd;
+  border-radius: 1rem;
+}
+
+.classmain {
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.pics {
+  flex: 1;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #adb3bd;
+
+}
+.pics img {
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+.classbody {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #adb3bd;
+}
+
+.classhead {
+  display: flex;
+  flex: 1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+.classname {
+  flex: 2;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 22px;
+}
+
+.classdesc {
+  flex: 1;
+  text-align: center;
+  font-size: 22px;
+}
+
+.classdesc button {
+  width: 100px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: minmax(70%, 1fr) 20%;
+  padding: 2px;
+  text-align: left;
+}
+
+.box {
+  font-size: 100%;
+}
+
+.b {
+  border: solid;
+  cursor: pointer;
+  text-align: center;
+  background-color: lightgrey;
+}
+
+.c {
+  border: solid;
+  text-align: center;
 }
