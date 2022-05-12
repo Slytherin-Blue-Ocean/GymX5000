@@ -105,6 +105,25 @@ CREATE TABLE friends (
   FOREIGN KEY(friends_id) REFERENCES users(id)
 );
 
+CREATE TABLE classes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  image TEXT NOT NULL,
+  start_date VARCHAR(50) NOT NULL,
+  end_date VARCHAR(50) NOT NULL,
+  category TEXT NOT NULL,
+  activitytype_id INT NOT NULL,
+  FOREIGN KEY (activitytype_id) REFERENCES activitytype(id)
+);
+
+CREATE TABLE classes_record (
+  id SERIAL PRIMARY KEY NOT NULL,
+  class_id INT NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(id),
+  FOREIGN KEY(class_id) REFERENCES classes(id)
+);
+
 -- CREATE INDEX ON ;
 
 

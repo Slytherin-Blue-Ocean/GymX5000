@@ -28,13 +28,19 @@ const createUser = async(email, password, first_name, last_name, address) => {
   }
 };
 
-const getUser = async(req, res) => {
-
+const getUserById = async id => {
+  try {
+    return await pool.query(
+      'SELECT * FROM users WHERE id = $1', [id]
+    );
+  } catch (err) {
+    console.log('GET_USER', err);
+  }
 };
 
 module.exports = {
   checkUserAlreadyExists,
   getUserPassword,
   createUser,
-  getUser
+  getUserById
 };
