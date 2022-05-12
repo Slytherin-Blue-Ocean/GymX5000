@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
 
-.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit- {
+.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar {
   display: none;
 }
 
