@@ -24,7 +24,6 @@ const midCheckAuth = async(req, res, next) => {
   if (!authorization) {
     return res.sendStatus(401);
   }
-
   try {
     const verify = await verifyToken(authorization);
     req.userId = verify.id;

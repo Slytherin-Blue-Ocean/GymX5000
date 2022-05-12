@@ -13,6 +13,7 @@ const NavBar = () => {
         <Nav className="me-auto">
           <Link className="nav-link" to="/">Activities</Link>
           <Link className="nav-link" to="/singleactivity">Single Activity Temp</Link>
+          <Link className="nav-link" to="/classes">Class</Link>
           <Link className="nav-link" to="/challenges">Challenges</Link>
           <Link className="nav-link" to="/singlechallenge">Single Challenge Temp</Link>
           <Link className="nav-link" to="/profile">My Profile <Badge bg="secondary">9</Badge></Link>

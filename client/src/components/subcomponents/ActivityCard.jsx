@@ -15,22 +15,15 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import {useAuth} from '../context/Auth.jsx';
-
-const fakeProps = {
-  id: 1,
-  activity: 'Fruit Smoothie',
-  activity_id: 2,
-  type: 'Recipe',
-  thumbnail_url: 'https://st2.depositphotos.com/2444995/6950/i/600/depositphotos_69500983-stock-photo-fresh-smoothies.jpg',
-  tags: ['healthy', 'fruity', 'poop'],
-  favorited: false
-};
+import { useNavigate } from 'react-router-dom';
 
 const cardCss = {
   backgroundColor: '#1c1c1c',
   color: '#f8eeec',
   margin: '1vw',
+  height: '22em'
 };
 
 const activityTags = {
@@ -45,6 +38,8 @@ const setIcon = (activityType) => {
   case 'recipe':
     return <LocalDiningIcon />;
     break;
+  case 'class':
+    return <SelfImprovementIcon />;
   default:
     return '?';
   }
@@ -59,16 +54,24 @@ const formatTitle = (title) => {
 };
 
 const ActivityCard = function({activity}) {
-  const { token } = useAuth();
   const [favorited, setFavorated] = useState(activity.favorited);
   const title = formatTitle(activity.activity);
+  const navigate = useNavigate();
 
   const handleFavorited = (e) => {
-    axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
-      headers: {'Authorization': token} // add this for authentication
-    })
-      .then((res) => undefined)
-      .catch((err) => console.error(err));
+    if (!favorited) {
+      axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
+        headers: {'Authorization': token} // add this for authentication
+      })
+        .then((res) => undefined)
+        .catch((err) => console.error(err));
+    } else {
+      axios.delete(`http://localhost:3001/api/v1/favorites/${activity.id}`, {
+        headers: {'Authorization': token} // add this for authentication
+      })
+        .then((res) => undefined)
+        .catch((err) => console.error(err));
+    }
 
     setFavorated(favorited ? 0 : activity.id);
   };
@@ -92,6 +95,7 @@ const ActivityCard = function({activity}) {
           </CardActions>
         }
         title={title}
+        onClick={() => navigate('singleactivity', { state: {activity: activity} })}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia

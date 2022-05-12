@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import TempCard from '../subcomponents/TempCard.jsx';
 
+<<<<<<< HEAD
 const Container = styled.div`
   padding: 75px;
 `;
@@ -68,6 +69,13 @@ const Exercise = ({ activity }) => {
       </div>
     </div>
   );
+=======
+
+
+const Exercise = ({ activity }) => {
+  const { token } = useAuth();
+
+>>>>>>> main
 };
 
 export default Exercise;
