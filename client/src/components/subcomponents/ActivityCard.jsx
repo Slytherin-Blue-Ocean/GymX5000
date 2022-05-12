@@ -18,20 +18,11 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import {useAuth} from '../context/Auth.jsx';
 
-const fakeProps = {
-  id: 1,
-  activity: 'Fruit Smoothie',
-  activity_id: 2,
-  type: 'Recipe',
-  thumbnail_url: 'https://st2.depositphotos.com/2444995/6950/i/600/depositphotos_69500983-stock-photo-fresh-smoothies.jpg',
-  tags: ['healthy', 'fruity', 'poop'],
-  favorited: false
-};
-
 const cardCss = {
   backgroundColor: '#1c1c1c',
   color: '#f8eeec',
   margin: '1vw',
+  height: '22em'
 };
 
 const activityTags = {
@@ -67,17 +58,21 @@ const ActivityCard = function({activity}) {
   const {token} = useAuth();
 
   const handleFavorited = (e) => {
-    axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
-      headers: {'Authorization': token} // add this for authentication
-    })
-      .then((res) => undefined)
-      .catch((err) => console.error(err));
+    if (!favorited) {
+      axios.post('http://localhost:3001/api/v1/favorite', { id: activity.id }, {
+        headers: {'Authorization': token} // add this for authentication
+      })
+        .then((res) => undefined)
+        .catch((err) => console.error(err));
+    } else {
+      axios.delete(`http://localhost:3001/api/v1/favorites/${activity.id}`, {
+        headers: {'Authorization': token} // add this for authentication
+      })
+        .then((res) => undefined)
+        .catch((err) => console.error(err));
+    }
 
     setFavorated(favorited ? 0 : activity.id);
-  };
-
-  const handleCardClick = () => {
-    console.log('Card has been clicked');
   };
 
   return (
@@ -96,7 +91,7 @@ const ActivityCard = function({activity}) {
             </IconButton>
           </CardActions>
         }
-        title={<Typography onClick={() => console.log('Title CLicked')} >{title}</Typography>}
+        title={title}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
