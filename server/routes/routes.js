@@ -22,6 +22,16 @@ router.post('/favorite', activity.postfavor);
 
 router.delete('/favorites/:id', activity.deleteFavor);
 
+router.get('/classes', activity.getallclass);
+
+router.post('/bookclass', activity.bookclass);
+
+router.post('/cancelclass', activity.cancelclass);
+
+router.get('/classhistory', activity.getclasshistory);
+
+router.get('/favoriteclass', activity.getfavoriteclass);
+
 router.get('/workout', exercise.getallworkout);
 
 router.get('/workout/:workoutId', exercise.getworkout);

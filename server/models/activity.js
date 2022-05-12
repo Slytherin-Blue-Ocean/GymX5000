@@ -94,6 +94,49 @@ group by A.id, exercise.id
     .catch((err) => callback(err));
 };
 
+const getallclass = (userid, callback) => {
+  pool.query(`select id, name, image, start_date, end_date,
+  category from classes WHERE TO_DATE(end_date, 'YYYY-MM-DD') >= current_date
+  and id NOT IN (select class_id from classes_record where user_id = ${userid})
+  ORDER BY random() limit 30`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
+const bookclass = (user_id, class_id, callback) => {
+  pool.query(
+    `INSERT INTO classes_record(user_id, class_id) VALUES ( ${user_id} , ${class_id})`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
+const cancelclass = (user_id, class_id, callback) => {
+  pool.query(
+    'DELETE FROM classes_record WHERE user_id = $1 AND class_id = $2', [user_id, class_id]
+  )
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
+const getclasshistory = (userid, callback) => {
+  pool.query(`select c.id, c.name, c.start_date, end_date, category
+  from classes as c
+   join classes_record as cr on c.id= cr.class_id where cr.user_id=${userid};`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
+const getfavoriteclass = (userid, callback) => {
+  pool.query(`SELECT C.id, C.name As type, S.id As activity_id, S.name AS activity, S.image AS thumbnail_url,
+  ARRAY[S.category] as tags, coalesce((select DISTINCT(cr.class_id) from classes_record AS cr  WHERE cr.class_id = S.id and cr.user_id=${userid}),  0) AS favorited
+  FROM classes as S
+  INNER JOIN activitytype as C ON C.id = S.activitytype_id
+INNER JOIN favorites AS f ON S.activitytype_id = f.activitytype_id WHERE f.user_id=${userid}
+  group by C.id, S.id`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
 const postfavor = (activity_id, user_id, callback) => {
   pool.query(`insert into favorites(user_id, activitytype_id)
     values (${user_id}, ${activity_id})`)
@@ -117,5 +160,10 @@ module.exports = {
   getquotes,
   getfavor,
   postfavor,
-  deleteFavor
+  deleteFavor,
+  getclasshistory,
+  getfavoriteclass,
+  getallclass,
+  cancelclass,
+  bookclass
 };
