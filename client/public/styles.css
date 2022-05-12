@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
 
-.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar {
+.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar, .badge-container::-webkit-scrollbar{
   display: none;
 }
 
@@ -183,6 +183,13 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex: 1;
   text-align: center;
 }
+.chal-badges {
+  display: flex;
+  flex-direction: column;
+  flex: 2.5;
+  text-align: center;
+  place-content: center;
+}
 
 .chal-top {
   place-self: center;
@@ -195,32 +202,29 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .blurb {
   border-style: solid;
-  border-radius: 1rem;
   border-width: 1px;
   margin: 1vw;
-  max-height: 50vh;
-  min-height: 50vh;
-  background-color: #adb3bd;
+  height: fit-content;
+  background-color: black;
 }
 
 .badge-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: auto;
   border-style: solid;
-  border-radius: 1rem;
   border-width: 1px;
-  margin: 1vw;
-  max-height: 50vh;
-  min-height: 50vh;
-  place-items: center;
-  background-color: #adb3bd;
+  border-color: black;
+  background-color: black;
+  overflow: auto;
 }
 
 .single-badge {
-  flex: 1;
-  width: 30%;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0mDnYSlZWcZ6vg8XdctIrKXxuS5g01F0Kg&usqp=CAU);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 240px;
+  width: 173px;
 }
 
 .table {
@@ -232,9 +236,9 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-container {
   place-self: center;
-  width: 80vw;
+  width: 60vw;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin: 2rem;
   place-items: center;
   overflow-y: scroll;
@@ -242,30 +246,22 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-card {
   display: flex;
+  flex-direction: column;
   margin: 1rem;
-  min-height: 20vh;
-  max-height: 20vh;
-  width: 95%;
-}
-
-.chal-main {
-  display: flex;
+  height: fit-content;
+  width: 47%;
   border-style: solid;
   border-width: 1px;
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
+  border-color: black;
+  background-color: black;
 }
 
 .prize {
-  flex: 1;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
-  margin: 1rem;
-  background-color: #adb3bd;
-  background-image: url(https://www.limitlesswalls.com/cdn-cgi/image/width=900,quality=60/http://llw-magento-images-prod.s3.amazonaws.com/catalog/product/a/d/adobe-185400163.jpg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0mDnYSlZWcZ6vg8XdctIrKXxuS5g01F0Kg&usqp=CAU);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 240px;
+  width: 173px;
 }
 
 .chal-body {
@@ -281,27 +277,23 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-head {
   display: flex;
-  flex: 1;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
-  margin: .5rem;
+  place-items: center;
 }
 
 .chal-name {
-  flex: 1;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
+  padding-top: .5rem;
+  background-color: #555a64;
+}
+.chal-footer {
+  text-align: center;
+  background-color: #555a64;
+  margin-bottom: 0;
 }
 
 .chal-desc {
-  flex: 4;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
+  margin: 1rem;
 }
 
 /*        SINGLE CHALLENGE PAGE       */
