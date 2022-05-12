@@ -57,10 +57,12 @@ const Classes = () => {
   };
 
   useEffect(() => {
-    gethistory();
-    getfavor();
-    getallclasses();
-  }, []);
+    if (token) {
+      gethistory();
+      getfavor();
+      getallclasses();
+    }
+  }, [token]);
 
   const cancelhandle = (class_id) =>{
     axios.post('http://localhost:3001/api/v1/cancelclass', { id: class_id }, {

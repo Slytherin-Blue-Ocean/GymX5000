@@ -66,29 +66,32 @@ const getquotes = (callback) => {
 const getfavor = (userid, callback) => {
   pool.query(`(
     SELECT A.id, A.name As type, exercise.id AS activity_id, exercise.exercise_name AS activity,
-exercise.gif_url AS thumbnail_url, ARRAY[exercise.body_category, exercise.equipment, exercise.target_muscle] as tags
+exercise.gif_url AS thumbnail_url, ARRAY[exercise.body_category, exercise.equipment, exercise.target_muscle] as tags,
+	f.activitytype_id as favorited
 FROM exercise
     INNER JOIN activitytype as A ON A.id = exercise.activitytype_id
     INNER JOIN favorites AS f ON exercise.activitytype_id = f.activitytype_id WHERE f.user_id= ${userid}
-group by A.id, exercise.id
+group by A.id, exercise.id, f.activitytype_id
     )
     UNION
     (
       SELECT C.id, C.name As type, A.id As activity_id, A.name AS activity, A.image AS thumbnail_url,
-      ARRAY[A.dietlabel, A.healthlabel] as tags
+      ARRAY[A.dietlabel, A.healthlabel] as tags,
+		f.activitytype_id as favorited
       FROM food as A
       INNER JOIN activitytype as C ON C.id = A.activitytype_id
-      INNER JOIN favorites AS f ON A.activitytype_id = f.activitytype_id WHERE f.user_id= ${userid}
-      group by C.id, A.id
+      INNER JOIN favorites AS f ON A.activitytype_id = f.activitytype_id WHERE f.user_id=${userid}
+      group by C.id, A.id, f.activitytype_id
     )
     UNION
   (
       SELECT C.id, C.name As type, S.id As activity_id, S.name AS activity, S.image AS thumbnail_url,
-      ARRAY[S.category] as tags
+      ARRAY[S.category] as tags,
+	 f.activitytype_id as favorited
       FROM classes as S
       INNER JOIN activitytype as C ON C.id = S.activitytype_id
     INNER JOIN favorites AS f ON S.activitytype_id = f.activitytype_id WHERE f.user_id= ${userid}
-      group by C.id, S.id
+      group by C.id, S.id, f.activitytype_id
     )`)
     .then((res) => callback(null, res))
     .catch((err) => callback(err));
@@ -122,6 +125,13 @@ const getclasshistory = (userid, callback) => {
   pool.query(`select c.id, c.name, c.start_date, end_date, category
   from classes as c
    join classes_record as cr on c.id= cr.class_id where cr.user_id=${userid};`)
+    .then((res) => callback(null, res))
+    .catch((err) => callback(err));
+};
+
+const getclass = (classid, callback) => {
+  pool.query(`select c.id, c.name, c.image, c.start_date, end_date, category
+  from classes as c where c.id = ${classid}`)
     .then((res) => callback(null, res))
     .catch((err) => callback(err));
 };
@@ -165,5 +175,6 @@ module.exports = {
   getfavoriteclass,
   getallclass,
   cancelclass,
-  bookclass
+  bookclass,
+  getclass
 };
