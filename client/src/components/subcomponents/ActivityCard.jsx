@@ -76,8 +76,6 @@ const ActivityCard = function({activity}) {
     setFavorated(favorited ? 0 : activity.id);
   };
 
-  console.log(activity);
-
   return (
     <Card style={cardCss} sx={{ width: '22vw' }}>
       <CardHeader

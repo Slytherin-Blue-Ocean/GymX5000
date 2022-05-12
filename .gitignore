@@ -106,6 +106,5 @@ dist
 
 #data
 Data/
-csvfiles
 
 .DS_Store
