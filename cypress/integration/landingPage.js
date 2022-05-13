@@ -20,9 +20,6 @@ describe('basic website', () => {
   it('it should have an activites header', () => {
     cy.get('.me-auto > [href="/"]').should('have.text', 'Activities');
   });
-  it('it should have an single activity temp header', () => {
-    cy.get('[href="/singleactivity"]').should('have.text', 'Single Activity Temp');
-  });
 
   it('it should have an challenges header', () => {
     cy.get('[href="/challenges"]').should('have.text', 'Challenges');
@@ -32,12 +29,8 @@ describe('basic website', () => {
     cy.get('[href="/classes"]').should('have.text', 'Class');
   });
 
-  // it('it should have an badge header', () => {
-  //   cy.get('[href="/test"]').should('have.text', 'Badge Test');
-  // });
-
   it('it should have an My profile header', () => {
-    cy.get('[href="/profile"]').should('have.text', 'My Profile 9');
+    cy.get('[href="/profile"]').should('have.text', 'My Profile');
   });
 
   // register button = next page: http://localhost:3000/register
@@ -48,8 +41,6 @@ describe('basic website', () => {
     cy.get('.MuiButton-root').should('have.text', 'Register');
 
   });
-
-
 
 });
 
@@ -98,13 +89,15 @@ describe('authenticated user', () => {
     // cy.get(':nth-child(1) > .MuiCardHeader-root').contains('workout');
   });
 
-
   //once logged in 'register should not appear anywhere'
   it('should not have register link when authenticated', () => {
     cy.get('.MuiTypography-body1 > .MuiTypography-root').should('not.exist');
   });
 
+
+
 });
+
 
 // //test logout
 describe('logout', () => {
