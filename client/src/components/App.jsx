@@ -12,6 +12,7 @@ import Classes from './routes/Classes.jsx';
 import SingleChallenge from './routes/SingleChallenge.jsx';
 import SingleActivity from './routes/SingleActivity.jsx';
 import PrivateRoute from './routes/Private.jsx';
+import Home from './routes/Home.jsx';
 
 const App = () => {
 
@@ -19,7 +20,8 @@ const App = () => {
     <Router>
       <NavBar/>
       <Routes>
-        <Route path='/' element={
+        <Route path="/" element={<Home/>}/>
+        <Route path='/activity' element={
           <PrivateRoute>
             <Activities/>
           </PrivateRoute>
