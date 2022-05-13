@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ActivityCard from '../subcomponents/ActivityCard.jsx';
 const axios = require('axios');
 import {useAuth} from '../context/Auth.jsx';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   padding: 100px;
@@ -55,7 +55,7 @@ const SingleActivity = (props) => {
           })
           .catch((err) => console.error(err));
       }
-    }, [token]);
+    }, [token, activity['activity_id']]);
 
     if (!recipe) {
       return null;
@@ -105,8 +105,8 @@ const SingleActivity = (props) => {
   }
   if (activity.type === 'class') {
     const currentId = useRef(null);
-
     const [class_act, setClass] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
       if (token) {
@@ -119,7 +119,7 @@ const SingleActivity = (props) => {
           })
           .catch((err) => console.error(err));
       }
-    }, [token]);
+    }, [token, activity['activity_id']]);
 
     if (!class_act) {
       return null;
@@ -136,6 +136,7 @@ const SingleActivity = (props) => {
           <div>Start: {class_act.start_date}</div>
           <div>End: {class_act.end_date}</div>
         </Divider>
+        <div style={{ cursor: 'pointer', padding: '0 0 2em 0' }} onClick={() => navigate('/classes')}>To book a class, please visit our classes page here</div>
       </div>
     );
     tags = class_act.category;
@@ -177,7 +178,7 @@ const SingleActivity = (props) => {
           })
           .catch((err) => console.log(err));
       }
-    }, [token]);
+    }, [token, activity['activity_id']]);
 
     if (!exercise) {
       return null;
