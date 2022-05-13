@@ -27,7 +27,7 @@ const SingleActivity = (props) => {
   let related = [];
 
   for (let i = 0; i < allActivities.current.length; i++) {
-    if (allActivities.current[i].tags[0] === activity.tags[0]) {
+    if (allActivities.current[i].tags[0] === activity.tags[0] && allActivities.current[i]['activity_id'] !== activity['activity_id']) {
       related.push(allActivities.current[i]);
     }
     if (related.length === 5) {
