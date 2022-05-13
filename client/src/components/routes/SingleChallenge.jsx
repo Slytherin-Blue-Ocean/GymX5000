@@ -1,23 +1,25 @@
 import React from 'react';
-import TempCard from '../subcomponents/TempCard.jsx';
+import Activities from '../routes/Activities.jsx';
+import Ox from '../threejs/Ox.js';
 
 const SingleChallenge = () => {
+  const noQuote = true;
   return (
     <div className="chal">
-      <h1 className="welcome">Challenge Name</h1>
-      <h4 className="welcome">Expiration date or timer</h4>
-      <div className="chal-mid">
-        <div className="chal-mid-sub">Awarded Badge</div>
-        <div className="chal-mid-sub">Detailed Challenge Description (maybe also reasons to do it? e.g. yoga benefits, muscle group benefitc, etc?)</div>
-      </div>
-      <h4 className="welcome">Complete The Challenge With These Activities</h4>
+      <h1 className="welcome">I'm Not Sleeping Next To You</h1>
+      <h3 className="welcome">Requirements: Eat 6 high-protein meals before May 20, 2022</h3>
+      <div className="chal-bad"><Ox /></div>
+      <h3 className="high-protein">
+        The benefits of a high protein diet are: more satisfying than other weight-loss plans,
+        helps build and maintain muscle, wide variety of healthy food options
+        Most people can follow a high-protein diet by eating meat,
+        fish, dairy products, beans and legumes, eggs,
+        and vegetables that are relatively rich in protein,
+        such as asparagus and spinach.
+      </h3>
+      <h4 className="welcome">Try These High-Protein Recipes</h4>
       <div className="chal-related">
-        <TempCard />
-        <TempCard />
-        <TempCard />
-        <TempCard />
-        <TempCard />
-        <TempCard />
+        <Activities noQuote={noQuote}/>
       </div>
     </div>
   );

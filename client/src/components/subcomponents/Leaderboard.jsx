@@ -17,21 +17,21 @@ const Leaderboard = () => {
         <tr>
           <td>1</td>
           <td>The Arnold</td>
-          <td>Meat Smoothie</td>
+          <td>AB Ripper GymX5000</td>
           <td>110</td>
           <td>8</td>
         </tr>
         <tr>
           <td>2</td>
           <td>Chad</td>
-          <td>Gym Selfie</td>
+          <td>I'm Not Sleeping Next To You</td>
           <td>6</td>
           <td>2</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Ben</td>
-          <td>Bench And Leave</td>
+          <td>Walter</td>
+          <td>My Eyes Are Up Here</td>
           <td>3</td>
           <td>1</td>
         </tr>
