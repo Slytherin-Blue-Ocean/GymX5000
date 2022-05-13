@@ -33,9 +33,18 @@ describe('favorite function', () => {
 
   // //35 is last favorite card after adding
   it('should allow user to unfavorite an item', () => {
-    cy.get('[href="/profile"]').click();
-    cy.wait(200);
-    cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarBorderIcon"]').scrollIntoView({duration: 1500}).click();
+    cy.wait(300);
+    cy.get('[href="/profile"]').should('exist').click();
+    cy.wait(500);
+    cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarIcon"]').scrollIntoView({duration: 1500}).click();
+    // cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('not.exist');
+  });
+
+  it('should check it item is unfavorited', () => {
+    cy.wait(300);
+    cy.get('[href="/profile"]').should('exist').click();
+    cy.wait(500);
+    // it doesn't exist but how to test that it is not there
     cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('not.exist');
   });
 
