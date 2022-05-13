@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap';
 
 const Leaderboard = () => {
   return (
-    <Table className="leaderboard" striped bordered hover variant="dark">
+    <Table className="leaderboard table-board" striped bordered hover variant="dark">
       <thead>
         <tr>
           <th>#</th>

@@ -196,6 +196,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .profile-card {
   color: black;
   height: fit-content;
+  margin: 0 2em 0 0;
 }
 
 .prof-badges {
@@ -212,6 +213,7 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   place-items: center;
   place-content: center;
   place-self: center;
+  /* align-self: flex-start; */
 }
 
 .profile-badge {
@@ -294,6 +296,11 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex: 1;
   margin: 1vw;
   overflow-y: scroll;
+}
+
+.table-board {
+  align-self: flex-start;
+  margin: 0 0 0 1em;
 }
 
 .chal-container {

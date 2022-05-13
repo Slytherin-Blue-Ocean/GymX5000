@@ -19,6 +19,10 @@ const SingleActivity = (props) => {
   const { activity, allActivities } = state;
   const { token } = useAuth();
 
+  if (allActivities.current === undefined) {
+    allActivities.current = allActivities;
+  }
+
   let name, image, tags, body;
   let related = [];
 
