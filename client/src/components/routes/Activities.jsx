@@ -30,7 +30,7 @@ const Activities = ({ noQuote }) => {
     searchBox.current.value = '';
     if (e.target.innerText === 'Clear') {
       filteredActivities.current = allActivities.current;
-      return getAll();
+      return setActivities(allActivities.current);
     }
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     filteredActivities.current = newActivities;
