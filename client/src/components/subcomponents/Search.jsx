@@ -16,7 +16,7 @@ const Search = ({handleFilter, currentFilter}) => {
   return (
     <DropdownButton id="dropdown-basic-button" title="Filter">
       <Dropdown.Item onClick={handleFilter}><ClearIcon />Clear</Dropdown.Item>
-      <Dropdown.Item onClick={handleFilter}><FitnessCenterIcon />Weight-lifting</Dropdown.Item>
+      <Dropdown.Item onClick={handleFilter}><FitnessCenterIcon />Workout</Dropdown.Item>
       <Dropdown.Item onClick={handleFilter}><LocalDiningIcon />Recipe</Dropdown.Item>
       <Dropdown.Item onClick={handleFilter}><SelfImprovementIcon />Class</Dropdown.Item>
     </DropdownButton>

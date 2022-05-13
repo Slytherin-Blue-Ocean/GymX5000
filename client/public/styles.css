@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel&family=Koulen&family=Metal+Mania&display=swap');
 
-.card-container::-webkit-scrollbar, .chal-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar, .badge-container::-webkit-scrollbar{
+.card-container::-webkit-scrollbar, .chal-related::-webkit-scrollbar, .badge-container::-webkit-scrollbar{
   display: none;
 }
 
@@ -29,6 +29,12 @@ body {
 
 .css-1oqqzyl-MuiContainer-root {
   width: fit-content !important;
+}
+
+.css-rmg5c2-MuiPaper-root-MuiCard-root {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
 }
 
 .css-rtau61 {
@@ -111,7 +117,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   place-self: center;
   width: 70vw;
   display: flex;
-  height: 5vh;
 }
 
 .card-container {
@@ -184,6 +189,8 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   display: flex;
   margin: 2rem;
   place-items: center;
+  place-self: center;
+  overflow: hidden;
 }
 
 .profile-card {
@@ -192,17 +199,21 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   margin: 0 2em 0 0;
 }
 
+.prof-badges {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .profile-sub {
-  flex: 1;
   display: flex;
   flex-direction: column;
   height: fit-content;
-  border-style: solid;
-  border-radius: 1rem;
-  border-width: 1px;
+  width: 60vw;
   place-items: center;
   place-content: center;
-  align-self: flex-start;
+  place-self: center;
+  /* align-self: flex-start; */
 }
 
 .profile-badge {
@@ -224,12 +235,14 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 /*        CHALLENGES        */
 .chal {
   color: white;
-  height: 150vh;
+  height: fit-content;
   width: 100vw;
   display: flex;
   flex-direction: column;
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQNLSera9X-RHiF8M_p4kgmJN_ajxwA16irxPJw3iV1K2m4cp_VjtBYKxLvB2DAj2YA&usqp=CAU);
   background-attachment: fixed;
+  place-content: center;
+  place-items: center;
 }
 
 .chal-sub {
@@ -239,7 +252,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .chal-badges {
   display: flex;
   flex-direction: column;
-  flex: 2.5;
   text-align: center;
   place-content: center;
 }
@@ -247,9 +259,9 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 .chal-top {
   place-self: center;
   display: flex;
-  flex-direction: row;
-  height: 60vh;
-  width: 83vw;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
   margin-top: 2rem;
 }
 
@@ -284,7 +296,6 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex: 1;
   margin: 1vw;
   overflow-y: scroll;
-  height: 100%;
 }
 
 .table-board {
@@ -294,12 +305,11 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-container {
   place-self: center;
-  width: 60vw;
+  width: 80vw;
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: scroll;
   margin: 2rem;
   place-items: center;
-  overflow-y: scroll;
 }
 
 .chal-card {
@@ -307,10 +317,12 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
   flex-direction: column;
   margin: 1rem;
   height: fit-content;
-  width: 47%;
+  min-width: 28vw;
+  max-width: 28vw;
+  height: fit-content;
   border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: white;
   background-color: black;
 }
 
@@ -355,13 +367,14 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 }
 
 /*        SINGLE CHALLENGE PAGE       */
-.chal-mid {
-  display: flex;
-  place-self: center;
-  place-items: center;
-  margin: 2rem;
-  width: 80vw;
+.chal-bad {
   height: 40vh;
+  width: 20vw;
+}
+
+.high-protein {
+  max-width: 40vw;
+  text-align: center;
 }
 
 .chal-mid-sub {
@@ -378,16 +391,12 @@ background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, 
 
 .chal-related {
   display: flex;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 1rem;
   margin-bottom: 2vh;
   place-self: center;
   width: 80vw;
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #555a64;
 }
 
 /*        SINGLE ACTIVITY       */
