@@ -45,21 +45,21 @@ const Activities = ({ noQuote }) => {
   };
 
   const getAll = () => {
-    if (token) {
-      axios.get('http://localhost:3001/api/v1/activities', {
-        headers: {'Authorization': token}
+    axios.get('http://localhost:3001/api/v1/activities', {
+      headers: {'Authorization': token}
+    })
+      .then((res) => {
+        allActivities.current = res.data;
+        filteredActivities.current = res.data;
+        setActivities(res.data);
       })
-        .then((res) => {
-          allActivities.current = res.data;
-          filteredActivities.current = res.data;
-          setActivities(res.data);
-        })
-        .catch((err) => console.error(err));
-    }
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getAll();
+    if (token) {
+      getAll();
+    }
   }, [token]);
 
   return (
