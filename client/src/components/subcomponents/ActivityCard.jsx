@@ -53,7 +53,7 @@ const formatTitle = (title) => {
   }
 };
 
-const ActivityCard = function({activity}) {
+const ActivityCard = function({activity, allActivities}) {
   const [favorited, setFavorated] = useState(activity.favorited);
   // const title = formatTitle(activity.activity);
   const title = activity.activity;
@@ -94,7 +94,7 @@ const ActivityCard = function({activity}) {
             </IconButton>
           </CardActions>
         }
-        title={<Typography onClick={() => navigate('/singleactivity', { state: {activity: activity} })} >{title}</Typography>}
+        title={<Typography onClick={() => navigate('/singleactivity', { state: {activity: activity, allActivities: allActivities} })} >{title}</Typography>}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
