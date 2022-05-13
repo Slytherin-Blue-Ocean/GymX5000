@@ -20,7 +20,7 @@ const Classes = () => {
   const getallclasses = () => {
     if (token) {
       axios.get('http://localhost:3001/api/v1/classes', {
-        headers: {'Authorization': token} // add this for authentication
+        headers: {'Authorization': token}
       })
         .then((res) => setClasslist(res.data))
         .catch((err) => console.error(err));
@@ -32,7 +32,7 @@ const Classes = () => {
   const getfavor = () => {
     if (token) {
       axios.get('http://localhost:3001/api/v1/favoriteclass', {
-        headers: {'Authorization': token} // add this for authentication
+        headers: {'Authorization': token}
       })
         .then((res) => setFavclass(res.data))
         .catch((err) => console.error(err));
