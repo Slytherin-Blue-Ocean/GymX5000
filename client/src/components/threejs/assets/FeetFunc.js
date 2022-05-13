@@ -4,19 +4,18 @@ import { useFrame } from '@react-three/fiber';
 
 export default function Model({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/brick.gltf');
+  const { nodes, materials } = useGLTF('/feet.gltf');
   const mesh = useRef();
+
   useFrame(() => (mesh.current.rotation.y += 0.01));
 
   return (
     <group ref={group, mesh} {...props} dispose={null}>
-      <group position={[0, -8, 0]} rotation={[0, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
-          <mesh geometry={nodes.LIBRA1_1_LIBRA1_1_0.geometry} material={materials.LIBRA1_1} />
-        </group>
+      <group position={[0, -2.5, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={.1} >
+        <mesh geometry={nodes.Object_2.geometry} material={materials['Scene_-_Root']} />
       </group>
     </group>
   );
 }
 
-useGLTF.preload('/brick.gltf');
+useGLTF.preload('/feet.gltf');

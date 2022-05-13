@@ -1,20 +1,20 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import KettleFunc from './assets/KettleFunc.js';
+import FeetFunc from './assets/FeetFunc.js';
 
 
-const Kettlebell = () => {
+const Feet = () => {
   return (
     <Canvas className="canvas">
       <OrbitControls enableZoom={false} />
       <ambientLight intensity={2} />
-      <directionalLight position={[0, 1, 0]} intensity={3}/>
+      <directionalLight position={[-2, 5, 2]} intensity={1}/>
       <Suspense fallback={null}>
-        <KettleFunc />
+        <FeetFunc />
       </Suspense>
     </Canvas>
   );
 };
 
-export default Kettlebell;
+export default Feet;
