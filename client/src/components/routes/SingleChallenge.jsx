@@ -44,7 +44,7 @@ const SingleChallenge = () => {
         such as asparagus and spinach.
       </h3>
       <h4 className="welcome">Try These High-Protein Recipes</h4>
-      <div className="chal-related">
+      <div className="card-container">
         { activities.length ? activities.map((activity) => <ActivityCard key={activity.id} activity={activity} allActivities={allActivities}/>) : null }
       </div>
     </div>
