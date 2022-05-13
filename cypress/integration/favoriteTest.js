@@ -13,23 +13,30 @@ describe('favorite function', () => {
     cy.get('.MuiButton-root').click();
   });
 
+  //default is 34 cards but change nthchild to last card
   it('should check how many favorites are there', () => {
-    cy.get('[href="/profile"]').click();
-    cy.get(':nth-child(34) > .MuiCardHeader-root').should('exists');
+    cy.wait(300);
+    cy.get('[href="/profile"]').should('exist').click();
+    cy.wait(500);
+
+    cy.get(':nth-child(34) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('exist');
   });
 
 
-  //34 cards default in profile
+  // //34 cards default in profile
   it('should allow user to favorite an item', () => {
     cy.get(':nth-child(1) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarBorderIcon"]').click();
+    cy.wait(200);
     cy.get('[href="/profile"]').click();
-    cy.get(':nth-child(35) > .MuiCardHeader-root').should('exists');
+    cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('exist');
   });
 
-  //36 is last favorite card after adding
+  // //35 is last favorite card after adding
   it('should allow user to unfavorite an item', () => {
-    cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarBorderIcon"]').click();
-    cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarBorderIcon"]').should('not.exists');
+    cy.get('[href="/profile"]').click();
+    cy.wait(200);
+    cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarBorderIcon"]').scrollIntoView({duration: 1500}).click();
+    cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('not.exist');
   });
 
 });
