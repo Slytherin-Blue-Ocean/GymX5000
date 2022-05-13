@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TempCard from '../subcomponents/TempCard.jsx';
 import styled from 'styled-components';
-// import ActivityCard from '../subcomponents/ActivityCard.jsx';
+import ActivityCard from '../subcomponents/ActivityCard.jsx';
 const axios = require('axios');
 import {useAuth} from '../context/Auth.jsx';
 import { useLocation } from 'react-router-dom';
@@ -16,10 +16,25 @@ const Divider = styled.div`
 
 const SingleActivity = (props) => {
   const { state } = useLocation();
-  const { activity } = state;
+  const { activity, allActivities } = state;
   const { token } = useAuth();
 
-  let name, image, tags, body, related;
+  let name, image, tags, body;
+  let related = [];
+
+  for (let i = 0; i < allActivities.current.length; i++) {
+    if (allActivities.current[i].tags[0] === activity.tags[0]) {
+      related.push(allActivities.current[i]);
+    }
+    if (related.length === 5) {
+      break;
+    }
+  }
+
+  const relatedCards = related.map((activity) =>
+    <ActivityCard key={activity.activity_id} activity={activity} allActivities={allActivities.current} />
+  );
+
   if (activity.type === 'recipe') {
     const currentId = useRef(null);
 
@@ -79,11 +94,7 @@ const SingleActivity = (props) => {
         <div className="act-tags">Tags: {tags}</div>
         <h4 className="welcome">Similar Activities to Try</h4>
         <div className="card-container">
-          <TempCard />
-          <TempCard />
-          <TempCard />
-          <TempCard />
-          <TempCard />
+          {relatedCards}
         </div>
       </div>
     );
@@ -135,11 +146,7 @@ const SingleActivity = (props) => {
         {/* <div className="act-tags">Tags: {tags}</div> */}
         <h4 className="welcome">Similar Activities to Try</h4>
         <div className="card-container">
-          <TempCard />
-          <TempCard />
-          <TempCard />
-          <TempCard />
-          <TempCard />
+          {relatedCards}
         </div>
       </div>
     );
@@ -193,9 +200,7 @@ const SingleActivity = (props) => {
         </div>
         <h4 className="welcome">Similar Exercises to Try</h4>
         <div className="card-container">
-          <TempCard />
-          <TempCard />
-          <TempCard />
+          {relatedCards}
         </div>
       </div>
     );

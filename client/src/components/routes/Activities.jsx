@@ -73,7 +73,7 @@ const Activities = () => {
         <input ref={searchBox} onChange={handleSearch} className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
-        { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
+        { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity} allActivities={allActivities}/>) : null }
       </div>
     </div>
   );
