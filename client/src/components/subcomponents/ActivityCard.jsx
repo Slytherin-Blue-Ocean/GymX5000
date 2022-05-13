@@ -30,6 +30,10 @@ const activityTags = {
   color: '#f8eeec'
 };
 
+const titleCss = {
+  cursor: 'pointer',
+};
+
 const setIcon = (activityType) => {
   switch (activityType) {
   case 'workout':
@@ -94,7 +98,7 @@ const ActivityCard = function({activity, allActivities}) {
             </IconButton>
           </CardActions>
         }
-        title={<Typography onClick={() => navigate('/singleactivity', { state: {activity: activity, allActivities: allActivities} })} >{title}</Typography>}
+        title={<Typography style={titleCss} onClick={() => navigate('/singleactivity', { state: {activity: activity, allActivities: allActivities} })} >{title}</Typography>}
         subheader={ <Typography variant="p:2" >{activity.type}</Typography>}
       />
       <CardMedia
