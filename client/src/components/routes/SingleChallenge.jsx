@@ -1,9 +1,35 @@
 import React from 'react';
+import {useState, useEffect, useRef} from 'react';
+import axios from 'axios';
 import Activities from '../routes/Activities.jsx';
+import ActivityCard from '../subcomponents/ActivityCard.jsx';
 import Ox from '../threejs/Ox.js';
+import {useAuth} from '../context/Auth.jsx';
+
+const getHighProteinCards = (activities) => {
+  return activities.filter((activity) => activity.tags.toString().toLowerCase().includes('protein'));
+};
+
 
 const SingleChallenge = () => {
   const noQuote = true;
+  const allActivities = useRef([]);
+  const [activities, setActivities] = useState([]);
+  const { token } = useAuth();
+
+  useEffect(() => {
+    if (token) {
+      axios.get('http://localhost:3001/api/v1/activities', {
+        headers: {'Authorization': token}
+      })
+        .then((res) => {
+          allActivities.current = res.data;
+          setActivities(getHighProteinCards(res.data));
+        })
+        .catch((err) => console.error(err));
+    }
+  });
+
   return (
     <div className="chal">
       <h1 className="welcome">I'm Not Sleeping Next To You</h1>
@@ -19,7 +45,7 @@ const SingleChallenge = () => {
       </h3>
       <h4 className="welcome">Try These High-Protein Recipes</h4>
       <div className="chal-related">
-        <Activities noQuote={noQuote}/>
+        { activities.length ? activities.map((activity) => <ActivityCard key={activity.id} activity={activity} allActivities={allActivities}/>) : null }
       </div>
     </div>
   );
