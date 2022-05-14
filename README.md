@@ -4,6 +4,35 @@ GymX5000 is a fitness app that brings health, fitness and a fun video game aspec
 
 ![image](https://lh3.googleusercontent.com/g91D-KmK_R3ajx9XSY7l6d9kJkfXZhBUmzW7yUajU7FW5ffk9rHmrmDU7P__xtALIA1RCrF4X7P5JnNC7z14vwf0V_gqPHoPU7x3O0YWUeoiuV0L8I8kbUHZy2v9NYmm4U-HTyW9FQ=w2400)
 
+## Contributers
+
+**[Walter Latimer](https://github.com/floridamaniac)**\
+*Project Manager*
+
+**[Dami Kim](https://github.com/es98dame)**\
+*Architecture Owner*
+
+**[Andrew Orendeker](https://github.com/aorodenker)**\
+*UI Owner*
+
+**[Alex Cannon](https://github.com/theVikingMan)**\
+*Fullstack Engineer*
+
+**[Benjamin Cope](https://github.com/BenjaminRCope)**\
+*Fullstack Engineer*
+
+**[Hunter Motko](https://github.com/hunterMotko)**\
+*Fullstack Engineer*
+
+**[Ivy Wong](https://github.com/ivykw)**\
+*Fullstack Engineer*
+
+**[Ryan De Leon](https://github.com/ryand8008)**\
+*Fullstack Engineer*
+
+**[Owen Yoshishige](https://github.com/OwenMY)**\
+*Fullstack Engineer*
+
 ## Front-End
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Threejs](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
 
