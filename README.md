@@ -47,22 +47,32 @@ This project was a brief 1-week sprint where our team tried to complete an MVP f
 ## Testing
 ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 
-## Technical Challenges
-Description of technical challenges go here.
+<br/>
+
+## App UI/UX Features
+
+### Activities
+
+### Classes
+
+### Challenges
+
+### Profile Page
+
+<br/>
+
+## Back End Structure
+
+<br/>
+
+## Testing
+
+<br/>
+
+## Our Journey
 
 
-## Challenges that were unexpected
-
-## video/demo....
-
-## What research was required
-
-## Workflow
-  Our team adhered to the agile methodology where we used trello as a ticketing system and adopted the feature branch workflow for github.
-
-## Future refractoring
-
-
+<br/>
 
 ## Setup
 
