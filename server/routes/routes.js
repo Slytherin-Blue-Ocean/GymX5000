@@ -3,7 +3,7 @@ const router = Router();
 const { getUser } = require('../controllers/users');
 const activity = require('../controllers/activity');
 const exercise = require('../controllers/exercise');
-console.log(activity);
+
 router.get('/user', getUser);
 
 router.get('/activities', activity.getAllActivities);

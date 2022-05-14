@@ -3,9 +3,15 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import UserImg from '../subcomponents/UserImg.jsx';
 import Leaderboard from '../subcomponents/Leaderboard.jsx';
-import TempCard from '../subcomponents/TempCard.jsx';
 import FavoritesList from '../subcomponents/FavoritesList.jsx';
 import ActivityCard from '../subcomponents/ActivityCard.jsx';
+import Kettlebell from '../threejs/Kettlebell.js';
+import Broccoli from '../threejs/Broccoli.js';
+import WireYoga from '../threejs/WireYoga.js';
+import Ox from '../threejs/Ox.js';
+import Avocado from '../threejs/Avocado.js';
+import Brick from '../threejs/Brick.js';
+import Feet from '../threejs/Feet.js';
 
 const cardContainerStyle = {
   height: '200em'
@@ -25,10 +31,17 @@ const Profile = () => {
       <div className="profile-top">
         <UserImg />
         <div className="profile-sub">
-          <h3 className="welcome">Collected Badges</h3>
-          <div className="profile-badge">TEST</div>
+          <Leaderboard className="profile-board"/>
+          <div className="prof-badges">
+            <Kettlebell />
+            <Broccoli />
+            <WireYoga />
+            <Ox />
+            <Avocado />
+            <Brick />
+            <Feet />
+          </div>
         </div>
-        <Leaderboard className="profile-board"/>
       </div>
       <h2 className="welcome">Arnold's Activities</h2>
       <FavoritesList />

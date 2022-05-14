@@ -91,6 +91,7 @@ const Login = ({setIsAuthenticated}) => {
               type="submit"
               fullWidth
               variant="contained"
+              color="error"
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In

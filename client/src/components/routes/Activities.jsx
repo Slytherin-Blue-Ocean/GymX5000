@@ -9,7 +9,7 @@ import Quotes from '../subcomponents/Quotes.jsx';
 import {useAuth} from '../context/Auth.jsx';
 
 const filterActivities = (filter, allActivities) => {
-  let activityType = (filter === 'Weight-lifting') ? 'workout' : filter.toLowerCase();
+  let activityType = (filter === 'Workout') ? 'workout' : filter.toLowerCase();
   return allActivities.filter((activity) => activity.type === activityType);
 };
 
@@ -17,7 +17,7 @@ const createKey = (activity) => {
   return activity.id + activity.activity.slice(0, 5);
 };
 
-const Activities = () => {
+const Activities = ({ noQuote }) => {
   const allActivities = useRef([]);
   const filteredActivities = useRef([]);
   const searchBox = useRef(null);
@@ -30,7 +30,7 @@ const Activities = () => {
     searchBox.current.value = '';
     if (e.target.innerText === 'Clear') {
       filteredActivities.current = allActivities.current;
-      return getAll();
+      return setActivities(allActivities.current);
     }
     let newActivities = filterActivities(e.target.innerText, allActivities.current);
     filteredActivities.current = newActivities;
@@ -45,35 +45,36 @@ const Activities = () => {
   };
 
   const getAll = () => {
-    if (token) {
-      console.log(token);
-      axios.get('http://localhost:3001/api/v1/activities', {
-        headers: {'Authorization': token}
+    axios.get('http://localhost:3001/api/v1/activities', {
+      headers: {'Authorization': token}
+    })
+      .then((res) => {
+        allActivities.current = res.data;
+        filteredActivities.current = res.data;
+        setActivities(res.data);
       })
-        .then((res) => {
-          allActivities.current = res.data;
-          filteredActivities.current = res.data;
-          setActivities(res.data);
-        })
-        .catch((err) => console.error(err));
-    }
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getAll();
-  }, []);
+    if (token) {
+      getAll();
+    }
+  }, [token]);
 
   return (
     <div className="home">
-      <h1 className="welcome">
-        {quote.current}
-      </h1>
+      {!noQuote && (
+        <h1 className="welcome">
+          {quote.current}
+        </h1>
+      )}
       <div className="search">
         <Search handleFilter={handleFilter}/>
         <input ref={searchBox} onChange={handleSearch} className="tag-search" placeholder="Search..." />
       </div>
       <div className="card-container">
-        { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity}/>) : null }
+        { activities.length ? activities.map((activity) => <ActivityCard key={createKey(activity)} activity={activity} allActivities={allActivities}/>) : null }
       </div>
     </div>
   );

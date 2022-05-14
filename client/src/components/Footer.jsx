@@ -8,19 +8,19 @@ const Footer = () => {
       <div className="footer-inner-1">
         <h3 className="footer-title">Created By</h3>
         <div className="footer-main">
-        <div className="footer-content">
-          <div>Hunter Motko</div>
-          <div>Ivy Wong</div>
-          <div>Andrew Orodenker</div>
-          <div>Walter Latimer</div>
-          <div>Dami Kim</div>
+          <div className="footer-content">
+            <div>Dami Kim</div>
+            <div>Ivy Wong</div>
+            <div>Andrew Orodenker</div>
+            <div>Walter Latimer</div>
+            <div>Hunter Motko</div>
           </div>
-        <div className="footer-content">
-          <div>Owen Yoshishige</div>
-          <div>Benjamin Cope</div>
-          <div>Alexander Cannon</div>
-          <div>Ryan De Leon</div>
-        </div>
+          <div className="footer-content">
+            <div>Owen Yoshishige</div>
+            <div>Benjamin Cope</div>
+            <div>Alexander Cannon</div>
+            <div>Ryan De Leon</div>
+          </div>
         </div>
       </div>
       <div className="footer-inner">
