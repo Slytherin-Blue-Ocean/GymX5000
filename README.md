@@ -1,5 +1,8 @@
 # GymX5000
-Fitness Tracker to keep track of fitness activities, goals, classes, and more.
+This project was a brief 1-week sprint where our team tried to complete an MVP for an external user Chad.
+GymX5000 is a fitness app that brings health, fitness and a fun video game aspect to living a healthy lifestyle.  
+
+![image](https://lh3.googleusercontent.com/rKR-dREi0Isyy_5AwASsThY3ZYTx58jmyAKIsns8505zOGbY_yRzwlpWsduN9YLlSm10avIBJjktxZpqWNcg-6HpsXjMA580VbeaadD1WdQ-fQUQ8rBGxxY9AuWpQStiaNdV5q7SKA=w2400)
 
 ## Front-End
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Threejs](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
