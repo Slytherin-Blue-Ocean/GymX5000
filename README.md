@@ -1,5 +1,5 @@
 # GymX5000
-GymX5000 is a fitness app that brings health, fitness and a fun video game aspect to living a healthy lifestyle, providing users with an all in one experience where you can stay motivated, eat healthy, get stronger, and compete with friends.  This app uses a multipurpose card system that dynamically renders many different activties from a polymorphic postgreSQL database. GymX5000 includes a unique challenge feature that contains interactable 3d models of trophies that are awarded upon completing tasks. 
+GymX5000 is a fitness app that brings health, fitness and a fun video game aspect to living a healthy lifestyle, providing users with an all in one experience where you can stay motivated, eat healthy, get stronger, and compete with friends.  This app uses a multipurpose card system that dynamically renders many different activties from a polymorphic postgreSQL database. GymX5000 includes a unique challenge feature that contains interactable 3D models of trophies that are awarded upon completing tasks. 
 
 ![image](https://lh3.googleusercontent.com/g91D-KmK_R3ajx9XSY7l6d9kJkfXZhBUmzW7yUajU7FW5ffk9rHmrmDU7P__xtALIA1RCrF4X7P5JnNC7z14vwf0V_gqPHoPU7x3O0YWUeoiuV0L8I8kbUHZy2v9NYmm4U-HTyW9FQ=w2400)
 
@@ -14,10 +14,10 @@ This project was a brief 1-week sprint where our team tried to complete an MVP f
 **[Dami Kim](https://github.com/es98dame)**\
 *Architecture Owner*
 
-**[Andrew Orendeker](https://github.com/aorodenker)**\
+**[Andrew Orodenker](https://github.com/aorodenker)**\
 *UI Owner*
 
-**[Alex Cannon](https://github.com/theVikingMan)**\
+**[Alexander Cannon](https://github.com/theVikingMan)**\
 *Fullstack Engineer*
 
 **[Benjamin Cope](https://github.com/BenjaminRCope)**\
@@ -49,7 +49,7 @@ This project was a brief 1-week sprint where our team tried to complete an MVP f
 
 <br/>
 
-## App UI/UX Features
+## App User Interface
 
 ### Activities
 The activities page displays a list of cards where a user can filter the cards by category and further search through them by tag using the search bar.
