@@ -52,12 +52,16 @@ This project was a brief 1-week sprint where our team tried to complete an MVP f
 ## App UI/UX Features
 
 ### Activities
+![image](https://media.giphy.com/media/gZGKgbMA7zDn0raCKj/giphy.gif)
 
 ### Classes
+![image](https://media.giphy.com/media/IaYQDYErZuqPvZVybO/giphy.gif)
 
 ### Challenges
+![image](https://media.giphy.com/media/P8IWfYps4PD4OtpoCM/giphy.gif)
 
 ### Profile Page
+![image](https://media.giphy.com/media/o4uXO0ayp3Cfi5cHcM/giphy.gif)
 
 <br/>
 
