@@ -52,15 +52,24 @@ This project was a brief 1-week sprint where our team tried to complete an MVP f
 ## App UI/UX Features
 
 ### Activities
+The activities page displays a list of cards where a user can filter the cards by category and further search through them by tag using the search bar.
+Near the top of the page is a random motivational quote that changes everytime you refresh the page. Each card can be favorited by clicking the star icon and are added to the profile page upon click. Clicking a cards title will take you to another page displaying more information about that card. 
+>>
 ![image](https://media.giphy.com/media/gZGKgbMA7zDn0raCKj/giphy.gif)
-
+>>
 ### Classes
+In the classes section is a carousol of favorited classes and a list of classes a user has booked and completed.  Below that is a list of upcomming classes you can also book that are not in your favorites list.  Pressing the 'Book' button will show a prompt verifying that you have booked a class.  At the moment, there is no way to delete classes or unbook them. This feature will be added in a future update.
+>>
 ![image](https://media.giphy.com/media/IaYQDYErZuqPvZVybO/giphy.gif)
-
+>>
 ### Challenges
+The challenges page showcases a display of 3D interactive badges that can be earned by completing challenges.  Beneath it is a leaderboard that displays the top users who have earned the most points by completing challenges, a feature not yet implemented. Challenges for the month can be found at the bottom of the page where clicking on one will take you to a page with more information about that challenge.  The points system and challenge information will be implemented in a future update.
+>>
 ![image](https://media.giphy.com/media/P8IWfYps4PD4OtpoCM/giphy.gif)
 
 ### Profile Page
+The profile page consists of a users information, badges earned and favorited activity cards.  The friends and messaging features are not implemented and will be added in a future update.
+>>
 ![image](https://media.giphy.com/media/o4uXO0ayp3Cfi5cHcM/giphy.gif)
 
 <br/>
