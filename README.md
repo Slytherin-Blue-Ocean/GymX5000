@@ -74,7 +74,7 @@ The profile page consists of a users information, badges earned and favorited ac
 
 <br/>
 
-## Back End Structure
+## Back-End Structure
 ![image](https://lh3.googleusercontent.com/12j7fKqRnWREx77PXufgg4JM2Hw-JbmocQ9JSkaITUHvBs6Mv9DdB_KFb8Ej4EijSUPrM2C5b1q1hb6QnUnsUqqJsbNizfj2BFOnSTAVKSgRAtwIhQHtS2JjyC2CYpPCk5dbWXPMlw=w2400)
 <br/>
 
@@ -83,7 +83,7 @@ The profile page consists of a users information, badges earned and favorited ac
 <br/>
 
 ## Our Journey
-
+  The app that you see before you did not come without it's challenges.  Our client desired an all inclusive app with a long list of features that was impossible to build within a week and despite narrowing down the scope of the project presented many questions to be answered. Luckily our client was satisfied with our proposal of building a gym app that included just challenges to be completed. 
 
 <br/>
 
