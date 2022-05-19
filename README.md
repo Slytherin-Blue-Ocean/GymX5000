@@ -80,6 +80,22 @@ The profile page consists of a users information, badges earned and favorited ac
 
 ## Testing
 Testing has been done using cypress.
+
+1. Install Cypress
+   > `npm install —save-dev cypress`
+   > Install Cypress on desktop: https://www.cypress.io/
+2. Run dev and server
+   > `npm run dev` and `npm run server-start`
+3. Run Cypress on desktop and locate `integration` folder
+
+Example of tests
+</br>
+![image](https://i.imgur.com/0fvIgXY.png)
+</br>
+![image](https://i.imgur.com/LcIo4WY.png)
+</br>
+![image](https://i.imgur.com/KHRdbsG.gif)
+
 <br/>
 
 ## Setup
