@@ -79,12 +79,7 @@ The profile page consists of a users information, badges earned and favorited ac
 <br/>
 
 ## Testing
-
-<br/>
-
-## Our Journey
-  The app that you see before you did not come without it's challenges.  Our client desired an all inclusive app with a long list of features that was impossible to build within a week and despite narrowing down the scope of the project presented many questions to be answered. Luckily our client was satisfied with our proposal of building a gym app that included just challenges to be completed. 
-
+Testing has been done using cypress.
 <br/>
 
 ## Setup
