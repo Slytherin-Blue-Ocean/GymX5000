@@ -90,9 +90,7 @@ Testing has been done using cypress.
 
 Example of tests
 </br>
-![image](https://i.imgur.com/0fvIgXY.png)
-</br>
-![image](https://i.imgur.com/LcIo4WY.png)
+![image](https://i.imgur.com/oOtOySX.png)
 </br>
 ![image](https://i.imgur.com/KHRdbsG.gif)
 
