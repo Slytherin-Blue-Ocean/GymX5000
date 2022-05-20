@@ -75,8 +75,43 @@ The profile page consists of a users information, badges earned and favorited ac
 <br/>
 
 ## Back-End Structure
-![image](https://lh3.googleusercontent.com/12j7fKqRnWREx77PXufgg4JM2Hw-JbmocQ9JSkaITUHvBs6Mv9DdB_KFb8Ej4EijSUPrM2C5b1q1hb6QnUnsUqqJsbNizfj2BFOnSTAVKSgRAtwIhQHtS2JjyC2CYpPCk5dbWXPMlw=w2400)
+![gymx5000-2(reduced)](https://user-images.githubusercontent.com/25275753/169428763-736928fa-e56f-4d35-b7e1-541f54c950c6.png)
+>>
+This is a database structure in which all classes and recipes and workouts data are linked and managed through an activity table that serves as a great hub.
+
 <br/>
+
+## API Endpoints
+
+### `GET /api/v1/activities`
+Retrieve a list of all activities
+
+### `GET /api/v1/recipes`
+Retrieve a list of all recipes or specific recipe information
+
+#### Parameters
+| Parameter  | Type    | Description                                       |
+|------------|---------|---------------------------------------------------|
+| recipeid        | Integer | Required ID of the recipe for which data should be returned. |
+
+### `GET /api/v1/workout`
+Retrieve a list of all exercise or specific exericise information
+
+#### Parameters
+| Parameter  | Type    | Description                                       |
+|------------|---------|---------------------------------------------------|
+| workoutid        | Integer | Required ID of the workout for which data should be returned. |
+
+### `GET /api/v1/classes`
+Retrieve a list of all classes or specific class information
+
+#### Parameters
+| Parameter  | Type    | Description                                       |
+|------------|---------|---------------------------------------------------|
+| classtid        | Integer | Required ID of the class for which data should be returned. |
+
+### `GET /api/v1/favorites`
+Retrieve a list of favorites for a single user
 
 ## Testing
 Testing has been done using cypress.
