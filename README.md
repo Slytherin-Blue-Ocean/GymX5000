@@ -58,7 +58,7 @@ Near the top of the page is a random motivational quote that changes everytime y
 ![image](https://media.giphy.com/media/gZGKgbMA7zDn0raCKj/giphy.gif)
 >>
 ### Classes
-In the classes section is a carousol of favorited classes and a list of classes a user has booked and completed.  Below that is a list of upcomming classes you can also book that are not in your favorites list.  Pressing the 'Book' button will show a prompt verifying that you have booked a class.  At the moment, there is no way to delete classes or unbook them. This feature will be added in a future update.
+In the classes section is a carousel of favorited classes and a list of classes a user has booked and completed.  Below that is a list of upcoming classes you can also book that are not in your favorites list.  Pressing the 'Book' button will show a prompt verifying that you have booked a class.  At the moment, there is no way to delete classes or unbook them. This feature will be added in a future update.
 >>
 ![image](https://media.giphy.com/media/IaYQDYErZuqPvZVybO/giphy.gif)
 >>
@@ -75,9 +75,9 @@ The profile page consists of a users information, badges earned and favorited ac
 <br/>
 
 ## Back-End Structure
-![gymx5000-2(reduced)](https://user-images.githubusercontent.com/25275753/169428763-736928fa-e56f-4d35-b7e1-541f54c950c6.png)
+This is a database structure in which all classes, recipes, and workouts data are linked and managed through an activity table that serves as a great hub. The database is built in such a way that future implementations can be easily added by adding a relationship between the new table and activities table. Thanks to this structure, we are able to consolidate all of the different features (i.e. recipes, workouts, classes) into a single GET request, thus allowing the front end team to create many different activities through a single card component.
 >>
-This is a database structure in which all classes, recipes, and workouts data are linked and managed through an activity table that serves as a great hub.
+![gymx5000-2(reduced)](https://user-images.githubusercontent.com/25275753/169428763-736928fa-e56f-4d35-b7e1-541f54c950c6.png)
 
 <br/>
 
@@ -87,23 +87,23 @@ This is a database structure in which all classes, recipes, and workouts data ar
 Retrieve a list of all activities
 
 ### `GET /api/v1/recipes`
-Retrieve a list of all recipes or specific recipe information
+Retrieve a list of all recipes or specific recipe information.
 
 #### Parameters
 | Parameter  | Type    | Description                                                       |
 |------------|---------|-------------------------------------------------------------------|
-| recipeid        | Integer | Required ID of the recipe for which data should be returned. |
+| recipeid   | Integer | Required ID of the recipe for which data should be returned.      |
 
 ### `GET /api/v1/workout`
-Retrieve a list of all exercise or specific exericise information
+Retrieve a list of all exercise or specific exericise information.
 
 #### Parameters
 | Parameter  | Type    | Description                                                         |
 |------------|---------|---------------------------------------------------------------------|
-| workoutid        | Integer | Required ID of the workout for which data should be returned. |
+| workoutid  | Integer | Required ID of the workout for which data should be returned.       |
 
 ### `GET /api/v1/classes`
-Retrieve a list of all classes or specific class information
+Retrieve a list of all classes or specific class information.
 
 #### Parameters
 | Parameter  | Type    | Description                                                 |
@@ -111,7 +111,7 @@ Retrieve a list of all classes or specific class information
 | classtid   | Integer | Required ID of the class for which data should be returned. |
 
 ### `GET /api/v1/favorites`
-Retrieve a list of favorites for a single user
+Retrieve a list of favorites for a single user.
 
 ## Testing
 Testing has been done using cypress.
