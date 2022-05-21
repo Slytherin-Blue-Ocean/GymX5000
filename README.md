@@ -84,7 +84,7 @@ This is a database structure in which all classes, recipes, and workouts data ar
 ## API Endpoints
 
 ### `GET /api/v1/activities`
-Retrieve a list of all activities
+Retrieve a list of all activities.
 
 ### `GET /api/v1/recipes`
 Retrieve a list of all recipes or specific recipe information.
