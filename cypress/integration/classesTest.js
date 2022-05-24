@@ -1,17 +1,12 @@
+require('dotenv').config();
+
 describe('Fitness Classes', () => {
-  //if click 'class'
 
   beforeEach(function () {
-    // before each test, we can automatically preserve the
-    // 'session_id' and 'remember_token' cookies. this means they
-    // will not be cleared before the NEXT test starts.
-    //
-    // the name of your cookies will likely be different
-    // this is just a simple example
     Cypress.Cookies.preserveOnce('session_id', 'remember_token');
     cy.visit('http://localhost:3000/login');
-    cy.get('input#email').type('admin@gmail.com');
-    cy.get('input#password').type('admin1234');
+    cy.get('input#email').type(`${process.env.email}`);
+    cy.get('input#password').type(`${process.env.password}`);
     cy.get('.MuiButton-root').click();
     cy.wait(300);
 

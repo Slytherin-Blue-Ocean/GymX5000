@@ -34,21 +34,4 @@ describe('front page testing', () => {
     cy.get('#address').should('exist');
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}); // end of function
+});

@@ -2,7 +2,7 @@
 
 describe('basic website', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/login');
+    cy.visit('http://localhost:3000');
   });
 
   it('shows a login page', () => {
@@ -33,7 +33,6 @@ describe('basic website', () => {
     cy.get('[href="/profile"]').should('have.text', 'My Profile');
   });
 
-  // register button = next page: http://localhost:3000/register
   it('it should have a way to register if no account', () => {
     cy.get('.MuiTypography-body1 > .MuiTypography-root').should('have.text', 'Register');
     cy.get('.MuiTypography-body1 > .MuiTypography-root').click();
@@ -86,7 +85,7 @@ describe('authenticated user', () => {
   it('drop down filter menu clear filter params', () => {
     cy.get('#dropdown-basic-button').click();
     cy.get('.dropdown-menu > :nth-child(1)').click();
-    // cy.get(':nth-child(1) > .MuiCardHeader-root').contains('workout');
+
   });
 
   //once logged in 'register should not appear anywhere'
@@ -102,10 +101,6 @@ describe('authenticated user', () => {
 // //test logout
 describe('logout', () => {
   it('should logout of the app when button is click', () => {
-    // cy.visit('http://localhost:3000/login');
-    // cy.get('input#email').type('admin@gmail.com');
-    // cy.get('input#password').type('admin1234');
-    // cy.get('.MuiButton-root').click();
     cy.get('.container > .btn').click();
 
   });

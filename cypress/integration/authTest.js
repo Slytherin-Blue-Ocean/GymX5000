@@ -1,31 +1,16 @@
+require('dotenv').config();
+
 describe('authenticated user', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
     cy.get('.css-e53awj-MuiStack-root > [href="/login"]').click();
     cy.wait(100);
-    cy.get('input#email').type('admin@gmail.com');
-    cy.get('input#password').type('admin1234');
+    cy.get('input#email').type(`${process.env.email}`);
+    cy.get('input#password').type(`${process.env.password}`);
     cy.get('.MuiBox-root > .MuiButton-root').click();
     cy.wait(500);
   });
 
-
-
-
-
-  // it('should login successfully log into our app', () => {
-  //   cy.visit('http://localhost:3000');
-  //   cy.get('.css-e53awj-MuiStack-root > [href="/login"]').click();
-  //   cy.wait(100);
-  //   cy.get('input#email').type('admin@gmail.com');
-  //   cy.get('input#password').type('admin1234');
-  //   cy.get('.MuiBox-root > .MuiButton-root').click();
-
-  // });
-
-  // it('should have a search bar', () => {
-  //   cy.wait(200);
-  // });
 
   it('should have a search bar', () => {
     cy.get('.tag-search').should('exist');
@@ -58,7 +43,6 @@ describe('authenticated user', () => {
   it('drop down filter menu clear filter params', () => {
     cy.get('#dropdown-basic-button').click();
     cy.get('.dropdown-menu > :nth-child(1)').click();
-    // cy.get(':nth-child(1) > .MuiCardHeader-root').contains('workout');
   });
 
   //once logged in 'register should not appear anywhere'

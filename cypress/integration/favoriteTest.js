@@ -1,15 +1,10 @@
+
 describe('favorite function', () => {
   beforeEach(function () {
-    // before each test, we can automatically preserve the
-    // 'session_id' and 'remember_token' cookies. this means they
-    // will not be cleared before the NEXT test starts.
-    //
-    // the name of your cookies will likely be different
-    // this is just a simple example
     Cypress.Cookies.preserveOnce('session_id', 'remember_token');
     cy.visit('http://localhost:3000/login');
-    cy.get('input#email').type('admin@gmail.com');
-    cy.get('input#password').type('admin1234');
+    cy.get('input#email').type(`${process.env.email}`);
+    cy.get('input#password').type(`${process.env.password}`);
     cy.get('.MuiButton-root').click();
   });
 
@@ -37,16 +32,14 @@ describe('favorite function', () => {
     cy.get('[href="/profile"]').should('exist').click();
     cy.wait(500);
     cy.get(':nth-child(35) > .MuiCardHeader-root > .MuiCardHeader-action > .MuiCardActions-root > .MuiButtonBase-root > [data-testid="StarIcon"]').scrollIntoView({duration: 1500}).click();
-    // cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('not.exist');
   });
 
   it('should check it item is unfavorited', () => {
     cy.wait(300);
     cy.get('[href="/profile"]').should('exist').click();
     cy.wait(500);
-    // it doesn't exist but how to test that it is not there
+
     cy.get(':nth-child(35) > .MuiCardHeader-root').scrollIntoView({duration: 1500}).should('not.exist');
   });
 
 });
-
