@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 describe('favorite function', () => {
   beforeEach(function () {
