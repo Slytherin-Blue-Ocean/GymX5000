@@ -133,17 +133,17 @@ Example of tests
 
 ## Setup
 
-1. Download depencies with npm install
+1. Download depencies with npm install.
    > `npm install`
 
 2. Create `.env` file using `example.env` as an example.
 
 3. Run webpack in development with:
 
-   > `npm run client-dev`
+   > `npm run dev`
 
 4. Run server with:
 
    > `npm run server-start`
 
-5. Visit local site at http://localhost:3000
+5. Visit local site at http://localhost:3000.
