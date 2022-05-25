@@ -147,3 +147,6 @@ Example of tests
    > `npm run server-start`
 
 5. Visit local site at http://localhost:3000.
+
+## Note
+You will no longer be able to log in as our AWS database is no longer active. However, you may still download our repository and take a look at our log in page.
