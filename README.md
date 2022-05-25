@@ -136,11 +136,13 @@ Example of tests
 1. Download depencies with npm install
    > `npm install`
 
-2. Run webpack in development with:
+2. Create `.env` file using `example.env` as an example.
+
+3. Run webpack in development with:
 
    > `npm run client-dev`
 
-3. Run server with:
+4. Run server with:
 
    > `npm run server-start`
 
