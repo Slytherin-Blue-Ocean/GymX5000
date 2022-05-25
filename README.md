@@ -108,7 +108,7 @@ Retrieve a list of all classes or specific class information.
 #### Parameters
 | Parameter  | Type    | Description                                                 |
 |------------|---------|-------------------------------------------------------------|
-| classtid   | Integer | Required ID of the class for which data should be returned. |
+| classid    | Integer | Required ID of the class for which data should be returned. |
 
 ### `GET /api/v1/favorites`
 Retrieve a list of favorites for a single user.
@@ -116,12 +116,12 @@ Retrieve a list of favorites for a single user.
 ## Testing
 Testing has been done using cypress.
 
-1. Install Cypress
+1. Install Cypress.
    > `npm install —save-dev cypress`
-   > Install Cypress on desktop: https://www.cypress.io/
+   > Install Cypress on desktop: https://www.cypress.io/.
 2. Run dev and server
    > `npm run dev` and `npm run server-start`
-3. Run Cypress on desktop and locate `integration` folder
+3. Run Cypress on desktop and locate `integration` folder.
 
 Example of tests
 </br>
